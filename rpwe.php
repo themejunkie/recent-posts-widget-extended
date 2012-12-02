@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Recent Posts Widget Extended
-Plugin URI: http://satrya.me
+Plugin URI: http://tokokoo.com
 Description: Enables recent posts widget with advanced settings.
 Version: 0.1
 Author: Marga Satrya
-Author URI: http://satrya.me
+Author URI: http://tokokoo.com
 Author Email: asksatrya@gmail.com
 License: GPLv2
 */

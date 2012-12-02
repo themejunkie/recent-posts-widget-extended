@@ -8,11 +8,11 @@ Stable tag: 0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Enables recent posts widget with advanced settings.
+Provides recent posts widget with a more advanced settings.
 
 == Description ==
 
-Beta tester
+This plugin will enable a custom and advanced recent posts widget. Allows you to display a list of the most recent posts with thumbnail and excerpt also you can display it from all or a specific category. The recent posts widget extended uses [Transients API](http://codex.wordpress.org/Transients_API) for delivering cached to optimize your site performance when used the widget.
 
 == Installation ==
 
@@ -25,5 +25,4 @@ Beta tester
 == Changelog ==
 
 = 0.1 =
-
 * Initial release
