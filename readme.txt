@@ -21,6 +21,9 @@ Features Include:
 * Display from all or a specific category.
 * Transients API
 
+To Do:
+* Display meta(author, comment, date)
+
 == Installation ==
 
 1. Upload the 'recent-posts-widget-extended' folder to the `/wp-content/plugins/` directory
