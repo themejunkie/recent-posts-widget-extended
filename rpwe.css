@@ -1,0 +1,49 @@
+/*
+Description: Custom CSS for the Recent Posts Widget Extended.
+Version: 0.1
+Author: Marga Satrya
+License: GPLv2
+*/
+
+.rpwe-block ul {
+	list-style: none;
+}
+
+.rpwe-block li {
+	border-bottom: 1px solid #eee;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+}
+
+.rpwe-block h3 {
+	clear: none;
+	margin-bottom: 0 !important;
+	font-weight: normal;
+	line-height: 1.5em;
+}
+
+.rpwe-alignleft {
+	border: none !important;
+	display: inline;
+	float: left;
+	margin: 3px 10px 0 0;
+	padding: 0 !important;
+}
+
+.rpwe-summary {
+	font-size: 12px;
+}
+
+.rpwe-clearfix:before,
+.rpwe-clearfix:after { 
+	content: ""; 
+	display: table; 
+}
+
+.rpwe-clearfix:after { 
+	clear: both; 
+}
+
+.rpwe-clearfix { 
+	*zoom: 1;
+}
