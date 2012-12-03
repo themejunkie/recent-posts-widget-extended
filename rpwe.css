@@ -6,7 +6,9 @@ License: GPLv2
 */
 
 .rpwe-block ul {
-	list-style: none;
+	list-style: none !important;
+	margin-left: 0 !important;
+	padding-left: 0 !important;
 }
 
 .rpwe-block li {
@@ -26,7 +28,7 @@ License: GPLv2
 	border: none !important;
 	display: inline;
 	float: left;
-	margin: 3px 10px 0 0;
+	margin: 5px 10px 0 0;
 	padding: 0 !important;
 }
 

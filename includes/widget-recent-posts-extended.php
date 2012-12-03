@@ -39,6 +39,7 @@ class rpwe_widget extends WP_Widget {
 		$thumb_height = (int)( $instance['thumb_height'] );
 		$thumb_width = (int)( $instance['thumb_width'] );
 		$cat = $instance['cat'];
+		$post_type = $instance['post_type']; 
 
 		echo $before_widget;
  
@@ -52,7 +53,8 @@ class rpwe_widget extends WP_Widget {
 			$args = array( 
 				'numberposts' => $limit, 
 				'offset'=> 0,
-				'cat' => $cat
+				'cat' => $cat,
+				'post_type' => $post_type
 			);
 
 		    $rpwewidget = get_posts( $args );
@@ -108,6 +110,7 @@ class rpwe_widget extends WP_Widget {
 		$instance['thumb_height'] = (int)( $new_instance['thumb_height'] );
 		$instance['thumb_width'] = (int)( $new_instance['thumb_width'] );
 		$instance['cat'] = $new_instance['cat'];
+		$instance['post_type'] = $new_instance['post_type'];
 
 		delete_transient( 'rpwewidget_' . $this->id );
 
@@ -129,7 +132,8 @@ class rpwe_widget extends WP_Widget {
             'thumb' => true,
             'thumb_height' => 45,
             'thumb_width' => 45,
-            'cat' => ''
+            'cat' => '',
+            'post_type' => ''
         );
         
 		$instance = wp_parse_args( (array) $instance, $defaults );
@@ -141,6 +145,7 @@ class rpwe_widget extends WP_Widget {
 		$thumb_height = (int)( $instance['thumb_height'] );
 		$thumb_width = (int)( $instance['thumb_width'] );
 		$cat = $instance['cat'];
+		$post_type = $instance['post_type'];
 
 	?>
 
@@ -182,6 +187,15 @@ class rpwe_widget extends WP_Widget {
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'cat' ) ); ?>"><?php _e( 'Limit to category: ' , 'rpwe' ); ?></label>
 			<?php wp_dropdown_categories( array( 'name' => $this->get_field_name( 'cat' ), 'show_option_all' => __( 'All categories' , 'rpwe' ), 'hide_empty' => 1, 'hierarchical' => 1, 'selected' => $cat ) ); ?>
+		</p>
+		<p>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'post_type' ) ); ?>"><?php _e( 'Choose the Post Type: ' , 'rpwe' ); ?></label>
+			<?php /* pros Justin Tadlock - http://themehybrid.com/ */ ?>
+			<select class="widefat" id="<?php echo $this->get_field_id( 'post_type' ); ?>" name="<?php echo $this->get_field_name( 'post_type' ); ?>">
+				<?php foreach ( get_post_types( '', 'objects' ) as $post_type ) { ?>
+					<option value="<?php echo esc_attr( $post_type->name ); ?>" <?php selected( $instance['post_type'], $post_type->name ); ?>><?php echo esc_html( $post_type->labels->singular_name ); ?></option>
+				<?php } ?>
+			</select>
 		</p>
 
 	<?php
