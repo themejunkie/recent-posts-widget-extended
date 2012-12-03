@@ -19,6 +19,7 @@ Features Include:
 * Display thumbnails, with customizable size.
 * Display excerpt, with customizable length.
 * Display from all or a specific category.
+* Post type option.
 * Transients API
 
 To Do:
