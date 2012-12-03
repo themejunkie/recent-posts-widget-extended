@@ -1,7 +1,7 @@
 === Plugin Name ===
 Contributors: marga satrya, tokokoo
 Donate link: 
-Tags: widget, recent posts
+Tags: recent posts, thumbnails, widget, widgets, sidebar
 Requires at least: 3.3
 Tested up to: 3.4.2
 Stable tag: 0.1

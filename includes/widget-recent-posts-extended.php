@@ -129,9 +129,9 @@ class rpwe_widget extends WP_Widget {
             'thumb' => true,
             'thumb_height' => 45,
             'thumb_width' => 45,
-            'cat' => '',
-            'posttype' => ''
+            'cat' => ''
         );
+        
 		$instance = wp_parse_args( (array) $instance, $defaults );
 		$title = esc_attr( $instance['title'] );
 		$limit = $instance['limit'];
