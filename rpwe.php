@@ -57,7 +57,7 @@ class RPW_Extended {
 	public function i18n() {
 
 		/* Load the translation of the plugin. */
-		load_plugin_textdomain( 'recent-posts-widget-extended', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+		load_plugin_textdomain( 'rpwe', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 
 	}
 
