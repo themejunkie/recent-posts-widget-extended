@@ -89,8 +89,6 @@ class rpwe_widget extends WP_Widget {
 		</div><!-- .rpwe-block -->
 
 		<?php
-		
-			echo $output;
 
 		echo $after_widget;
 		

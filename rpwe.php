@@ -6,7 +6,7 @@ Description: Enables recent posts widget with advanced settings.
 Version: 0.1
 Author: Marga Satrya
 Author URI: http://tokokoo.com
-Author Email: asksatrya@gmail.com
+Author Email: satrya@tokokoo.com
 License: GPLv2
 */
 
