@@ -11,17 +11,17 @@ class rpwe_widget extends WP_Widget {
 	function rpwe_widget() {
 	
 		$widget_ops = array( 
-			'classname' => 'rpwe_widget_widget', 
+			'classname' => 'rpwe_widget', 
 			'description' => __( 'Advanced recent posts widget.', 'rpwe' ) 
 		);
 
 		$control_ops = array( 
 			'width' => 300, 
 			'height' => 350, 
-			'id_base' => 'rpwe_widget_widget' 
+			'id_base' => 'rpwe_widget' 
 		);
 
-		$this->WP_Widget( 'rpwe_widget_widget', __( '&raquo; Recent Posts Widget Extended', 'rpwe' ), $widget_ops, $control_ops );
+		$this->WP_Widget( 'rpwe_widget', __( '&raquo; Recent Posts Widget Extended', 'rpwe' ), $widget_ops, $control_ops );
 
 	}
 
