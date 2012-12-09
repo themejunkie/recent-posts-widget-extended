@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Recent Posts Widget Extended
-Plugin URI: http://tokokoo.com
+Plugin URI: http://wordpress.org/extend/plugins/recent-posts-widget-extended/
 Description: Enables recent posts widget with advanced settings.
-Version: 0.1
+Version: 0.2
 Author: Marga Satrya
 Author URI: http://tokokoo.com
 Author Email: satrya@tokokoo.com
@@ -91,3 +91,4 @@ class RPW_Extended {
 new RPW_Extended;
 
 endif;
+?>

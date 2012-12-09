@@ -51,8 +51,7 @@ class rpwe_widget extends WP_Widget {
 		if ( false === ( $rpwewidget = get_transient( 'rpwewidget_' . $widget_id ) ) ) {
 
 			$args = array( 
-				'numberposts' => $limit, 
-				'offset'=> 0,
+				'numberposts' => $limit,
 				'cat' => $cat,
 				'post_type' => $post_type
 			);
@@ -86,7 +85,7 @@ class rpwe_widget extends WP_Widget {
 
 			</ul>
 
-		</div><!-- .rpwe-block -->
+		</div><!-- .rpwe-block - http://wordpress.org/extend/plugins/recent-posts-widget-extended/ -->
 
 		<?php
 
@@ -194,6 +193,9 @@ class rpwe_widget extends WP_Widget {
 					<option value="<?php echo esc_attr( $post_type->name ); ?>" <?php selected( $instance['post_type'], $post_type->name ); ?>><?php echo esc_html( $post_type->labels->singular_name ); ?></option>
 				<?php } ?>
 			</select>
+		</p>
+		<p>
+			<span style="color: #f00;">Recent Posts Widget Extended is a project by <a href="http://tokokoo.com" target="_blank">Tokokoo</a></span>
 		</p>
 
 	<?php
