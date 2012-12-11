@@ -3,7 +3,7 @@
 Plugin Name: Recent Posts Widget Extended
 Plugin URI: http://wordpress.org/extend/plugins/recent-posts-widget-extended/
 Description: Enables recent posts widget with advanced settings.
-Version: 0.2
+Version: 0.3
 Author: Marga Satrya
 Author URI: http://tokokoo.com
 Author Email: satrya@tokokoo.com

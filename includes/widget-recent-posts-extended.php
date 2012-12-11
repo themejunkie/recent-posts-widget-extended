@@ -71,7 +71,7 @@ class rpwe_widget extends WP_Widget {
 					<li class="rpwe-clearfix">
 							
 						<a href="<?php esc_url( the_permalink() ); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'rpwe' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
-							<?php if( has_post_thumbnail() && $thumb == true ) the_post_thumbnail( array( $thumb_height, $thumb_width ), array( 'class' => 'rpwe-alignleft', 'alt' => get_the_title(), 'title' => get_the_title() ) ); ?>
+							<?php if( has_post_thumbnail() && $thumb == true ) the_post_thumbnail( array( $thumb_height, $thumb_width ), array( 'class' => 'rpwe-alignleft', 'alt' => esc_attr( get_the_title() ), 'title' => esc_attr( get_the_title() ) ) ); ?>
 							<h3 class="rpwe-title"><?php esc_attr( the_title() ); ?></h3>
 						</a>
 

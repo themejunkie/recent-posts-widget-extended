@@ -3,7 +3,7 @@ Contributors: tokokoo, satrya
 Tags: recent posts, thumbnails, widget, widgets, sidebar, excerpt, transient api
 Requires at least: 3.3
 Tested up to: 3.5
-Stable tag: 0.2
+Stable tag: 0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,6 +36,11 @@ Please open issue on [github issue](https://github.com/tokokoo/recent-posts-widg
 1. The widget settings
 
 == Changelog ==
+
+= 0.3 =
+* WordPress 3.5 compatibility
+* Upload header image
+* Sanitize `get_the_title` function
 
 = 0.2 =
 * Minor update
