@@ -39,7 +39,8 @@ class rpwe_widget extends WP_Widget {
 		$thumb_height = (int)( $instance['thumb_height'] );
 		$thumb_width = (int)( $instance['thumb_width'] );
 		$cat = $instance['cat'];
-		$post_type = $instance['post_type']; 
+		$post_type = $instance['post_type'];
+		$date = $instance['date'];
 
 		echo $before_widget;
  
@@ -71,9 +72,25 @@ class rpwe_widget extends WP_Widget {
 					<li class="rpwe-clearfix">
 							
 						<a href="<?php esc_url( the_permalink() ); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'rpwe' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
-							<?php if( has_post_thumbnail() && $thumb == true ) the_post_thumbnail( array( $thumb_height, $thumb_width ), array( 'class' => 'rpwe-alignleft', 'alt' => esc_attr( get_the_title() ), 'title' => esc_attr( get_the_title() ) ) ); ?>
-							<h3 class="rpwe-title"><?php esc_attr( the_title() ); ?></h3>
+
+							<?php
+								if( $thumb == true ) {
+
+									if ( current_theme_supports( 'get-the-image' ) )
+										get_the_image( array( 'meta_key' => 'Thumbnail', 'height' => $thumb_height, 'width' => $thumb_width, 'image_class' => 'rpwe-alignleft' ) );
+									else 
+										the_post_thumbnail( array( $thumb_height, $thumb_width ), array( 'class' => 'rpwe-alignleft', 'alt' => esc_attr( get_the_title() ), 'title' => esc_attr( get_the_title() ) ) );
+
+								}
+							?>
+
 						</a>
+
+						<h3 class="rpwe-title"><a href="<?php esc_url( the_permalink() ); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'rpwe' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php esc_attr( the_title() ); ?></a></h3>
+
+						<?php if( $date == true ) { ?>
+							<span class="rpwe-time"><?php echo human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) . __( ' ago', 'rpwe' ); ?></span>
+						<?php } ?>
 
 						<?php if( $excerpt == true ) {  ?>
 							<div class="rpwe-summary"><?php echo rpwe_excerpt( $length ); ?></div>
@@ -108,6 +125,7 @@ class rpwe_widget extends WP_Widget {
 		$instance['thumb_width'] = (int)( $new_instance['thumb_width'] );
 		$instance['cat'] = $new_instance['cat'];
 		$instance['post_type'] = $new_instance['post_type'];
+		$instance['date'] = $new_instance['date'];
 
 		delete_transient( 'rpwewidget_' . $this->id );
 
@@ -125,12 +143,13 @@ class rpwe_widget extends WP_Widget {
             'title' => '',
             'limit' => 5,
             'excerpt' => '',
-            'length' => 20,
+            'length' => 10,
             'thumb' => true,
             'thumb_height' => 45,
             'thumb_width' => 45,
             'cat' => '',
-            'post_type' => ''
+            'post_type' => '',
+            'date' => true
         );
         
 		$instance = wp_parse_args( (array) $instance, $defaults );
@@ -143,6 +162,7 @@ class rpwe_widget extends WP_Widget {
 		$thumb_width = (int)( $instance['thumb_width'] );
 		$cat = $instance['cat'];
 		$post_type = $instance['post_type'];
+		$date = $instance['date'];
 
 	?>
 
@@ -158,6 +178,10 @@ class rpwe_widget extends WP_Widget {
 				<?php } ?>
 			</select>
 		</p>
+		<p>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'date' ) ); ?>"><?php _e( 'Display date?', 'rpwe' ); ?></label>
+	      	<input id="<?php echo $this->get_field_id( 'date' ); ?>" name="<?php echo $this->get_field_name( 'date' ); ?>" type="checkbox" value="1" <?php checked( '1', $date ); ?> />&nbsp;
+        </p>
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'excerpt' ) ); ?>"><?php _e( 'Display excerpt?', 'rpwe' ); ?></label>
 	      	<input id="<?php echo $this->get_field_id( 'excerpt' ); ?>" name="<?php echo $this->get_field_name( 'excerpt' ); ?>" type="checkbox" value="1" <?php checked( '1', $excerpt ); ?> />&nbsp;

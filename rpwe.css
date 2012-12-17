@@ -17,10 +17,16 @@ License: GPLv2
 	padding-bottom: 10px;
 }
 
+.rpwe-block a {
+	text-decoration: none;
+}
+
 .rpwe-block h3 {
 	clear: none;
 	margin-bottom: 0 !important;
 	font-weight: normal;
+	font-size: 12px;
+	font-family: Arial, sans-serif;
 	line-height: 1.5em;
 }
 
@@ -33,7 +39,14 @@ License: GPLv2
 }
 
 .rpwe-summary {
+	font-family: Arial, sans-serif;
 	font-size: 12px;
+}
+
+.rpwe-time {
+	color: #bbb;
+	font-size: 11px;
+	font-family: Arial, sans-serif;
 }
 
 .rpwe-clearfix:before,
