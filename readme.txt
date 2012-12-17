@@ -43,6 +43,7 @@ Follow us on Twitter to keep up with the latest updates [@tokokoo](http://twitte
 * Add date option
 * Support `get_the_image` function
 * Re-arrange markup
+* Update language
 
 = 0.3 =
 * WordPress 3.5 compatibility
