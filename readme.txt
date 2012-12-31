@@ -1,13 +1,13 @@
 === Plugin Name ===
 Contributors: tokokoo, satrya
-Tags: recent posts, thumbnails, widget, widgets, sidebar, excerpt, transient api
+Tags: recent posts, thumbnails, widget, widgets, sidebar, excerpt, transient api, multiple widgets
 Requires at least: 3.3
 Tested up to: 3.5
-Stable tag: 0.4
+Stable tag: 0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Provides custom, fleksible and advanced recent posts widget. Allows you to display them with thumbnails, post excerpt and more.
+Provides fleksible and advanced recent posts widget. Allows you to display them with thumbnails, post excerpt, specific category and more.
 
 == Description ==
 
@@ -22,22 +22,33 @@ This plugin will enable a custom, fleksible and advanced recent posts widget. Al
 * Post type option.
 * Support `get_the_image` function.
 * Transients API.
+* Multiple widgets.
+
+= Ugly Image Sizes =
+This plugin creates custom image sizes. If you use images that were uploaded to the media library before you installed this plugin, please install [Regenerate Thumbnails](http://wordpress.org/extend/plugins/regenerate-thumbnails/) plugin to corrected the sizes.
 
 = Support: =
-Please open issue on [github issue](https://github.com/tokokoo/recent-posts-widget-extended/issues) for any support question and translation submission.
+1. Go to [forum support](http://wordpress.org/support/plugin/recent-posts-widget-extended).
+2. [Open issue on github](https://github.com/tokokoo/recent-posts-widget-extended/issues).
+3. [Rate/Review the plugin](http://wordpress.org/support/view/plugin-reviews/recent-posts-widget-extended).
 
-= Infos: =
-Follow us on Twitter to keep up with the latest updates [@tokokoo](http://twitter.com/tokokoo)
+= Project Info: =
+* Developed by [Tokokoo Team](http://tokokoo.com)
+* Follow us on Twitter to keep up with the latest updates [@tokokoo](http://twitter.com/tokokoo)
 
 == Installation ==
 
 1. Upload the 'recent-posts-widget-extended' folder to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
+3. Go to the widgets page.
 
 == Screenshots ==
 1. The widget settings
 
 == Changelog ==
+
+= 0.5 =
+* Minor update
 
 = 0.4 =
 * Add date option

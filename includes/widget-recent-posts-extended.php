@@ -86,7 +86,9 @@ class rpwe_widget extends WP_Widget {
 
 						</a>
 
-						<h3 class="rpwe-title"><a href="<?php esc_url( the_permalink() ); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'rpwe' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php esc_attr( the_title() ); ?></a></h3>
+						<h3 class="rpwe-title">
+							<a href="<?php esc_url( the_permalink() ); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'rpwe' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php esc_attr( the_title() ); ?></a>
+						</h3>
 
 						<?php if( $date == true ) { ?>
 							<span class="rpwe-time"><?php echo human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) . __( ' ago', 'rpwe' ); ?></span>

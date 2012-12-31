@@ -1,7 +1,7 @@
 /*
 Description: Custom CSS for the Recent Posts Widget Extended.
 Version: 0.1
-Revision: 0.4
+Revision: 0.5
 Author: Satrya
 License: GPLv2
 */
@@ -23,20 +23,22 @@ License: GPLv2
 }
 
 .rpwe-block h3 {
+	background: none !important;
 	clear: none;
 	margin-bottom: 0 !important;
 	font-weight: normal;
-	font-size: 12px;
+	font-size: 12px !important;
 	font-family: Arial, sans-serif;
 	line-height: 1.5em;
 }
 
 .rpwe-alignleft {
-	border: none !important;
+	border: 1px solid #EEE !important;
+	box-shadow: none !important;
 	display: inline;
 	float: left;
-	margin: 5px 10px 0 0;
-	padding: 0 !important;
+	margin: 2px 10px 0 0;
+	padding: 3px !important;
 }
 
 .rpwe-summary {
