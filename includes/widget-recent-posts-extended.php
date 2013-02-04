@@ -87,7 +87,7 @@ class rpwe_widget extends WP_Widget {
 						</a>
 
 						<h3 class="rpwe-title">
-							<a href="<?php esc_url( the_permalink() ); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'rpwe' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php esc_attr( the_title() ); ?></a>
+							<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'rpwe' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
 						</h3>
 
 						<?php if( $date == true ) { ?>
@@ -100,7 +100,7 @@ class rpwe_widget extends WP_Widget {
 
 					</li>
 
-				<?php endforeach; ?>
+				<?php endforeach; wp_reset_postdata(); ?>
 
 			</ul>
 

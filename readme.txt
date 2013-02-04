@@ -3,7 +3,7 @@ Contributors: tokokoo, satrya
 Tags: recent posts, thumbnails, widget, widgets, sidebar, excerpt, transient api, multiple widgets
 Requires at least: 3.3
 Tested up to: 3.5
-Stable tag: 0.5
+Stable tag: 0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,6 +46,10 @@ This plugin creates custom image sizes. If you use images that were uploaded to 
 1. The widget settings
 
 == Changelog ==
+
+= 0.6 =
+* Update language
+* Reset the loop
 
 = 0.5 =
 * Minor update
