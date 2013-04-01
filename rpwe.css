@@ -1,7 +1,7 @@
 /*
 Description: Custom CSS for the Recent Posts Widget Extended.
 Version: 0.1
-Revision: 0.5
+Revision: 0.7
 Author: Satrya
 License: GPLv2
 */
@@ -28,7 +28,6 @@ License: GPLv2
 	margin-bottom: 0 !important;
 	font-weight: normal;
 	font-size: 12px !important;
-	font-family: Arial, sans-serif;
 	line-height: 1.5em;
 }
 
@@ -42,14 +41,12 @@ License: GPLv2
 }
 
 .rpwe-summary {
-	font-family: Arial, sans-serif;
 	font-size: 12px;
 }
 
 .rpwe-time {
 	color: #bbb;
 	font-size: 11px;
-	font-family: Arial, sans-serif;
 }
 
 .rpwe-clearfix:before,

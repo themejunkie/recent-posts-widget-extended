@@ -1,7 +1,7 @@
 <?php
 
 // Exit if accessed directly
-if ( !defined('ABSPATH') ) exit;
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 class rpwe_widget extends WP_Widget {
 
@@ -11,7 +11,7 @@ class rpwe_widget extends WP_Widget {
 	function rpwe_widget() {
 	
 		$widget_ops = array( 
-			'classname' => 'rpwe_widget', 
+			'classname' => 'rpwe_widget recent-posts-extended', 
 			'description' => __( 'Advanced recent posts widget.', 'rpwe' ) 
 		);
 
@@ -41,10 +41,14 @@ class rpwe_widget extends WP_Widget {
 		$cat = $instance['cat'];
 		$post_type = $instance['post_type'];
 		$date = $instance['date'];
+		$css = wp_filter_nohtml_kses( $instance['css'] );
 
 		echo $before_widget;
+
+		if( $css )
+		    echo '<style>' . $css . '</style>';
  
-		if (!empty( $title ))
+		if ( ! empty( $title ) )
 			echo $before_title . $title . $after_title;
 		
 		global $post;
@@ -70,21 +74,19 @@ class rpwe_widget extends WP_Widget {
 				<?php foreach( $rpwewidget as $post ) :	setup_postdata( $post ); ?>
 
 					<li class="rpwe-clearfix">
+
+						<?php if( has_post_thumbnail() && $thumb == true ) { ?>
 							
-						<a href="<?php esc_url( the_permalink() ); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'rpwe' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
-
-							<?php
-								if( $thumb == true ) {
-
+							<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'rpwe' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
+								<?php
 									if ( current_theme_supports( 'get-the-image' ) )
-										get_the_image( array( 'meta_key' => 'Thumbnail', 'height' => $thumb_height, 'width' => $thumb_width, 'image_class' => 'rpwe-alignleft' ) );
+										get_the_image( array( 'meta_key' => 'Thumbnail', 'height' => $thumb_height, 'width' => $thumb_width, 'image_class' => 'rpwe-alignleft', 'link_to_post' => false ) );
 									else 
 										the_post_thumbnail( array( $thumb_height, $thumb_width ), array( 'class' => 'rpwe-alignleft', 'alt' => esc_attr( get_the_title() ), 'title' => esc_attr( get_the_title() ) ) );
+								?>
+							</a>
 
-								}
-							?>
-
-						</a>
+						<?php } ?>
 
 						<h3 class="rpwe-title">
 							<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'rpwe' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
@@ -128,6 +130,7 @@ class rpwe_widget extends WP_Widget {
 		$instance['cat'] = $new_instance['cat'];
 		$instance['post_type'] = $new_instance['post_type'];
 		$instance['date'] = $new_instance['date'];
+		$instance['css'] = wp_filter_nohtml_kses( $new_instance['css'] );
 
 		delete_transient( 'rpwewidget_' . $this->id );
 
@@ -151,7 +154,8 @@ class rpwe_widget extends WP_Widget {
             'thumb_width' => 45,
             'cat' => '',
             'post_type' => '',
-            'date' => true
+            'date' => true,
+            'css' => ''
         );
         
 		$instance = wp_parse_args( (array) $instance, $defaults );
@@ -165,6 +169,7 @@ class rpwe_widget extends WP_Widget {
 		$cat = $instance['cat'];
 		$post_type = $instance['post_type'];
 		$date = $instance['date'];
+		$css = wp_filter_nohtml_kses( $instance['css'] );
 
 	?>
 
@@ -221,6 +226,10 @@ class rpwe_widget extends WP_Widget {
 			</select>
 		</p>
 		<p>
+			<label for="<?php echo $this->get_field_id( 'css' ); ?>"><?php _e( 'Custom CSS:', 'rpwe' ); ?></label>
+			<textarea class="widefat" id="<?php echo $this->get_field_id( 'css' ); ?>" name="<?php echo $this->get_field_name( 'css' ); ?>" style="height:100px;"><?php echo $css; ?></textarea>
+		</p>
+		<p>
 			<span style="color: #f00;">Recent Posts Widget Extended is a project by <a href="http://tokokoo.com" target="_blank">Tokokoo</a></span>
 		</p>
 
@@ -234,12 +243,10 @@ class rpwe_widget extends WP_Widget {
  *
  * @since 0.1
  */
-add_action( 'widgets_init', 'rpwe_register_widget' );
 function rpwe_register_widget() {
-
 	register_widget( 'rpwe_widget' );
-
 }
+add_action( 'widgets_init', 'rpwe_register_widget' );
 
 /**
  * Print a custom excerpt.
@@ -261,5 +268,4 @@ function rpwe_excerpt( $length ) {
 	return $excerpt;
 
 }
-
 ?>
