@@ -3,7 +3,7 @@ Contributors: tokokoo, satrya
 Tags: recent posts, thumbnails, widget, widgets, sidebar, excerpt, transient api, multiple widgets
 Requires at least: 3.3
 Tested up to: 3.5
-Stable tag: 0.7
+Stable tag: 0.7.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,8 +21,9 @@ This plugin will enable a custom, fleksible and advanced recent posts widget. Al
 * Display post date.
 * Post type option.
 * Support [Get The Image](http://wordpress.org/extend/plugins/get-the-image/) plugin.
-* Transients API.
+* Transients API with cache life timer.
 * Multiple widgets.
+* Comes pre-styled, but comes proper CSS IDs and Classes to make it match your site.
 
 = Ugly Image Sizes =
 This plugin creates custom image sizes. If you use images that were uploaded to the media library before you installed this plugin, please install [Regenerate Thumbnails](http://wordpress.org/extend/plugins/regenerate-thumbnails/) plugin to corrected the sizes.
@@ -46,6 +47,10 @@ This plugin creates custom image sizes. If you use images that were uploaded to 
 1. The widget settings
 
 == Changelog ==
+
+= 0.7.1 =
+* Added setting for cache life
+* Added input for CSS class (used for custom styling)
 
 = 0.7 =
 * Remove `a` tag when no thumbnail
