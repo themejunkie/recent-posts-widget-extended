@@ -1,7 +1,7 @@
 /*
 Description: Custom CSS for the Recent Posts Widget Extended.
-Version: 0.1
-Revision: 0.7
+Version: 0.2
+Revision: 0.7.1
 Author: Satrya
 License: GPLv2
 */
@@ -19,6 +19,7 @@ License: GPLv2
 }
 
 .rpwe-block a {
+	display: inline !important;
 	text-decoration: none;
 }
 

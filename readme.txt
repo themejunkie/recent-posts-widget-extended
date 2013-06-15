@@ -1,5 +1,5 @@
 === Plugin Name ===
-Contributors: tokokoo, satrya
+Contributors: tokokoo, satrya, davidkryzaniak
 Tags: recent posts, thumbnails, widget, widgets, sidebar, excerpt, transient api, multiple widgets
 Requires at least: 3.3
 Tested up to: 3.5
@@ -7,11 +7,11 @@ Stable tag: 0.7.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Provides fleksible and advanced recent posts widget. Allows you to display them with thumbnails, post excerpt, specific category and more.
+Provides flexible and advanced recent posts widget. Allows you to display them with thumbnails, post excerpt, specific category and more.
 
 == Description ==
 
-This plugin will enable a custom, fleksible and advanced recent posts widget. Allows you to display a list of the most recent posts with thumbnail and excerpt also you can display it from all or a specific category. The recent posts widget extended uses [Transients API](http://codex.wordpress.org/Transients_API) for delivering cached to optimize your site performance when used the widget.
+This plugin will enable a custom, flexible and advanced recent posts widget. Allows you to display a list of the most recent posts with thumbnail and excerpt, also you can display it from all or a specific category. The recent posts widget extended uses [Transients API](http://codex.wordpress.org/Transients_API) for delivering cached to optimize your site performance when used the widget.
 
 = Features Include: =
 
@@ -20,7 +20,7 @@ This plugin will enable a custom, fleksible and advanced recent posts widget. Al
 * Display from all or a specific category.
 * Display post date.
 * Post type option.
-* Support [Get The Image](http://wordpress.org/extend/plugins/get-the-image/) plugin.
+* Support `get_the_image` function.
 * Transients API with cache life timer.
 * Multiple widgets.
 * Comes pre-styled, but comes proper CSS IDs and Classes to make it match your site.
@@ -49,8 +49,11 @@ This plugin creates custom image sizes. If you use images that were uploaded to 
 == Changelog ==
 
 = 0.7.1 =
+PLEASE RE-SAVE THE WIDGET
 * Added setting for cache life
 * Added input for CSS class (used for custom styling)
+* Fix the inline issue on some themes
+* Update language
 
 = 0.7 =
 * Remove `a` tag when no thumbnail

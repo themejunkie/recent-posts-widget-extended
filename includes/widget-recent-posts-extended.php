@@ -79,15 +79,13 @@ class rpwe_widget extends WP_Widget
 
 			<ul class="rpwe-ul">
 
-				<?php foreach ($rpwewidget as $post) :    setup_postdata($post); ?>
+				<?php foreach ($rpwewidget as $post) : setup_postdata($post); ?>
 
 					<li class="rpwe-clearfix">
 
 						<?php if (has_post_thumbnail() && $thumb == true) { ?>
 
-							<a href="<?php the_permalink(); ?>"
-							   title="<?php printf(esc_attr__('Permalink to %s', 'rpwe'), the_title_attribute('echo=0')); ?>"
-							   rel="bookmark">
+							<a href="<?php the_permalink(); ?>" title="<?php printf(esc_attr__('Permalink to %s', 'rpwe'), the_title_attribute('echo=0')); ?>" rel="bookmark">
 								<?php
 								if (current_theme_supports('get-the-image'))
 									get_the_image(array('meta_key' => 'Thumbnail', 'height' => $thumb_height, 'width' => $thumb_width, 'image_class' => 'rpwe-alignleft', 'link_to_post' => false));
@@ -99,14 +97,11 @@ class rpwe_widget extends WP_Widget
 						<?php } ?>
 
 						<h3 class="rpwe-title">
-							<a href="<?php the_permalink(); ?>"
-							   title="<?php printf(esc_attr__('Permalink to %s', 'rpwe'), the_title_attribute('echo=0')); ?>"
-							   rel="bookmark"><?php the_title(); ?></a>
+							<a href="<?php the_permalink(); ?>" title="<?php printf(esc_attr__('Permalink to %s', 'rpwe'), the_title_attribute('echo=0')); ?>" rel="bookmark"><?php the_title(); ?></a>
 						</h3>
 
 						<?php if ($date == true) { ?>
-							<span
-								class="rpwe-time"><?php echo human_time_diff(get_the_time('U'), current_time('timestamp')) . __(' ago', 'rpwe'); ?></span>
+							<span class="rpwe-time"><?php echo human_time_diff(get_the_time('U'), current_time('timestamp')) . __(' ago', 'rpwe'); ?></span>
 						<?php } ?>
 
 						<?php if ($excerpt == true) { ?>
@@ -197,101 +192,70 @@ class rpwe_widget extends WP_Widget
 
 		<p>
 			<label for="<?php echo esc_attr($this->get_field_id('title')); ?>"><?php _e('Title:', 'rpwe'); ?></label>
-			<input class="widefat" id="<?php echo esc_attr($this->get_field_id('title')); ?>"
-			       name="<?php echo esc_attr($this->get_field_name('title')); ?>" type="text"
-			       value="<?php echo $title; ?>"/>
+			<input class="widefat" id="<?php echo esc_attr($this->get_field_id('title')); ?>" name="<?php echo esc_attr($this->get_field_name('title')); ?>" type="text" value="<?php echo $title; ?>"/>
 		</p>
 		<p>
-			<label
-				for="<?php echo esc_attr($this->get_field_id('cssID')); ?>"><?php _e('Widget CSS ID: (no spaces or special characters)', 'rpwe'); ?></label>
-			<input class="widefat" id="<?php echo esc_attr($this->get_field_id('cssID')); ?>"
-			       name="<?php echo esc_attr($this->get_field_name('cssID')); ?>" type="text"
-			       value="<?php echo $cssID; ?>"/>
+			<label for="<?php echo esc_attr($this->get_field_id('cssID')); ?>"><?php _e('Widget CSS ID: (no spaces or special characters)', 'rpwe'); ?></label>
+			<input class="widefat" id="<?php echo esc_attr($this->get_field_id('cssID')); ?>" name="<?php echo esc_attr($this->get_field_name('cssID')); ?>" type="text" value="<?php echo $cssID; ?>"/>
 		</p>
 		<p>
-			<label
-				for="<?php echo esc_attr($this->get_field_id('cacheLife')); ?>"><?php _e('Cache Life: (in seconds. Default is 43200)', 'rpwe'); ?></label>
-			<input class="widefat" id="<?php echo esc_attr($this->get_field_id('cacheLife')); ?>"
-			       name="<?php echo esc_attr($this->get_field_name('cacheLife')); ?>" type="text"
-			       value="<?php echo $cacheLife; ?>"/>
+			<label for="<?php echo esc_attr($this->get_field_id('cacheLife')); ?>"><?php _e('Cache Life: (in seconds. Default is 43200, 1 to disable)', 'rpwe'); ?></label>
+			<input class="widefat" id="<?php echo esc_attr($this->get_field_id('cacheLife')); ?>" name="<?php echo esc_attr($this->get_field_name('cacheLife')); ?>" type="text" value="<?php echo $cacheLife; ?>"/>
 		</p>
 		<p>
 			<label for="<?php echo esc_attr($this->get_field_id('limit')); ?>"><?php _e('Limit:', 'rpwe'); ?></label>
-			<select class="widefat" name="<?php echo $this->get_field_name('limit'); ?>"
-			        id="<?php echo $this->get_field_id('limit'); ?>">
+			<select class="widefat" name="<?php echo $this->get_field_name('limit'); ?>" id="<?php echo $this->get_field_id('limit'); ?>">
 				<?php for ($i = 1; $i <= 20; $i++) { ?>
 					<option <?php selected($limit, $i) ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
 				<?php } ?>
 			</select>
 		</p>
 		<p>
-			<label
-				for="<?php echo esc_attr($this->get_field_id('date')); ?>"><?php _e('Display date?', 'rpwe'); ?></label>
-			<input id="<?php echo $this->get_field_id('date'); ?>" name="<?php echo $this->get_field_name('date'); ?>"
-			       type="checkbox" value="1" <?php checked('1', $date); ?> />&nbsp;
+			<label for="<?php echo esc_attr($this->get_field_id('date')); ?>"><?php _e('Display Date?', 'rpwe'); ?></label>
+			<input id="<?php echo $this->get_field_id('date'); ?>" name="<?php echo $this->get_field_name('date'); ?>" type="checkbox" value="1" <?php checked('1', $date); ?> />&nbsp;
 		</p>
 		<p>
-			<label
-				for="<?php echo esc_attr($this->get_field_id('excerpt')); ?>"><?php _e('Display excerpt?', 'rpwe'); ?></label>
-			<input id="<?php echo $this->get_field_id('excerpt'); ?>"
-			       name="<?php echo $this->get_field_name('excerpt'); ?>" type="checkbox"
-			       value="1" <?php checked('1', $excerpt); ?> />&nbsp;
+			<label for="<?php echo esc_attr($this->get_field_id('excerpt')); ?>"><?php _e('Display Excerpt?', 'rpwe'); ?></label>
+			<input id="<?php echo $this->get_field_id('excerpt'); ?>" name="<?php echo $this->get_field_name('excerpt'); ?>" type="checkbox" value="1" <?php checked('1', $excerpt); ?> />&nbsp;
 		</p>
 		<p>
-			<label
-				for="<?php echo esc_attr($this->get_field_id('length')); ?>"><?php _e('Excerpt length:', 'rpwe'); ?></label>
-			<input class="widefat" id="<?php echo esc_attr($this->get_field_id('length')); ?>"
-			       name="<?php echo esc_attr($this->get_field_name('length')); ?>" type="text"
-			       value="<?php echo $length; ?>"/>
+			<label for="<?php echo esc_attr($this->get_field_id('length')); ?>"><?php _e('Excerpt Length:', 'rpwe'); ?></label>
+			<input class="widefat" id="<?php echo esc_attr($this->get_field_id('length')); ?>" name="<?php echo esc_attr($this->get_field_name('length')); ?>" type="text" value="<?php echo $length; ?>"/>
 		</p>
 
 		<?php if (current_theme_supports('post-thumbnails')) { ?>
 
-		<p>
-			<label
-				for="<?php echo esc_attr($this->get_field_id('thumb')); ?>"><?php _e('Display thumbnail?', 'rpwe'); ?></label>
-			<input id="<?php echo $this->get_field_id('thumb'); ?>" name="<?php echo $this->get_field_name('thumb'); ?>"
-			       type="checkbox" value="1" <?php checked('1', $thumb); ?> />&nbsp;
-		</p>
-		<p>
-			<label
-				for="<?php echo esc_attr($this->get_field_id('thumb_height')); ?>"><?php _e('Thumbnail size (height x width):', 'rpwe'); ?></label>
-			<input id="<?php echo esc_attr($this->get_field_id('thumb_height')); ?>"
-			       name="<?php echo esc_attr($this->get_field_name('thumb_height')); ?>" type="text"
-			       value="<?php echo $thumb_height; ?>"/>
-			<input id="<?php echo esc_attr($this->get_field_id('thumb_width')); ?>"
-			       name="<?php echo esc_attr($this->get_field_name('thumb_width')); ?>" type="text"
-			       value="<?php echo $thumb_width; ?>"/>
-		</p>
+			<p>
+				<label for="<?php echo esc_attr($this->get_field_id('thumb')); ?>"><?php _e('Display Thumbnail?', 'rpwe'); ?></label>
+				<input id="<?php echo $this->get_field_id('thumb'); ?>" name="<?php echo $this->get_field_name('thumb'); ?>" type="checkbox" value="1" <?php checked('1', $thumb); ?> />&nbsp;
+			</p>
+			<p>
+				<label for="<?php echo esc_attr($this->get_field_id('thumb_height')); ?>"><?php _e('Thumbnail Size (height x width):', 'rpwe'); ?></label>
+				<input id="<?php echo esc_attr($this->get_field_id('thumb_height')); ?>" name="<?php echo esc_attr($this->get_field_name('thumb_height')); ?>" type="text" value="<?php echo $thumb_height; ?>"/>
+				<input id="<?php echo esc_attr($this->get_field_id('thumb_width')); ?>" name="<?php echo esc_attr($this->get_field_name('thumb_width')); ?>" type="text" value="<?php echo $thumb_width; ?>"/>
+			</p>
 
-	<?php } ?>
+		<?php } ?>
 
 		<p>
-			<label
-				for="<?php echo esc_attr($this->get_field_id('cat')); ?>"><?php _e('Limit to category: ', 'rpwe'); ?></label>
+			<label for="<?php echo esc_attr($this->get_field_id('cat')); ?>"><?php _e('Limit to Category: ', 'rpwe'); ?></label>
 			<?php wp_dropdown_categories(array('name' => $this->get_field_name('cat'), 'show_option_all' => __('All categories', 'rpwe'), 'hide_empty' => 1, 'hierarchical' => 1, 'selected' => $cat)); ?>
 		</p>
 		<p>
-			<label
-				for="<?php echo esc_attr($this->get_field_id('post_type')); ?>"><?php _e('Choose the Post Type: ', 'rpwe'); ?></label>
+			<label for="<?php echo esc_attr($this->get_field_id('post_type')); ?>"><?php _e('Choose the Post Type: ', 'rpwe'); ?></label>
 			<?php /* pros Justin Tadlock - http://themehybrid.com/ */ ?>
-			<select class="widefat" id="<?php echo $this->get_field_id('post_type'); ?>"
-			        name="<?php echo $this->get_field_name('post_type'); ?>">
+			<select class="widefat" id="<?php echo $this->get_field_id('post_type'); ?>" name="<?php echo $this->get_field_name('post_type'); ?>">
 				<?php foreach (get_post_types('', 'objects') as $post_type) { ?>
-					<option
-						value="<?php echo esc_attr($post_type->name); ?>" <?php selected($instance['post_type'], $post_type->name); ?>><?php echo esc_html($post_type->labels->singular_name); ?></option>
+					<option value="<?php echo esc_attr($post_type->name); ?>" <?php selected($instance['post_type'], $post_type->name); ?>><?php echo esc_html($post_type->labels->singular_name); ?></option>
 				<?php } ?>
 			</select>
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id('css'); ?>"><?php _e('Custom CSS:', 'rpwe'); ?></label>
-			<textarea class="widefat" id="<?php echo $this->get_field_id('css'); ?>"
-			          name="<?php echo $this->get_field_name('css'); ?>"
-			          style="height:100px;"><?php echo $css; ?></textarea>
+			<textarea class="widefat" id="<?php echo $this->get_field_id('css'); ?>" name="<?php echo $this->get_field_name('css'); ?>" style="height:100px;"><?php echo $css; ?></textarea>
 		</p>
 		<p>
-			<span style="color: #f00;">Recent Posts Widget Extended is a project by <a href="http://tokokoo.com"
-			                                                                           target="_blank">Tokokoo</a></span>
+			<span style="color: #f00;">Recent Posts Widget Extended is a project by <a href="http://tokokoo.com" target="_blank">Tokokoo</a></span>
 		</p>
 
 	<?php

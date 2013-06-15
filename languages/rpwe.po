@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Recent Posts Widget Extended 0.6\n"
-"POT-Creation-Date: 2013-04-02 02:37+0700\n"
-"PO-Revision-Date: 2013-04-02 02:37+0700\n"
+"POT-Creation-Date: 2013-06-15 16:54+0700\n"
+"PO-Revision-Date: 2013-06-15 16:54+0700\n"
 "Last-Translator: M.Satrya <satrya@tokokoo.com>\n"
 "Language-Team: Satrya <satrya@tokokoo.com>\n"
 "Language: English\n"
@@ -16,64 +16,72 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../includes/widget-recent-posts-extended.php:15
+#: ../includes/widget-recent-posts-extended.php:17
 msgid "Advanced recent posts widget."
 msgstr ""
 
-#: ../includes/widget-recent-posts-extended.php:24
+#: ../includes/widget-recent-posts-extended.php:26
 msgid "&raquo; Recent Posts Widget Extended"
 msgstr ""
 
-#: ../includes/widget-recent-posts-extended.php:80
-#: ../includes/widget-recent-posts-extended.php:92
+#: ../includes/widget-recent-posts-extended.php:88
+#: ../includes/widget-recent-posts-extended.php:100
 #, php-format
 msgid "Permalink to %s"
 msgstr ""
 
-#: ../includes/widget-recent-posts-extended.php:96
+#: ../includes/widget-recent-posts-extended.php:104
 msgid " ago"
 msgstr ""
 
-#: ../includes/widget-recent-posts-extended.php:177
+#: ../includes/widget-recent-posts-extended.php:194
 msgid "Title:"
 msgstr ""
 
-#: ../includes/widget-recent-posts-extended.php:181
+#: ../includes/widget-recent-posts-extended.php:198
+msgid "Widget CSS ID: (no spaces or special characters)"
+msgstr ""
+
+#: ../includes/widget-recent-posts-extended.php:202
+msgid "Cache Life: (in seconds. Default is 43200, 1 to disable)"
+msgstr ""
+
+#: ../includes/widget-recent-posts-extended.php:206
 msgid "Limit:"
 msgstr ""
 
-#: ../includes/widget-recent-posts-extended.php:189
-msgid "Display date?"
+#: ../includes/widget-recent-posts-extended.php:214
+msgid "Display Date?"
 msgstr ""
 
-#: ../includes/widget-recent-posts-extended.php:193
-msgid "Display excerpt?"
+#: ../includes/widget-recent-posts-extended.php:218
+msgid "Display Excerpt?"
 msgstr ""
 
-#: ../includes/widget-recent-posts-extended.php:197
-msgid "Excerpt length:"
-msgstr ""
-
-#: ../includes/widget-recent-posts-extended.php:204
-msgid "Display thumbnail?"
-msgstr ""
-
-#: ../includes/widget-recent-posts-extended.php:208
-msgid "Thumbnail size (height x width):"
-msgstr ""
-
-#: ../includes/widget-recent-posts-extended.php:216
-msgid "Limit to category: "
-msgstr ""
-
-#: ../includes/widget-recent-posts-extended.php:217
-msgid "All categories"
-msgstr ""
-
-#: ../includes/widget-recent-posts-extended.php:220
-msgid "Choose the Post Type: "
+#: ../includes/widget-recent-posts-extended.php:222
+msgid "Excerpt Length:"
 msgstr ""
 
 #: ../includes/widget-recent-posts-extended.php:229
+msgid "Display Thumbnail?"
+msgstr ""
+
+#: ../includes/widget-recent-posts-extended.php:233
+msgid "Thumbnail Size (height x width):"
+msgstr ""
+
+#: ../includes/widget-recent-posts-extended.php:241
+msgid "Limit to Category: "
+msgstr ""
+
+#: ../includes/widget-recent-posts-extended.php:242
+msgid "All categories"
+msgstr ""
+
+#: ../includes/widget-recent-posts-extended.php:245
+msgid "Choose the Post Type: "
+msgstr ""
+
+#: ../includes/widget-recent-posts-extended.php:254
 msgid "Custom CSS:"
 msgstr ""
