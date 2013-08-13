@@ -3,7 +3,7 @@ Contributors: tokokoo, satrya, davidkryzaniak
 Tags: recent posts, thumbnails, widget, widgets, sidebar, excerpt, transient api, multiple widgets
 Requires at least: 3.3
 Tested up to: 3.5
-Stable tag: 0.7.1
+Stable tag: 0.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -48,8 +48,15 @@ This plugin creates custom image sizes. If you use images that were uploaded to 
 
 == Changelog ==
 
+= 0.8 =
+* PLEASE RE-SAVE THE WIDGET
+* Remove caching system, it causing some issues
+* Add `rpwe_default_query_arguments` filter to allow developer filter the query
+* Change Limit option with input text rather than selectbox
+* On off default styles
+
 = 0.7.1 =
-PLEASE RE-SAVE THE WIDGET
+* PLEASE RE-SAVE THE WIDGET
 * Added setting for cache life
 * Added input for CSS class (used for custom styling)
 * Fix the inline issue on some themes

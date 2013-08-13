@@ -1,0 +1,40 @@
+.widgets-php .rpwe-columns-2 {
+	overflow: hidden;
+	float: left;
+	width: 48%;
+}
+
+.widgets-php .rpwe-columns-3 {
+	overflow: hidden;
+	float: left;
+	width: 31%;
+	margin-right: 3.5%;
+}
+
+.widgets-php .rpwe-columns-2 input.widefat, 
+.widgets-php .rpwe-columns-2 select.widefat {
+	width: 99%;
+}
+
+.widgets-php .rpwe-columns-3 select.widefat {
+	width: 98.5%;
+}
+
+.widgets-php .rpwe-column-last {
+	float: right;
+	margin-right: 0;
+}
+
+.widgets-php .rpwe-columns-2 label,
+.widgets-php .rpwe-columns-3 label {
+	font-size: 11px;
+}
+
+.small-input {
+	width: 120px;
+}
+
+label.input-checkbox {
+	width: 100px;
+	display: inline-block;
+}

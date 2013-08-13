@@ -3,7 +3,7 @@
 Plugin Name: Recent Posts Widget Extended
 Plugin URI: http://wordpress.org/plugins/recent-posts-widget-extended/
 Description: Enables recent posts widget with advanced settings.
-Version: 0.7.1
+Version: 0.8
 Author: Satrya
 Author URI: http://tokokoo.com
 Author Email: satrya@tokokoo.com
@@ -31,6 +31,8 @@ class RPW_Extended {
 		add_action( 'plugins_loaded', array( &$this, 'includes' ), 3 );
 
 		add_action( 'init', array( &$this, 'init' ) );
+
+		add_action( 'admin_enqueue_scripts', array( &$this, 'admin_style' ) );
 
 	}
 
@@ -79,11 +81,18 @@ class RPW_Extended {
 	function init() {
 		
 		if( ! is_admin() ) {
-
 			wp_enqueue_style( 'rpwe-style', RPWE_URI . 'rpwe.css' );
-
 		}
 
+	}
+
+	/**
+	 * Register custom style for the widget settings.
+	 *
+	 * @since 0.8
+	 */
+	function admin_style() {
+		wp_enqueue_style( 'rpwe-admin-style', RPWE_URI . 'includes/admin.css' );
 	}
 
 }
