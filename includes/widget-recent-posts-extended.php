@@ -33,7 +33,9 @@ class rpwe_widget extends WP_Widget {
 
 		$title 			= apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
 		$cssID 			= $instance['cssID'];
-		$limit 			= $instance['limit'];
+		$limit 			= (int)( $instance['limit'] );
+		$offset 		= (int)( $instance['offset'] );
+		$order 			= $instance['order'];
 		$excerpt 		= $instance['excerpt'];
 		$length 		= (int)( $instance['length'] );
 		$thumb 			= $instance['thumb'];
@@ -43,6 +45,8 @@ class rpwe_widget extends WP_Widget {
 		$post_type 		= $instance['post_type'];
 		$date 			= $instance['date'];
 		$style 			= $instance['style'];
+		$readmore 		= $instance['readmore'];
+		$readmore_text 	= strip_tags( $instance['readmore_text'] );
 		$css 			= wp_filter_nohtml_kses( $instance['css'] );
 
 		echo $before_widget;
@@ -57,8 +61,10 @@ class rpwe_widget extends WP_Widget {
 
 			$args = array(
 				'numberposts'	=> $limit,
-				'cat'			=> $cat,
-				'post_type'		=> $post_type
+				'category__in'	=> $cat,
+				'post_type'		=> $post_type,
+				'offset'		=> $offset,
+				'order'			=> $order
 			);
 
 			$default_args 		= apply_filters( 'rpwe_default_query_arguments', $args ); // Allow developer to filter the query.
@@ -70,7 +76,7 @@ class rpwe_widget extends WP_Widget {
 
 			<ul class="rpwe-ul">
 
-				<?php foreach ( $rpwewidget as $post ) : setup_postdata($post); ?>
+				<?php foreach ( $rpwewidget as $post ) : setup_postdata( $post ); ?>
 
 					<li class="rpwe-clearfix clearfix cl">
 
@@ -96,7 +102,7 @@ class rpwe_widget extends WP_Widget {
 						<?php } ?>
 
 						<?php if ( $excerpt == true ) { ?>
-							<div class="rpwe-summary"><?php echo rpwe_excerpt( $length ); ?></div>
+							<div class="rpwe-summary"><?php echo rpwe_excerpt( $length ); ?> <?php if ( $readmore == true ) { echo '<a href="' . esc_url( get_permalink() ) . '" class="more-link">' . $readmore_text . '</a>'; } ?></div>
 						<?php } ?>
 
 					</li>
@@ -122,6 +128,8 @@ class rpwe_widget extends WP_Widget {
 		$instance['title'] 			= strip_tags( $new_instance['title'] );
 		$instance['cssID'] 			= sanitize_html_class( $new_instance['cssID'] );
 		$instance['limit'] 			= (int)( $new_instance['limit'] );
+		$instance['offset'] 		= (int)( $new_instance['offset'] );
+		$instance['order'] 			= $new_instance['order'];
 		$instance['excerpt'] 		= $new_instance['excerpt'];
 		$instance['length'] 		= (int)( $new_instance['length'] );
 		$instance['thumb'] 			= $new_instance['thumb'];
@@ -131,6 +139,8 @@ class rpwe_widget extends WP_Widget {
 		$instance['post_type'] 		= $new_instance['post_type'];
 		$instance['date'] 			= $new_instance['date'];
 		$instance['style'] 			= $new_instance['style'];
+		$instance['readmore'] 		= $new_instance['readmore'];
+		$instance['readmore_text'] 	= strip_tags( $new_instance['readmore_text'] );
 		$instance['css'] 			= wp_filter_nohtml_kses( $new_instance['css'] );
 
 		return $instance;
@@ -149,7 +159,9 @@ class rpwe_widget extends WP_Widget {
 			'title' 		=> '',
 			'cssID' 		=> '',
 			'limit' 		=> 5,
-			'excerpt' 		=> '',
+			'offset' 		=> 0,
+			'order' 		=> 'DESC',
+			'excerpt' 		=> false,
 			'length' 		=> 10,
 			'thumb' 		=> true,
 			'thumb_height' 	=> 45,
@@ -158,6 +170,8 @@ class rpwe_widget extends WP_Widget {
 			'post_type' 	=> '',
 			'date' 			=> true,
 			'style' 		=> true,
+			'readmore' 		=> false,
+			'readmore_text'	=> __( 'Read More &raquo;', 'rpwe' ),
 			'css' 			=> $css_defaults
 		);
 
@@ -165,6 +179,8 @@ class rpwe_widget extends WP_Widget {
 		$title 			= strip_tags( $instance['title'] );
 		$cssID 			= sanitize_html_class( $instance['cssID'] );
 		$limit 			= (int)( $instance['limit'] );
+		$offset 		= (int)( $instance['offset'] );
+		$order 			= $instance['order'];
 		$excerpt 		= $instance['excerpt'];
 		$length 		= (int)($instance['length']);
 		$thumb 			= $instance['thumb'];
@@ -174,6 +190,8 @@ class rpwe_widget extends WP_Widget {
 		$post_type 		= $instance['post_type'];
 		$date 			= $instance['date'];
 		$style 			= $instance['style'];
+		$readmore 		= $instance['readmore'];
+		$readmore_text 	= strip_tags( $instance['readmore_text'] );
 		$css 			= wp_filter_nohtml_kses( $instance['css'] );
 
 		?>
@@ -184,20 +202,14 @@ class rpwe_widget extends WP_Widget {
 				<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php _e( 'Title:', 'rpwe' ); ?></label>
 				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo $title; ?>"/>
 			</p>
-
-			<p>
-				<label for="<?php echo esc_attr( $this->get_field_id( 'cssID' ) ); ?>"><?php _e( 'Widget CSS ID:', 'rpwe' ); ?></label>
-				<input class="widefat" id="<?php echo esc_attr($this->get_field_id('cssID')); ?>" name="<?php echo esc_attr($this->get_field_name('cssID')); ?>" type="text" value="<?php echo $cssID; ?>"/>
-			</p>
 			<p>
 				<label for="<?php echo esc_attr( $this->get_field_id( 'limit' ) ); ?>"><?php _e( 'Limit:', 'rpwe' ); ?></label>
 				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'limit' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'limit' ) ); ?>" type="text" value="<?php echo $limit; ?>"/>
 			</p>
 			<p>
-				<label for="<?php echo esc_attr( $this->get_field_id( 'length' ) ); ?>"><?php _e( 'Excerpt Length:', 'rpwe' ); ?></label>
-				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'length' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'length' ) ); ?>" type="text" value="<?php echo $length; ?>"/>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'cssID' ) ); ?>"><?php _e( 'CSS ID:', 'rpwe' ); ?></label>
+				<input class="widefat" id="<?php echo esc_attr($this->get_field_id('cssID')); ?>" name="<?php echo esc_attr($this->get_field_name('cssID')); ?>" type="text" value="<?php echo $cssID; ?>"/>
 			</p>
-
 			<p>
 				<label for="<?php echo esc_attr( $this->get_field_id( 'css' ) ); ?>"><?php _e( 'CSS:', 'rpwe' ); ?></label>
 				<textarea class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'css' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'css' ) ); ?>" style="height:100px;"><?php echo $css; ?></textarea>
@@ -208,18 +220,26 @@ class rpwe_widget extends WP_Widget {
 		
 		<div class="rpwe-columns-3">
 
-			<?php if ( current_theme_supports( 'post-thumbnails' ) ) { ?>
-				<p>
-					<label for="<?php echo esc_attr( $this->get_field_id( 'thumb_height' ) ); ?>"><?php _e( 'Thumbnail Size (height x width):', 'rpwe' ); ?></label>
-					<input class= "small-input" id="<?php echo esc_attr( $this->get_field_id( 'thumb_height' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'thumb_height' ) ); ?>" type="text" value="<?php echo $thumb_height; ?>"/>
-					<input class="small-input" id="<?php echo esc_attr( $this->get_field_id( 'thumb_width' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'thumb_width' ) ); ?>" type="text" value="<?php echo $thumb_width; ?>"/>
-				</p>
-
-			<?php } ?>
-
+			<p>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'offset' ) ); ?>"><?php _e( 'Offset (the number of posts to skip):', 'rpwe' ); ?></label>
+				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'offset' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'offset' ) ); ?>" type="text" value="<?php echo $offset; ?>"/>
+			</p>
+			<p>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'order' ) ); ?>"><?php _e( 'Order:', 'rpwe' ); ?></label>
+				<select class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'order' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'order' ) ); ?>" style="width:100%;">
+					<option value="DESC" <?php selected( $order, 'DESC' ); ?>><?php _e( 'DESC', 'rpwe' ) ?></option>
+					<option value="ASC" <?php selected( $order, 'ASC' ); ?>><?php _e( 'ASC', 'rpwe' ) ?></option>
+				</select>
+			</p>
 			<p>
 				<label for="<?php echo esc_attr( $this->get_field_id( 'cat' ) ); ?>"><?php _e( 'Limit to Category: ', 'rpwe' ); ?></label>
-				<?php wp_category_checklist(); ?>
+			   	<select class="widefat" multiple="multiple" id="<?php echo esc_attr( $this->get_field_id( 'cat' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'cat' ) ); ?>[]" style="width:100%;">
+					<?php $categories = get_terms( 'category' ); ?>
+					<?php foreach( $categories as $category ) { ?>
+						<option value="<?php echo $category->term_id; ?>" <?php if ( is_array( $cat ) && in_array( $category->term_id, $cat ) ) echo ' selected="selected"'; ?>><?php echo $category->name; ?></option>
+					<?php } ?>
+   			    </select>
+
 			</p>
 			<p>
 				<label for="<?php echo esc_attr( $this->get_field_id( 'post_type' ) ); ?>"><?php _e( 'Choose the Post Type: ', 'rpwe' ); ?></label>
@@ -235,21 +255,40 @@ class rpwe_widget extends WP_Widget {
 
 		<div class="rpwe-columns-3 rpwe-column-last">
 
+			<?php if ( current_theme_supports( 'post-thumbnails' ) ) { ?>
+				<p>
+					<label class="input-checkbox" for="<?php echo esc_attr( $this->get_field_id( 'thumb' ) ); ?>"><?php _e( 'Display Thumbnail', 'rpwe' ); ?></label>
+					<input id="<?php echo esc_attr( $this->get_field_id( 'thumb' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'thumb' ) ); ?>" type="checkbox" value="1" <?php checked( '1', $thumb ); ?> />&nbsp;
+				</p>
+				<p>
+					<label for="<?php echo esc_attr( $this->get_field_id( 'thumb_height' ) ); ?>"><?php _e( 'Thumbnail Size (height x width):', 'rpwe' ); ?></label>
+					<input class= "small-input" id="<?php echo esc_attr( $this->get_field_id( 'thumb_height' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'thumb_height' ) ); ?>" type="text" value="<?php echo $thumb_height; ?>"/>
+					<input class="small-input" id="<?php echo esc_attr( $this->get_field_id( 'thumb_width' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'thumb_width' ) ); ?>" type="text" value="<?php echo $thumb_width; ?>"/>
+				</p>
+			<?php } ?>
 			<p>
-				<label class="input-checkbox" for="<?php echo esc_attr( $this->get_field_id( 'style' ) ); ?>"><?php _e( 'Use Default Style', 'rpwe' ); ?></label>
-				<input id="<?php echo esc_attr( $this->get_field_id( 'style' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'style' ) ); ?>" type="checkbox" value="1" <?php checked( '1', $style ); ?> />&nbsp;
+				<label class="input-checkbox" for="<?php echo esc_attr( $this->get_field_id( 'excerpt' ) ); ?>"><?php _e( 'Display Excerpt', 'rpwe' ); ?></label>
+				<input id="<?php echo esc_attr( $this->get_field_id( 'excerpt' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'excerpt' ) ); ?>" type="checkbox" value="1" <?php checked( '1', $excerpt ); ?> />&nbsp;
 			</p>
 			<p>
-				<label class="input-checkbox" for="<?php echo esc_attr( $this->get_field_id( 'thumb' ) ); ?>"><?php _e( 'Display Thumbnail?', 'rpwe' ); ?></label>
-				<input id="<?php echo esc_attr( $this->get_field_id( 'thumb' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'thumb' ) ); ?>" type="checkbox" value="1" <?php checked( '1', $thumb ); ?> />&nbsp;
+				<label for="<?php echo esc_attr( $this->get_field_id( 'length' ) ); ?>"><?php _e( 'Excerpt Length:', 'rpwe' ); ?></label>
+				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'length' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'length' ) ); ?>" type="text" value="<?php echo $length; ?>"/>
 			</p>
 			<p>
-				<label class="input-checkbox" for="<?php echo esc_attr( $this->get_field_id( 'date' ) ); ?>"><?php _e( 'Display Date?', 'rpwe' ); ?></label>
+				<label class="input-checkbox" for="<?php echo esc_attr( $this->get_field_id( 'readmore' ) ); ?>"><?php _e( 'Display Readmore', 'rpwe' ); ?></label>
+				<input id="<?php echo esc_attr( $this->get_field_id( 'readmore' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'readmore' ) ); ?>" type="checkbox" value="1" <?php checked( '1', $readmore ); ?> />&nbsp;
+			</p>
+			<p>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'readmore_text' ) ); ?>"><?php _e( 'Readmore Text:', 'rpwe' ); ?></label>
+				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'readmore_text' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'readmore_text' ) ); ?>" type="text" value="<?php echo $readmore_text; ?>"/>
+			</p>
+			<p>
+				<label class="input-checkbox" for="<?php echo esc_attr( $this->get_field_id( 'date' ) ); ?>"><?php _e( 'Display Date', 'rpwe' ); ?></label>
 				<input id="<?php echo esc_attr( $this->get_field_id( 'date' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'date' ) ); ?>" type="checkbox" value="1" <?php checked( '1', $date ); ?> />&nbsp;
 			</p>
 			<p>
-				<label class="input-checkbox" for="<?php echo esc_attr( $this->get_field_id( 'excerpt' ) ); ?>"><?php _e( 'Display Excerpt?', 'rpwe' ); ?></label>
-				<input id="<?php echo esc_attr( $this->get_field_id( 'excerpt' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'excerpt' ) ); ?>" type="checkbox" value="1" <?php checked( '1', $excerpt ); ?> />&nbsp;
+				<label class="input-checkbox" for="<?php echo esc_attr( $this->get_field_id( 'style' ) ); ?>"><?php _e( 'Use Default Style', 'rpwe' ); ?></label>
+				<input id="<?php echo esc_attr( $this->get_field_id( 'style' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'style' ) ); ?>" type="checkbox" value="1" <?php checked( '1', $style ); ?> />&nbsp;
 			</p>
 
 		</div>
@@ -279,14 +318,14 @@ add_action( 'widgets_init', 'rpwe_register_widget' );
  */
 function rpwe_excerpt( $length ) {
 
-	$excerpt = explode(' ', get_the_excerpt(), $length);
-	if (count($excerpt) >= $length) {
-		array_pop($excerpt);
-		$excerpt = implode(" ", $excerpt) . '&hellip;';
+	$excerpt = explode( ' ', get_the_excerpt(), $length );
+	if ( count( $excerpt ) >= $length ) {
+		array_pop( $excerpt );
+		$excerpt = implode( " ", $excerpt );
 	} else {
-		$excerpt = implode(" ", $excerpt);
+		$excerpt = implode( " ", $excerpt );
 	}
-	$excerpt = preg_replace('`\[[^\]]*\]`', '', $excerpt);
+	$excerpt = preg_replace( '`\[[^\]]*\]`', '', $excerpt );
 
 	return $excerpt;
 
