@@ -1,17 +1,17 @@
 === Plugin Name ===
 Contributors: tokokoo, satrya, davidkryzaniak
-Tags: recent posts, thumbnails, widget, widgets, sidebar, excerpt, transient api, multiple widgets
-Requires at least: 3.3
-Tested up to: 3.5
+Tags: recent posts, thumbnails, widget, widgets, sidebar, excerpt, category, post tag, post type, multiple widgets
+Requires at least: 3.4
+Tested up to: 3.6
 Stable tag: 0.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Provides flexible and advanced recent posts widget. Allows you to display them with thumbnails, post excerpt, specific category and more.
+Provides flexible and advanced recent posts widget. Allows you to display them with thumbnails, post excerpt, multiple category and more.
 
 == Description ==
 
-This plugin will enable a custom, flexible and advanced recent posts widget. Allows you to display a list of the most recent posts with thumbnail and excerpt, also you can display it from all or a specific category. The recent posts widget extended uses [Transients API](http://codex.wordpress.org/Transients_API) for delivering cached to optimize your site performance when used the widget.
+This plugin will enable a custom, flexible and super advanced recent posts widget. Allows you to display a list of the most recent posts with thumbnail and excerpt, also you can display it from all or a specific or multiple category or tag.
 
 = Features Include: =
 

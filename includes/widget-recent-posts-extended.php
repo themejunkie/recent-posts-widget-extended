@@ -48,7 +48,7 @@ class rpwe_widget extends WP_Widget {
 		$readmore 		= $instance['readmore'];
 		$readmore_text 	= strip_tags( $instance['readmore_text'] );
 		$styles_default = $instance['styles_default'];
-		$css 			= wp_filter_nohtml_kses( $instance['css'] );
+		$css 			= $instance['css'];
 
 		echo $before_widget;
 
@@ -156,7 +156,7 @@ class rpwe_widget extends WP_Widget {
 		$instance['readmore'] 		= $new_instance['readmore'];
 		$instance['readmore_text'] 	= strip_tags( $new_instance['readmore_text'] );
 		$instance['styles_default'] = $new_instance['styles_default'];
-		$instance['css'] 			= wp_filter_nohtml_kses( $new_instance['css'] );
+		$instance['css'] 			= $new_instance['css'];
 
 		return $instance;
 
@@ -167,7 +167,7 @@ class rpwe_widget extends WP_Widget {
 	 */
 	function form( $instance ) {
 
-		$css_defaults = ".rpwe-block ul{\n}\n\n.rpwe-block li{\n}\n\n.rpwe-block a{\n}\n\n.rpwe-block h3{\n}\n\n.rpwe-thumb{\n}\n\n.rpwe-summary{\n}\n\n.rpwe-time{\n}\n\n.rpwe-alignleft{\n}\n\n.rpwe-alignright{\n}\n\n.rpwe-alignnone{\n}\n\n.rpwe-clearfix:before{\ncontent:'';\ndisplay:table;\n}";
+		$css_defaults = ".rpwe-block ul{\n}\n\n.rpwe-block li{\n}\n\n.rpwe-block a{\n}\n\n.rpwe-block h3{\n}\n\n.rpwe-thumb{\n}\n\n.rpwe-summary{\n}\n\n.rpwe-time{\n}\n\n.rpwe-alignleft{\n}\n\n.rpwe-alignright{\n}\n\n.rpwe-alignnone{\n}\n\n.rpwe-clearfix:before,\n.rpwe-clearfix:after{\ncontent: \"\";\ndisplay: table;\n}\n\n.rpwe-clearfix:after{\nclear:both;\n}\n\n.rpwe-clearfix{\nzoom: 1;\n}";
 
 		/* Set up some default widget settings. */
 		$defaults = array(
@@ -217,7 +217,7 @@ class rpwe_widget extends WP_Widget {
 		$readmore 		= $instance['readmore'];
 		$readmore_text 	= strip_tags( $instance['readmore_text'] );
 		$styles_default	= $instance['styles_default'];
-		$css 			= wp_filter_nohtml_kses( $instance['css'] );
+		$css 			= $instance['css'];
 
 		?>
 
