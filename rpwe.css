@@ -32,11 +32,9 @@ License: GPLv2
 	line-height: 1.5em;
 }
 
-.rpwe-alignleft {
+.rpwe-thumb {
 	border: 1px solid #EEE !important;
 	box-shadow: none !important;
-	display: inline;
-	float: left;
 	margin: 2px 10px 0 0;
 	padding: 3px !important;
 }
@@ -48,6 +46,21 @@ License: GPLv2
 .rpwe-time {
 	color: #bbb;
 	font-size: 11px;
+}
+
+.rpwe-alignleft {
+	display: inline;
+	float: left;
+}
+
+.rpwe-alignright {
+	display: inline;
+	float: right;
+}
+
+.rpwe-alignnone {
+	display: block;
+	float: none;
 }
 
 .rpwe-clearfix:before,
