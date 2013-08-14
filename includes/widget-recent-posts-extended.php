@@ -60,8 +60,7 @@ class rpwe_widget extends WP_Widget {
 
 		if ( ! empty( $title_url ) && ! empty( $title ) )
 			echo $before_title . '<a href="' . esc_url( $title_url ) . '" title="' . $title . '">' . $title . '</a>' . $after_title;
- 
-		if ( ! empty( $title ) )
+		elseif ( ! empty( $title ) )
 			echo $before_title . $title . $after_title;
 
 		global $post;
@@ -88,19 +87,21 @@ class rpwe_widget extends WP_Widget {
 
 					<li class="rpwe-clearfix clearfix cl">
 
-						<?php if ( has_post_thumbnail() && $thumb == true ) { ?>
+						<?php if ( $thumb == true ) { ?>
 
-							<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'rpwe' ), the_title_attribute('echo=0' ) ); ?>" rel="bookmark">
-								<?php
-								if ( current_theme_supports( 'get-the-image' ) )
-									get_the_image( array( 'meta_key' => 'Thumbnail', 'height' => $thumb_height, 'width' => $thumb_width, 'image_class' => $thumb_align . ' rpwe-thumb', 'link_to_post' => false ) );
-								else
-									the_post_thumbnail( array( $thumb_height, $thumb_width ), array( 'class' => $thumb_align . ' rpwe-thumb', 'alt' => esc_attr(get_the_title() ), 'title' => esc_attr( get_the_title() ) ) );
-								?>
-							</a>
+							<?php if ( has_post_thumbnail() ) { ?>
+								<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'rpwe' ), the_title_attribute('echo=0' ) ); ?>" rel="bookmark">
+									<?php
+									if ( current_theme_supports( 'get-the-image' ) )
+										get_the_image( array( 'meta_key' => 'Thumbnail', 'height' => $thumb_height, 'width' => $thumb_width, 'image_class' => $thumb_align . ' rpwe-thumb', 'link_to_post' => false ) );
+									else
+										the_post_thumbnail( array( $thumb_height, $thumb_width ), array( 'class' => $thumb_align . ' rpwe-thumb', 'alt' => esc_attr(get_the_title() ), 'title' => esc_attr( get_the_title() ) ) );
+									?>
+								</a>
+							<?php } else { ?>				
+								<?php if ( $thumb_default ) echo '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark"><img class="' . $thumb_align . ' rpwe-thumb" src="' . $thumb_default . '" alt="' . esc_attr( get_the_title() ) . '"></a>'; ?>
+							<?php } ?>
 
-						<?php } else { ?>				
-							<?php if ( $thumb_default ) echo '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark"><img class="' . $thumb_align . ' rpwe-thumb" src="' . $thumb_default . '" alt="' . esc_attr( get_the_title() ) . '"></a>'; ?>
 						<?php } ?>
 
 						<h3 class="rpwe-title">

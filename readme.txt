@@ -11,21 +11,27 @@ Provides flexible and advanced recent posts widget. Allows you to display them w
 
 == Description ==
 
-This plugin will enable a custom, flexible and super advanced recent posts widget. Allows you to display a list of the most recent posts with thumbnail and excerpt, also you can display it from all or a specific or multiple category or tag.
+**After updating, please re-save the widget**
+
+This plugin will enable a custom, flexible and super advanced recent posts widget. Allows you to display a list of the most recent posts with thumbnail, excerpt and post date, also you can display it from all or specific or multiple category or tag.
 
 = Features Include: =
 
-* Display thumbnails, with customizable size.
+* You can set the title url.
+* Display thumbnails, with customizable size and alignment.
 * Display excerpt, with customizable length.
-* Display from all or a specific category.
-* Display post date.
+* Display from all, specific or multiple category.
+* Display from all, specific or multiple tag.
+* Display post date and you can set the format.
+* Default thumbnail.
+* Read more option.
 * Post type option.
 * Support `get_the_image` function.
-* Transients API with cache life timer.
+* Custom CSS
 * Multiple widgets.
-* Comes pre-styled, but comes proper CSS IDs and Classes to make it match your site.
 
 = Ugly Image Sizes =
+
 This plugin creates custom image sizes. If you use images that were uploaded to the media library before you installed this plugin, please install [Regenerate Thumbnails](http://wordpress.org/extend/plugins/regenerate-thumbnails/) plugin to corrected the sizes.
 
 = Support: =
@@ -33,9 +39,11 @@ This plugin creates custom image sizes. If you use images that were uploaded to 
 2. [Open issue on github](https://github.com/tokokoo/recent-posts-widget-extended/issues).
 3. [Rate/Review the plugin](http://wordpress.org/support/view/plugin-reviews/recent-posts-widget-extended).
 
-= Project Info: =
+= Plugin Info: =
 * Developed by [Tokokoo Team](http://tokokoo.com)
 * Follow us on Twitter to keep up with the latest updates [@tokokoo](http://twitter.com/tokokoo)
+
+Be sure to check out our latest [premium ecommerce themes](http://tokokoo.com/tokokoo-themes/)
 
 == Installation ==
 
@@ -43,7 +51,14 @@ This plugin creates custom image sizes. If you use images that were uploaded to 
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Go to the widgets page.
 
+== Frequently Asked Questions ==
+
+= How to filter the query from this plugin =
+
+You can use `rpwe_default_query_arguments`
+
 == Screenshots ==
+
 1. The widget settings
 
 == Changelog ==
