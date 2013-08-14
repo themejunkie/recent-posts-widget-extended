@@ -51,13 +51,18 @@ This plugin creates custom image sizes. If you use images that were uploaded to 
 = 0.8 =
 * PLEASE RE-SAVE THE WIDGET
 * Remove caching system, it causing some issues
-* Add `rpwe_default_query_arguments` filter to allow developer filter the query
 * Change Limit option to input text rather than selectbox
+* Add `rpwe_default_query_arguments` filter to allow developer filter the query
 * Fix widget title filter bug
-* On off default styles
-* Multiple categories
+* Add Multiple categories
+* Add Multiple tags
 * Add offset & order options
-* Read more option
+* Add Read more option
+* Add Default thumbnail
+* Add Thumbnail alignment
+* Add widget title link
+* Add absolute date
+* Add turn on off default styles
 
 = 0.7.1 =
 * PLEASE RE-SAVE THE WIDGET

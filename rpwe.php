@@ -30,8 +30,6 @@ class RPW_Extended {
 
 		add_action( 'plugins_loaded', array( &$this, 'includes' ), 3 );
 
-		add_action( 'init', array( &$this, 'init' ) );
-
 		add_action( 'admin_enqueue_scripts', array( &$this, 'admin_style' ) );
 
 	}
@@ -57,10 +55,8 @@ class RPW_Extended {
 	 * @since 0.1
 	 */
 	public function i18n() {
-
 		/* Load the translation of the plugin. */
 		load_plugin_textdomain( 'rpwe', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
-
 	}
 
 	/**
@@ -69,21 +65,7 @@ class RPW_Extended {
 	 * @since 0.1
 	 */
 	public function includes() {
-
 		require_once( RPWE_INCLUDES . 'widget-recent-posts-extended.php' );
-	}
-
-	/**
-	 * Register custom style for the widget.
-	 *
-	 * @since 0.1
-	 */
-	function init() {
-		
-		if( ! is_admin() ) {
-			wp_enqueue_style( 'rpwe-style', RPWE_URI . 'rpwe.css' );
-		}
-
 	}
 
 	/**

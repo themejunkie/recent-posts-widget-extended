@@ -31,7 +31,11 @@
 }
 
 .small-input {
-	width: 120px;
+	width: 78px;
+}
+
+.rpwe-block {
+	display: block;
 }
 
 label.input-checkbox {
