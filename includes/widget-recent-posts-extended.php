@@ -7,14 +7,14 @@ class rpwe_widget extends WP_Widget {
 	function __construct() {
 
 		$widget_ops = array(
-			'classname'		=> 'rpwe_widget recent-posts-extended',
-			'description'	=> __( 'Advanced recent posts widget.', 'rpwe' )
+			'classname'	  => 'rpwe_widget recent-posts-extended',
+			'description' => __( 'Advanced recent posts widget.', 'rpwe' )
 		);
 
 		$control_ops = array(
-			'width'		=> 800,
-			'height'	=> 350,
-			'id_base'	=> 'rpwe_widget'
+			'width'   => 800,
+			'height'  => 350,
+			'id_base' => 'rpwe_widget'
 		);
 
 		parent::__construct( 'rpwe_widget', __( '&raquo; Recent Posts Widget Extended', 'rpwe' ), $widget_ops, $control_ops );
@@ -27,28 +27,28 @@ class rpwe_widget extends WP_Widget {
 	function widget( $args, $instance ) {
 		extract( $args, EXTR_SKIP );
 
-		$title 			= apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
-		$title_url		= $instance['title_url'];
-		$cssID 			= $instance['cssID'];
-		$limit 			= (int)( $instance['limit'] );
-		$offset 		= (int)( $instance['offset'] );
-		$order 			= $instance['order'];
-		$excerpt 		= $instance['excerpt'];
-		$length 		= (int)( $instance['length'] );
-		$thumb 			= $instance['thumb'];
-		$thumb_height 	= (int)( $instance['thumb_height'] );
-		$thumb_width 	= (int)( $instance['thumb_width'] );
-		$thumb_default 	= esc_url( $instance['thumb_default'] );
-		$thumb_align 	= $instance['thumb_align'];
-		$cat 			= $instance['cat'];
-		$tag 			= $instance['tag'];
-		$post_type 		= $instance['post_type'];
-		$date 			= $instance['date'];
-		$date_format 	= strip_tags( $instance['date_format'] );
-		$readmore 		= $instance['readmore'];
-		$readmore_text 	= strip_tags( $instance['readmore_text'] );
+		$title          = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
+		$title_url      = $instance['title_url'];
+		$cssID          = $instance['cssID'];
+		$limit          = (int)( $instance['limit'] );
+		$offset         = (int)( $instance['offset'] );
+		$order          = $instance['order'];
+		$excerpt        = $instance['excerpt'];
+		$length         = (int)( $instance['length'] );
+		$thumb          = $instance['thumb'];
+		$thumb_height   = (int)( $instance['thumb_height'] );
+		$thumb_width    = (int)( $instance['thumb_width'] );
+		$thumb_default  = esc_url( $instance['thumb_default'] );
+		$thumb_align    = $instance['thumb_align'];
+		$cat            = $instance['cat'];
+		$tag            = $instance['tag'];
+		$post_type      = $instance['post_type'];
+		$date           = $instance['date'];
+		$date_format    = strip_tags( $instance['date_format'] );
+		$readmore       = $instance['readmore'];
+		$readmore_text  = strip_tags( $instance['readmore_text'] );
 		$styles_default = $instance['styles_default'];
-		$css 			= $instance['css'];
+		$css            = $instance['css'];
 
 		echo $before_widget;
 
@@ -66,12 +66,12 @@ class rpwe_widget extends WP_Widget {
 		global $post;
 
 			$args = array(
-				'numberposts'	=> $limit,
-				'category__in'	=> $cat,
-				'tag__in'		=> $tag,
-				'post_type'		=> $post_type,
-				'offset'		=> $offset,
-				'order'			=> $order
+				'numberposts'  => $limit,
+				'category__in' => $cat,
+				'tag__in'      => $tag,
+				'post_type'    => $post_type,
+				'offset'       => $offset,
+				'order'        => $order
 			);
 
 			$default_args 		= apply_filters( 'rpwe_default_query_arguments', $args ); // Allow developer to filter the query.
@@ -135,29 +135,29 @@ class rpwe_widget extends WP_Widget {
 	 */
 	function update( $new_instance, $old_instance ) {
 
-		$instance 					= $old_instance;
-		$instance['title'] 			= strip_tags( $new_instance['title'] );
-		$instance['title_url'] 		= esc_url_raw( $new_instance['title_url'] );
-		$instance['cssID'] 			= sanitize_html_class( $new_instance['cssID'] );
-		$instance['limit'] 			= (int)( $new_instance['limit'] );
-		$instance['offset'] 		= (int)( $new_instance['offset'] );
-		$instance['order'] 			= $new_instance['order'];
-		$instance['excerpt'] 		= $new_instance['excerpt'];
-		$instance['length'] 		= (int)( $new_instance['length'] );
-		$instance['thumb'] 			= $new_instance['thumb'];
-		$instance['thumb_height'] 	= (int)( $new_instance['thumb_height'] );
-		$instance['thumb_width'] 	= (int)( $new_instance['thumb_width'] );
-		$instance['thumb_default'] 	= esc_url_raw( $new_instance['thumb_default'] );
-		$instance['thumb_align'] 	= $new_instance['thumb_align'];
-		$instance['cat'] 			= $new_instance['cat'];
-		$instance['tag'] 			= $new_instance['tag'];
-		$instance['post_type'] 		= $new_instance['post_type'];
-		$instance['date'] 			= $new_instance['date'];
-		$instance['date_format'] 	= strip_tags( $new_instance['date_format'] );
-		$instance['readmore'] 		= $new_instance['readmore'];
-		$instance['readmore_text'] 	= strip_tags( $new_instance['readmore_text'] );
+		$instance                   = $old_instance;
+		$instance['title']          = strip_tags( $new_instance['title'] );
+		$instance['title_url']      = esc_url_raw( $new_instance['title_url'] );
+		$instance['cssID']          = sanitize_html_class( $new_instance['cssID'] );
+		$instance['limit']          = (int)( $new_instance['limit'] );
+		$instance['offset']         = (int)( $new_instance['offset'] );
+		$instance['order']          = $new_instance['order'];
+		$instance['excerpt']        = $new_instance['excerpt'];
+		$instance['length']         = (int)( $new_instance['length'] );
+		$instance['thumb']          = $new_instance['thumb'];
+		$instance['thumb_height']   = (int)( $new_instance['thumb_height'] );
+		$instance['thumb_width']    = (int)( $new_instance['thumb_width'] );
+		$instance['thumb_default']  = esc_url_raw( $new_instance['thumb_default'] );
+		$instance['thumb_align']    = $new_instance['thumb_align'];
+		$instance['cat']            = $new_instance['cat'];
+		$instance['tag']            = $new_instance['tag'];
+		$instance['post_type']      = $new_instance['post_type'];
+		$instance['date']           = $new_instance['date'];
+		$instance['date_format']    = strip_tags( $new_instance['date_format'] );
+		$instance['readmore']       = $new_instance['readmore'];
+		$instance['readmore_text']  = strip_tags( $new_instance['readmore_text'] );
 		$instance['styles_default'] = $new_instance['styles_default'];
-		$instance['css'] 			= $new_instance['css'];
+		$instance['css']            = $new_instance['css'];
 
 		return $instance;
 
@@ -172,53 +172,53 @@ class rpwe_widget extends WP_Widget {
 
 		/* Set up some default widget settings. */
 		$defaults = array(
-			'title' 		=> '',
-			'title_url' 	=> '',
-			'cssID' 		=> '',
-			'limit' 		=> 5,
-			'offset' 		=> 0,
-			'order' 		=> 'DESC',
-			'excerpt' 		=> false,
-			'length' 		=> 10,
-			'thumb' 		=> true,
-			'thumb_height' 	=> 45,
-			'thumb_width' 	=> 45,
-			'thumb_default' => 'http://placehold.it/45x45/f0f0f0/ccc',
-			'thumb_align' 	=> 'rpwe-alignleft',
-			'cat' 			=> '',
-			'tag' 			=> '',
-			'post_type' 	=> '',
-			'date' 			=> true,
-			'date_format' 	=> 'F, Y',
-			'readmore' 		=> false,
-			'readmore_text'	=> __( 'Read More &raquo;', 'rpwe' ),
-			'styles_default'=> true,
-			'css' 			=> $css_defaults
+			'title'          => '',
+			'title_url'      => '',
+			'cssID'          => '',
+			'limit'          => 5,
+			'offset'         => 0,
+			'order'          => 'DESC',
+			'excerpt'        => false,
+			'length'         => 10,
+			'thumb'          => true,
+			'thumb_height'   => 45,
+			'thumb_width'    => 45,
+			'thumb_default'  => 'http://placehold.it/45x45/f0f0f0/ccc',
+			'thumb_align'    => 'rpwe-alignleft',
+			'cat'            => '',
+			'tag'            => '',
+			'post_type'      => '',
+			'date'           => true,
+			'date_format'    => 'F, Y',
+			'readmore'       => false,
+			'readmore_text'  => __( 'Read More &raquo;', 'rpwe' ),
+			'styles_default' => true,
+			'css'            => $css_defaults
 		);
 
-		$instance 		= wp_parse_args( (array)$instance, $defaults );
-		$title 			= strip_tags( $instance['title'] );
-		$title_url 		= esc_url( $instance['title_url'] );
-		$cssID 			= sanitize_html_class( $instance['cssID'] );
-		$limit 			= (int)( $instance['limit'] );
-		$offset 		= (int)( $instance['offset'] );
-		$order 			= $instance['order'];
-		$excerpt 		= $instance['excerpt'];
-		$length 		= (int)($instance['length']);
-		$thumb 			= $instance['thumb'];
-		$thumb_height 	= (int)( $instance['thumb_height'] );
-		$thumb_width 	= (int)( $instance['thumb_width'] );
-		$thumb_default 	= $instance['thumb_default'];
-		$thumb_align 	= $instance['thumb_align'];
-		$cat 			= $instance['cat'];
-		$tag 			= $instance['tag'];
-		$post_type 		= $instance['post_type'];
-		$date 			= $instance['date'];
-		$date_format 	= strip_tags( $instance['date_format'] );
-		$readmore 		= $instance['readmore'];
-		$readmore_text 	= strip_tags( $instance['readmore_text'] );
-		$styles_default	= $instance['styles_default'];
-		$css 			= $instance['css'];
+		$instance       = wp_parse_args( (array)$instance, $defaults );
+		$title          = strip_tags( $instance['title'] );
+		$title_url      = esc_url( $instance['title_url'] );
+		$cssID          = sanitize_html_class( $instance['cssID'] );
+		$limit          = (int)( $instance['limit'] );
+		$offset         = (int)( $instance['offset'] );
+		$order          = $instance['order'];
+		$excerpt        = $instance['excerpt'];
+		$length         = (int)($instance['length']);
+		$thumb          = $instance['thumb'];
+		$thumb_height   = (int)( $instance['thumb_height'] );
+		$thumb_width    = (int)( $instance['thumb_width'] );
+		$thumb_default  = $instance['thumb_default'];
+		$thumb_align    = $instance['thumb_align'];
+		$cat            = $instance['cat'];
+		$tag            = $instance['tag'];
+		$post_type      = $instance['post_type'];
+		$date           = $instance['date'];
+		$date_format    = strip_tags( $instance['date_format'] );
+		$readmore       = $instance['readmore'];
+		$readmore_text  = strip_tags( $instance['readmore_text'] );
+		$styles_default = $instance['styles_default'];
+		$css            = $instance['css'];
 
 		?>
 
