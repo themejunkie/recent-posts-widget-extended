@@ -7,14 +7,14 @@ class rpwe_widget extends WP_Widget {
 	function __construct() {
 
 		$widget_ops = array(
-			'classname'	  => 'rpwe_widget recent-posts-extended',
+			'classname'   => 'rpwe_widget recent-posts-extended',
 			'description' => __( 'Advanced recent posts widget.', 'rpwe' )
 		);
 
 		$control_ops = array(
-			'width'   => 800,
-			'height'  => 350,
-			'id_base' => 'rpwe_widget'
+			'width'       => 800,
+			'height'      => 350,
+			'id_base'     => 'rpwe_widget'
 		);
 
 		parent::__construct( 'rpwe_widget', __( '&raquo; Recent Posts Widget Extended', 'rpwe' ), $widget_ops, $control_ops );
@@ -59,7 +59,7 @@ class rpwe_widget extends WP_Widget {
 			echo '<style>' . $css . '</style>';
 
 		if ( ! empty( $title_url ) && ! empty( $title ) )
-			echo $before_title . '<a href="' . esc_url( $title_url ) . '" title="' . $title . '">' . $title . '</a>' . $after_title;
+			echo $before_title . '<a href="' . esc_url( $title_url ) . '" title="' . esc_attr( $title ) . '">' . $title . '</a>' . $after_title;
 		elseif ( ! empty( $title ) )
 			echo $before_title . $title . $after_title;
 
@@ -99,7 +99,7 @@ class rpwe_widget extends WP_Widget {
 									?>
 								</a>
 							<?php } else { ?>				
-								<?php if ( $thumb_default ) echo '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark"><img class="' . $thumb_align . ' rpwe-thumb" src="' . $thumb_default . '" alt="' . esc_attr( get_the_title() ) . '"></a>'; ?>
+								<?php if ( $thumb_default ) echo '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark"><img class="' . $thumb_align . ' rpwe-thumb" src="' . $thumb_default . '" alt="' . esc_attr( get_the_title() ) . '" width="' . $thumb_width . '" height="' . $thumb_height . '"></a>'; ?>
 							<?php } ?>
 
 						<?php } ?>
@@ -168,6 +168,7 @@ class rpwe_widget extends WP_Widget {
 	 */
 	function form( $instance ) {
 
+		/* Output widget selector. */
 		$css_defaults = ".rpwe-block ul{\n}\n\n.rpwe-block li{\n}\n\n.rpwe-block a{\n}\n\n.rpwe-block h3{\n}\n\n.rpwe-thumb{\n}\n\n.rpwe-summary{\n}\n\n.rpwe-time{\n}\n\n.rpwe-alignleft{\n}\n\n.rpwe-alignright{\n}\n\n.rpwe-alignnone{\n}\n\n.rpwe-clearfix:before,\n.rpwe-clearfix:after{\ncontent: \"\";\ndisplay: table;\n}\n\n.rpwe-clearfix:after{\nclear:both;\n}\n\n.rpwe-clearfix{\nzoom: 1;\n}";
 
 		/* Set up some default widget settings. */
