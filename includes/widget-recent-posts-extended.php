@@ -122,7 +122,7 @@ class rpwe_widget extends WP_Widget {
 
 			</ul>
 
-		</div><!-- .rpwe-block - http://wordpress.org/extend/plugins/recent-posts-widget-extended/ -->
+		</div><!-- .rpwe-block - http://wordpress.org/plugins/recent-posts-widget-extended/ -->
 
 		<?php
 

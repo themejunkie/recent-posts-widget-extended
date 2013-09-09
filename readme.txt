@@ -3,7 +3,7 @@ Contributors: tokokoo, satrya, davidkryzaniak
 Tags: recent posts, thumbnails, widget, widgets, sidebar, excerpt, category, post tag, post type, multiple widgets
 Requires at least: 3.4
 Tested up to: 3.6
-Stable tag: 0.8
+Stable tag: 0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -62,6 +62,11 @@ You can use `rpwe_default_query_arguments`
 1. The widget settings
 
 == Changelog ==
+
+= 0.9 - 9/9/2013 =
+* Alignment issue
+* Escape title attribute in widget title
+* Set the width & height if use default thumbnail
 
 = 0.8 =
 * PLEASE RE-SAVE THE WIDGET
