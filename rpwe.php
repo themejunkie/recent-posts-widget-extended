@@ -2,11 +2,11 @@
 /**
  * Plugin Name:  Recent Posts Widget Extended
  * Plugin URI:   http://wordpress.org/plugins/recent-posts-widget-extended/
- * Description:  Enables recent posts widget with advanced settings.
+ * Description:  Enables advanced widget that gives you total control over the output of your site’s most recent Posts.
  * Version:      0.9
  * Author:       Satrya
- * Author URI:   http://tokokoo.com/
- * Author Email: satrya@tokokoo.com
+ * Author URI:   http://themephe.com/
+ * Author Email: satrya@themephe.com
  *
  * This program is free software; you can redistribute it and/or modify it under the terms of the GNU 
  * General Public License as published by the Free Software Foundation; either version 2 of the License, 
@@ -19,7 +19,7 @@
  * to the Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
  *
  * @author    Satrya
- * @copyright Copyright (c) 2013, Satrya & Tokokoo
+ * @copyright Copyright (c) 2013, Satrya & ThemePhe
  * @license   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
@@ -68,7 +68,6 @@ class RPW_Extended {
 	 * @since 0.1
 	 */
 	public function i18n() {
-		/* Load the translation of the plugin. */
 		load_plugin_textdomain( 'rpwe', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 	}
 
