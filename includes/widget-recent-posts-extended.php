@@ -452,7 +452,7 @@ add_action( 'widgets_init', 'rpwe_register_widget' );
  * @link     http://codex.wordpress.org/Function_Reference/wp_trim_words
  */
 function rpwe_excerpt( $length ) {
-	$content = get_the_excerpt();
+	$content = get_the_content();
 	$excerpt = wp_trim_words( $content, $length );
 
 	return $excerpt;
