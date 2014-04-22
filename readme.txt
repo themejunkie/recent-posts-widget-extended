@@ -77,7 +77,7 @@ Yes, this is because the plugin uses `the_post_thumbnail` custom sizes and not u
 
 == Changelog ==
 
-= 0.9 - 2/19/2013 =
+= 0.9 - 2/19/2014 =
 * PLEASE RE-SAVE THE WIDGET
 * Fix issue with the get-the-image plugin support [#10](https://github.com/satrya/recent-posts-widget-extended/issues/10). Pros casjohnson
 * Display by date, comment count or random. *new*
