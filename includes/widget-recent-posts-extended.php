@@ -3,34 +3,46 @@
  * The custom recent posts widget. 
  * This widget gives total control over the output to the user.
  *
- * @author    Satrya
- * @copyright Copyright (c) 2013, Satrya & ThemePhe
- * @license   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ * @package    Recent_Posts_Widget_Extended
+ * @since      0.1
+ * @author     Satrya
+ * @copyright  Copyright (c) 2014, Satrya
+ * @license    http://www.gnu.org/licenses/gpl-2.0.html
  */
-class rpwe_widget extends WP_Widget {
+class Recent_Posts_Widget_Extended extends WP_Widget {
 
 	/**
-	 * Widget setup
+	 * Sets up the widgets.
+	 *
+	 * @since 0.1
 	 */
 	function __construct() {
 
-		$widget_ops = array(
+		/* Set up the widget options. */
+		$widget_options = array(
 			'classname'   => 'rpwe_widget recent-posts-extended',
 			'description' => __( 'An advanced widget that gives you total control over the output of your site’s most recent Posts.', 'rpwe' )
 		);
 
-		$control_ops = array(
-			'width'       => 800,
-			'height'      => 350,
-			'id_base'     => 'rpwe_widget'
+		$control_options = array(
+			'width'  => 800,
+			'height' => 350
 		);
 
-		parent::__construct( 'rpwe_widget', __( 'Recent Posts Extended', 'rpwe' ), $widget_ops, $control_ops );
+		/* Create the widget. */
+		$this->WP_Widget(
+			'rpwe_widget',                         // $this->id_base
+			__( 'Recent Posts Extended', 'rpwe' ), // $this->name
+			$widget_options,                       // $this->widget_options
+			$control_options                       // $this->control_options
+		);
 
 	}
 
 	/**
-	 * Display widget
+	 * Outputs the widget based on the arguments input through the widget controls.
+	 *
+	 * @since 0.1
 	 */
 	function widget( $args, $instance ) {
 		extract( $args, EXTR_SKIP );
@@ -53,7 +65,6 @@ class rpwe_widget extends WP_Widget {
 		$tag            = $instance['tag'];
 		$post_type      = $instance['post_type'];
 		$date           = $instance['date'];
-		$date_format    = strip_tags( $instance['date_format'] );
 		$readmore       = $instance['readmore'];
 		$readmore_text  = strip_tags( $instance['readmore_text'] );
 		$styles_default = $instance['styles_default'];
@@ -81,111 +92,118 @@ class rpwe_widget extends WP_Widget {
 
 		global $post;
 
-			/* Set up the query arguments. */
-			$args = array(
-				'posts_per_page'  => $limit,
-				'category__in'    => $cat,
-				'tag__in'         => $tag,
-				'post_type'       => $post_type,
-				'offset'          => $offset,
-				'order'           => $order,
-				'orderby'         => $orderby
-			);
+		/* Set up the query arguments. */
+		$args = array(
+			'posts_per_page'   => $limit,
+			'category__in'     => $cat,
+			'tag__in'          => $tag,
+			'post_type'        => $post_type,
+			'offset'           => $offset,
+			'order'            => $order,
+			'orderby'          => $orderby,
+			/* Set it to false to allow WPML modifying the query. */
+			'suppress_filters' => false
+		);
 
-			/* Allow developer to filter the query. */
-			$default_args = apply_filters( 'rpwe_default_query_arguments', $args );
+		/* Allow developer to filter the query. */
+		$default_args = apply_filters( 'rpwe_default_query_arguments', $args );
 
-			/**
-			 * The main Query
-			 * 
-			 * @link http://codex.wordpress.org/Function_Reference/get_posts
-			 */
-			$rpwewidget = get_posts( $default_args );
+		/**
+		 * The main Query
+		 * 
+		 * @link http://codex.wordpress.org/Function_Reference/get_posts
+		 */
+		$rpwewidget = get_posts( $default_args );
 
+		/* Check if posts exist. */
+		if ( $rpwewidget ) {
 		?>
 
-		<div <?php echo( ! empty( $cssID ) ? 'id="' . $cssID . '"' : '' ); ?> class="rpwe-block">
+			<div <?php echo( ! empty( $cssID ) ? 'id="' . $cssID . '"' : '' ); ?> class="rpwe-block">
 
-			<ul class="rpwe-ul">
+				<ul class="rpwe-ul">
 
-				<?php foreach ( $rpwewidget as $post ) : setup_postdata( $post ); ?>
+					<?php foreach ( $rpwewidget as $post ) : setup_postdata( $post ); ?>
 
-					<li class="rpwe-clearfix">
-						
-						<?php if ( $thumb == true ) { // Check if the thumbnail option enable. ?>
+						<li class="rpwe-clearfix">
+							
+							<?php if ( $thumb == true ) { // Check if the thumbnail option enable. ?>
 
-							<?php if ( has_post_thumbnail() ) { // Check If post has post thumbnail. ?>
+								<?php if ( has_post_thumbnail() ) { // Check If post has post thumbnail. ?>
 
-								<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'rpwe' ), the_title_attribute('echo=0' ) ); ?>" rel="bookmark">
-									<?php the_post_thumbnail( 
-										array( $thumb_height, $thumb_width, true ),
-										array( 
-											'class' => $thumb_align . ' rpwe-thumb the-post-thumbnail',
-											'alt'   => esc_attr( get_the_title() ),
-											'title' => esc_attr( get_the_title() ) 
-										) 
-									); ?>
-								</a>
+									<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'rpwe' ), the_title_attribute('echo=0' ) ); ?>" rel="bookmark">
+										<?php the_post_thumbnail( 
+											array( $thumb_height, $thumb_width, true ),
+											array( 
+												'class' => $thumb_align . ' rpwe-thumb the-post-thumbnail',
+												'alt'   => esc_attr( get_the_title() ),
+												'title' => esc_attr( get_the_title() ) 
+											) 
+										); ?>
+									</a>
 
-							<?php } elseif ( function_exists( 'get_the_image' ) ) { // Check if get-the-image plugin installed and active. ?>
+								<?php } elseif ( function_exists( 'get_the_image' ) ) { // Check if get-the-image plugin installed and active. ?>
 
-								<?php get_the_image( array( 
-									'height'        => $thumb_height,
-									'width'         => $thumb_width,
-									'size'          => 'rpwe-thumbnail',
-									'image_class'   => $thumb_align . ' rpwe-thumb get-the-image',
-									'image_scan'    => true,
-									'default_image' => $thumb_default
-								) ); ?>
+									<?php get_the_image( array( 
+										'height'        => $thumb_height,
+										'width'         => $thumb_width,
+										'size'          => 'rpwe-thumbnail',
+										'image_class'   => $thumb_align . ' rpwe-thumb get-the-image',
+										'image_scan'    => true,
+										'default_image' => $thumb_default
+									) ); ?>
 
-							<?php } elseif ( $thumb_default ) { // Check if the default image not empty. ?>
+								<?php } elseif ( $thumb_default ) { // Check if the default image not empty. ?>
 
-								<?php 
-								printf( '<a href="%1$s" rel="bookmark"><img class="%2$s rpwe-thumb rpwe-default-thumb" src="%3$s" alt="%4$s" width="%5$s" height="%6$s"></a>',
-									esc_url( get_permalink() ),
-									$thumb_align,
-									$thumb_default,
-									esc_attr( get_the_title() ),
-									$thumb_width,
-									$thumb_height
-								);
-								?>
+									<?php 
+									printf( '<a href="%1$s" rel="bookmark"><img class="%2$s rpwe-thumb rpwe-default-thumb" src="%3$s" alt="%4$s" width="%5$s" height="%6$s"></a>',
+										esc_url( get_permalink() ),
+										$thumb_align,
+										$thumb_default,
+										esc_attr( get_the_title() ),
+										$thumb_width,
+										$thumb_height
+									);
+									?>
+
+								<?php } // endif ?>
 
 							<?php } // endif ?>
 
-						<?php } // endif ?>
+							<h3 class="rpwe-title">
+								<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'rpwe' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
+							</h3>
 
-						<h3 class="rpwe-title">
-							<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'rpwe' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
-						</h3>
+							<?php if ( $date == true ) { // Check if the date option enable. ?>
+								<time class="rpwe-time published" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo get_the_date(); ?></time>
+							<?php } // endif ?>
+							
+							<?php if ( $excerpt == true ) { // Check if the excerpt option enable. ?>
+								<div class="rpwe-summary">
+									<?php echo rpwe_excerpt( $length ); ?> 
+									<?php if ( $readmore == true ) { echo '<a href="' . esc_url( get_permalink() ) . '" class="more-link">' . $readmore_text . '</a>'; } ?>
+								</div>
+							<?php } // endif ?>
 
-						<?php if ( $date == true ) { // Check if the date option enable. ?>
-							<time class="rpwe-time published" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo esc_html( get_the_date( $date_format ) ); ?></time>
-						<?php } // endif ?>
-						
-						<?php if ( $excerpt == true ) { // Check if the excerpt option enable. ?>
-							<div class="rpwe-summary">
-								<?php echo rpwe_excerpt( $length ); ?> 
-								<?php if ( $readmore == true ) { echo '<a href="' . esc_url( get_permalink() ) . '" class="more-link">' . $readmore_text . '</a>'; } ?>
-							</div>
-						<?php } // endif ?>
+						</li>
 
-					</li>
+					<?php endforeach; wp_reset_postdata(); ?>
 
-				<?php endforeach; wp_reset_postdata(); ?>
+				</ul>
 
-			</ul>
-
-		</div><!-- .rpwe-block - http://wordpress.org/plugins/recent-posts-widget-extended/ -->
+			</div><!-- .rpwe-block - http://wordpress.org/plugins/recent-posts-widget-extended/ -->
 
 		<?php
+		} /* End check. */
 
 		echo $after_widget;
 
 	}
 
 	/**
-	 * Update widget
+	 * Updates the widget control options for the particular instance of the widget.
+	 *
+	 * @since 0.1
 	 */
 	function update( $new_instance, $old_instance ) {
 
@@ -208,7 +226,6 @@ class rpwe_widget extends WP_Widget {
 		$instance['tag']            = $new_instance['tag'];
 		$instance['post_type']      = $new_instance['post_type'];
 		$instance['date']           = $new_instance['date'];
-		$instance['date_format']    = strip_tags( $new_instance['date_format'] );
 		$instance['readmore']       = $new_instance['readmore'];
 		$instance['readmore_text']  = strip_tags( $new_instance['readmore_text'] );
 		$instance['styles_default'] = $new_instance['styles_default'];
@@ -219,7 +236,9 @@ class rpwe_widget extends WP_Widget {
 	}
 
 	/**
-	 * Widget setting
+	 * Displays the widget control options in the Widgets admin screen.
+	 *
+	 * @since 0.1
 	 */
 	function form( $instance ) {
 
@@ -246,7 +265,6 @@ class rpwe_widget extends WP_Widget {
 			'tag'            => '',
 			'post_type'      => '',
 			'date'           => true,
-			'date_format'    => 'F j, Y',
 			'readmore'       => false,
 			'readmore_text'  => __( 'Read More &raquo;', 'rpwe' ),
 			'styles_default' => true,
@@ -272,7 +290,6 @@ class rpwe_widget extends WP_Widget {
 		$tag            = $instance['tag'];
 		$post_type      = $instance['post_type'];
 		$date           = $instance['date'];
-		$date_format    = strip_tags( $instance['date_format'] );
 		$readmore       = $instance['readmore'];
 		$readmore_text  = strip_tags( $instance['readmore_text'] );
 		$styles_default = $instance['styles_default'];
@@ -417,11 +434,6 @@ class rpwe_widget extends WP_Widget {
 				<label class="input-checkbox" for="<?php echo esc_attr( $this->get_field_id( 'date' ) ); ?>"><?php _e( 'Display Date', 'rpwe' ); ?></label>
 				<input id="<?php echo esc_attr( $this->get_field_id( 'date' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'date' ) ); ?>" type="checkbox" value="1" <?php checked( '1', $date ); ?> />&nbsp;
 			</p>
-			<p>
-				<label for="<?php echo esc_attr( $this->get_field_id( 'date_format' ) ); ?>"><?php _e( 'Date Format:', 'rpwe' ); ?></label>
-				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'date_format' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'date_format' ) ); ?>" type="text" value="<?php echo $date_format; ?>"/>
-				<small><?php _e( '<a href="http://codex.wordpress.org/Formatting_Date_and_Time" target="_blank">Date reference</a>', 'rpwe' ) ?></small>
-			</p>
 
 		</div>
 
@@ -433,22 +445,14 @@ class rpwe_widget extends WP_Widget {
 }
 
 /**
- * Register the widget.
- *
- * @since 0.1
- * @link  http://codex.wordpress.org/Function_Reference/register_widget
- */
-function rpwe_register_widget() {
-	register_widget( 'rpwe_widget' );
-}
-add_action( 'widgets_init', 'rpwe_register_widget' );
-
-/**
  * Print a custom excerpt.
- * Code revision in version 0.9, uses wp_trim_words function
+ * Code revision in version 0.9, uses wp_trim_words function.
  *
+ * @param    integer  $length
  * @since    0.1
  * @version  0.9
+ * @access   public
+ * @return   string
  * @link     http://codex.wordpress.org/Function_Reference/wp_trim_words
  */
 function rpwe_excerpt( $length ) {
@@ -461,7 +465,8 @@ function rpwe_excerpt( $length ) {
 /**
  * Custom Styles.
  *
- * @since 0.8
+ * @since  0.8
+ * @access public
  */
 function rpwe_custom_styles() {
 	?>
@@ -470,4 +475,3 @@ function rpwe_custom_styles() {
 </style>
 	<?php
 }
-?>
