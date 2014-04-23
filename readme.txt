@@ -93,11 +93,24 @@ If you want to buy me a cup of coffee, you can do by visiting [this page](http:/
 
 == Frequently Asked Questions ==
 
-= How to filter the query from this plugin =
-You can use `rpwe_default_query_arguments` filter.
+= How to filter the post query? =
+You can use `rpwe_default_query_arguments` to filter it. 
+`
+add_filter( 'rpwe_default_query_arguments', 'your_custom_function' );
+function your_custom_function( $args ) {
+	$args['posts_per_page'] = 10; // Changing the number of posts.
+	return $args;
+}
+`
 
 = Thumbnail size option not working properly =
 Yes, this is because the plugin uses `the_post_thumbnail` custom sizes and not uses `add_image_size` function, [more information](http://codex.wordpress.org/Function_Reference/the_post_thumbnail). At the moment I have no idea how to fix this issue.
+
+= Ordering not working! =
+Did you installed any Post or Post Type Order? Please try to deactivate it and try again the ordering. [(related question)](http://wordpress.org/support/topic/ordering-set-to-descending-not-working)
+
+= No image options =
+Your theme needs to support Post Thumbnail, please go to http://codex.wordpress.org/Post_Thumbnails to read more info and how to activate it in your theme.
 
 == Screenshots ==
 
