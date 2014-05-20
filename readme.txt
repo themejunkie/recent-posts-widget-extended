@@ -98,7 +98,7 @@ You can use `rpwe_default_query_arguments` to filter it.
 `
 add_filter( 'rpwe_default_query_arguments', 'your_custom_function' );
 function your_custom_function( $args ) {
-	$args['posts_per_page'] = 10; // Changing the number of posts.
+	$args['posts_per_page'] = 10; // Changing the number of posts to show.
 	return $args;
 }
 `
