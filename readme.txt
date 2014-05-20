@@ -4,7 +4,7 @@ Donate link: http://satrya.me/donate/
 Tags: recent posts, random posts, thumbnails, widget, widgets, sidebar, excerpt, category, post tag, post type, multiple widgets
 Requires at least: 3.6
 Tested up to: 3.9
-Stable tag: 0.9.1
+Stable tag: 0.9.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -107,6 +107,9 @@ Yes, this is because the plugin uses `the_post_thumbnail` custom sizes and not u
 
 = 1.0.0 - Coming Soon =
 * The first major update, please read the Description tab for more info.
+
+= 0.9.2 - 5/20/2014 =
+* Fix missing stylesheet in the admin area.
 
 = 0.9.1 - 4/22/2014 =
 * If you use caching plugin, please flush the cache after updating
