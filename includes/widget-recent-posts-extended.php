@@ -101,8 +101,7 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 			'offset'           => $offset,
 			'order'            => $order,
 			'orderby'          => $orderby,
-			/* Set it to false to allow WPML modifying the query. */
-			'suppress_filters' => false
+			'suppress_filters' => $instance['suppress_filters']
 		);
 
 		/* Allow developer to filter the query. */
@@ -206,29 +205,30 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 	 */
 	function update( $new_instance, $old_instance ) {
 
-		$instance                   = $old_instance;
-		$instance['title']          = strip_tags( $new_instance['title'] );
-		$instance['title_url']      = esc_url_raw( $new_instance['title_url'] );
-		$instance['cssID']          = sanitize_html_class( $new_instance['cssID'] );
-		$instance['limit']          = (int)( $new_instance['limit'] );
-		$instance['offset']         = (int)( $new_instance['offset'] );
-		$instance['order']          = $new_instance['order'];
-		$instance['orderby']        = $new_instance['orderby'];
-		$instance['excerpt']        = $new_instance['excerpt'];
-		$instance['length']         = (int)( $new_instance['length'] );
-		$instance['thumb']          = $new_instance['thumb'];
-		$instance['thumb_height']   = (int)( $new_instance['thumb_height'] );
-		$instance['thumb_width']    = (int)( $new_instance['thumb_width'] );
-		$instance['thumb_default']  = esc_url_raw( $new_instance['thumb_default'] );
-		$instance['thumb_align']    = $new_instance['thumb_align'];
-		$instance['cat']            = $new_instance['cat'];
-		$instance['tag']            = $new_instance['tag'];
-		$instance['post_type']      = $new_instance['post_type'];
-		$instance['date']           = $new_instance['date'];
-		$instance['readmore']       = $new_instance['readmore'];
-		$instance['readmore_text']  = strip_tags( $new_instance['readmore_text'] );
-		$instance['styles_default'] = $new_instance['styles_default'];
-		$instance['css']            = wp_filter_nohtml_kses( $new_instance['css'] );
+		$instance                     = $old_instance;
+		$instance['title']            = strip_tags( $new_instance['title'] );
+		$instance['title_url']        = esc_url_raw( $new_instance['title_url'] );
+		$instance['cssID']            = sanitize_html_class( $new_instance['cssID'] );
+		$instance['limit']            = (int)( $new_instance['limit'] );
+		$instance['offset']           = (int)( $new_instance['offset'] );
+		$instance['order']            = $new_instance['order'];
+		$instance['orderby']          = $new_instance['orderby'];
+		$instance['excerpt']          = $new_instance['excerpt'];
+		$instance['length']           = (int)( $new_instance['length'] );
+		$instance['thumb']            = $new_instance['thumb'];
+		$instance['thumb_height']     = (int)( $new_instance['thumb_height'] );
+		$instance['thumb_width']      = (int)( $new_instance['thumb_width'] );
+		$instance['thumb_default']    = esc_url_raw( $new_instance['thumb_default'] );
+		$instance['thumb_align']      = $new_instance['thumb_align'];
+		$instance['cat']              = $new_instance['cat'];
+		$instance['tag']              = $new_instance['tag'];
+		$instance['post_type']        = $new_instance['post_type'];
+		$instance['date']             = $new_instance['date'];
+		$instance['readmore']         = $new_instance['readmore'];
+		$instance['readmore_text']    = strip_tags( $new_instance['readmore_text'] );
+		$instance['styles_default']   = $new_instance['styles_default'];
+		$instance['css']              = wp_filter_nohtml_kses( $new_instance['css'] );
+		$instance['suppress_filters'] = $new_instance['suppress_filters'];
 
 		return $instance;
 
@@ -246,28 +246,29 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 
 		/* Set up some default widget settings. */
 		$defaults = array(
-			'title'          => '',
-			'title_url'      => '',
-			'cssID'          => '',
-			'limit'          => 5,
-			'offset'         => 0,
-			'order'          => 'DESC',
-			'orderby'        => 'date',
-			'excerpt'        => false,
-			'length'         => 10,
-			'thumb'          => true,
-			'thumb_height'   => 45,
-			'thumb_width'    => 45,
-			'thumb_default'  => 'http://placehold.it/45x45/f0f0f0/ccc',
-			'thumb_align'    => 'rpwe-alignleft',
-			'cat'            => '',
-			'tag'            => '',
-			'post_type'      => '',
-			'date'           => true,
-			'readmore'       => false,
-			'readmore_text'  => __( 'Read More &raquo;', 'rpwe' ),
-			'styles_default' => true,
-			'css'            => $css_defaults
+			'title'            => '',
+			'title_url'        => '',
+			'cssID'            => '',
+			'limit'            => 5,
+			'offset'           => 0,
+			'order'            => 'DESC',
+			'orderby'          => 'date',
+			'excerpt'          => false,
+			'length'           => 10,
+			'thumb'            => true,
+			'thumb_height'     => 45,
+			'thumb_width'      => 45,
+			'thumb_default'    => 'http://placehold.it/45x45/f0f0f0/ccc',
+			'thumb_align'      => 'rpwe-alignleft',
+			'cat'              => '',
+			'tag'              => '',
+			'post_type'        => '',
+			'date'             => true,
+			'readmore'         => false,
+			'readmore_text'    => __( 'Read More &raquo;', 'rpwe' ),
+			'styles_default'   => true,
+			'css'              => $css_defaults,
+			'suppress_filters' => false
 		);
 
 		$instance = wp_parse_args( (array)$instance, $defaults );
@@ -309,6 +310,14 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 				</label>
 				<textarea class="widefat" id="<?php echo $this->get_field_id( 'css' ); ?>" name="<?php echo $this->get_field_name( 'css' ); ?>" style="height:100px;"><?php echo wp_filter_nohtml_kses( $instance['css'] ); ?></textarea>
 				<small><?php _e( 'If you turn off the default styles, please create your own style.', 'rpwe' ); ?></small>
+			</p>
+
+			<p>
+				<label class="input-checkbox" for="<?php echo $this->get_field_id( 'suppress_filters' ); ?>">
+					<?php _e( 'Suppress Filters', 'rpwe' ); ?>
+				</label>
+				<input id="<?php echo $this->get_field_id( 'suppress_filters' ); ?>" name="<?php echo $this->get_field_name( 'suppress_filters' ); ?>" type="checkbox" value="false" <?php checked( 'false', $instance['suppress_filters'] ); ?> />&nbsp;<br />
+				<small><?php _e( 'Check to set to True', 'rpwe' ); ?></small>
 			</p>
 
 		</div>

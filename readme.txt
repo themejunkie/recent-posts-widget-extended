@@ -16,8 +16,8 @@ This plugin will enable a custom, flexible and super advanced recent posts widge
 
 = Features Include: =
 
-* WordPress 3.9 Support.
-* You can set the title url.
+* WordPress 3.9.2 Support.
+* Set the title url.
 * Display by date, comment count or random.
 * Display thumbnails, with customizable size and alignment.
 * Display excerpt, with customizable length.
@@ -107,8 +107,11 @@ Your theme needs to support Post Thumbnail, please go to http://codex.wordpress.
 == Changelog ==
 
 = 0.9.3 - 8/31/2014 =
-* Added: `strip_shortcodes()` to prevent shorcodes showing in the post excert, Pros [jeffreyvr](http://www.web-on.nl/). It should fix issue [excerpt not displaying](http://wordpress.org/support/topic/excerpts-not-displaying-1)
+* I'm sorry for long wait the bug fixes update. I'm back to support and maintenance this plugin again :)
+* Added: `strip_shortcodes()` to prevent shorcodes showing in the post excert, Pros [jeffreyvr](http://www.web-on.nl/). It should fixed issue [excerpt not displaying](http://wordpress.org/support/topic/excerpts-not-displaying-1)
 * Added: French translation, Pros rwatuny [french translation](http://wordpress.org/support/topic/plugin-recent-posts-widget-extended-french-translation)
+* Added: Option to set `suppress_filters` true or false.
+* Fixed: Arguments in `the_post_thumbnail()`, it should width as first item and height as second.
 
 = 0.9.2 - 5/20/2014 =
 * Fix missing stylesheet in the admin area.
