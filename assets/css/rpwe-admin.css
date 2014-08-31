@@ -1,96 +1,44 @@
-.rpwe-tabs-nav {
-	position: relative;
-	display: inline;
+.widgets-php .rpwe-columns-2 {
+	overflow: hidden;
 	float: left;
-	width: 147px;
+	width: 48%;
 }
 
-.rpwe-tabs-nav li {
-	margin-bottom: 0;
+.widgets-php .rpwe-columns-3 {
+	overflow: hidden;
+	float: left;
+	width: 31%;
+	margin-right: 3.5%;
 }
 
-.rpwe-tabs-nav li.ui-state-active {
-	background-color: #fafafa;
-	border: 1px solid #e5e5e5;
-	border-right-color: #fafafa;
+.widgets-php .rpwe-columns-2 input.widefat, 
+.widgets-php .rpwe-columns-2 select.widefat {
+	width: 99%;
 }
 
-.rpwe-tabs-nav li.ui-state-active a {
-	color: #222;
+.widgets-php .rpwe-columns-3 select.widefat {
+	width: 98.5%;
 }
 
-.rpwe-tabs-nav li.ui-state-focus a {
-	outline: 0;
-}
-
-.rpwe-tabs-nav a {
-	display: block;
-	padding: 10px;
-	text-decoration: none;
-	font-weight: 600;
-}
-
-.rpwe-tabs-content {
-	display: inline;
+.widgets-php .rpwe-column-last {
 	float: right;
-	width: 63%;
-	border: 1px solid #e5e5e5;
-	padding: 0 18px 18px 18px;
-	margin: 13px 0 30px -1px;
-	min-height: 350px;
-	background: #fafafa;
+	margin-right: 0;
 }
 
-.rpwe-content.tabs-panel p {
-	border-bottom: 1px dotted #ccc;
-	padding-bottom: 1em;
+.widgets-php .rpwe-columns-2 label,
+.widgets-php .rpwe-columns-3 label {
+	font-size: 11px;
 }
 
-.rpwe-content.tabs-panel p:last-child {
-	border-bottom: 0;
-	padding-bottom: 0;
-}
-
-.rpwe-content.tabs-panel label {
-	font-weight: 600;
-}
-
-.rpwe-content.tabs-panel .desc {
-	color: #888;
-	display: block;
-	padding-top: 3px;
+.small-input {
+	width: 78px;
 }
 
 .rpwe-block {
 	display: block;
 }
 
-/**
- * Special class
- */
-.input-sm {
-	display: block;
-	width: 20%;
-}
-
-.select-sm {
-	display: block;
-	width: 45%;
-}
-
-/**
- * Clearfix
- */
-.cl:before,
-.cl:after {
-	content: "";
-	display: table;
-}
-
-.cl:after {
-	clear: both;
-}
-
-.cl {
-	*zoom: 1;
+label.input-checkbox {
+	width: 100px;
+	display: inline-block;
 }
