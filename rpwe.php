@@ -3,7 +3,7 @@
  * Plugin Name:  Recent Posts Widget Extended
  * Plugin URI:   http://satrya.me/wordpress-plugins/recent-posts-widget-extended/
  * Description:  Enables advanced widget that gives you total control over the output of your site’s most recent Posts.
- * Version:      0.9.2
+ * Version:      0.9.3
  * Author:       Satrya
  * Author URI:   http://satrya.me/
  * Author Email: satrya@satrya.me
@@ -34,24 +34,22 @@ class RPW_Extended {
 	 * PHP5 constructor method.
 	 *
 	 * @since  0.1
-	 * @access public
-	 * @return void
 	 */
 	public function __construct() {
 
-		/* Set the constants needed by the plugin. */
+		// Set the constants needed by the plugin.
 		add_action( 'plugins_loaded', array( &$this, 'constants' ), 1 );
 
-		/* Internationalize the text strings used. */
+		// Internationalize the text strings used.
 		add_action( 'plugins_loaded', array( &$this, 'i18n' ), 2 );
 
-		/* Load the functions files. */
+		// Load the functions files.
 		add_action( 'plugins_loaded', array( &$this, 'includes' ), 3 );
 
-		/* Load the admin style. */
+		// Load the admin style.
 		add_action( 'admin_enqueue_scripts', array( &$this, 'admin_style' ) );
 
-		/* Register widget. */
+		// Register widget.
 		add_action( 'widgets_init', array( &$this, 'register_widget' ) );
 
 	}
@@ -60,21 +58,19 @@ class RPW_Extended {
 	 * Defines constants used by the plugin.
 	 *
 	 * @since  0.1
-	 * @access public
-	 * @return void
 	 */
 	public function constants() {
 
-		/* Set constant path to the plugin directory. */
+		// Set constant path to the plugin directory.
 		define( 'RPWE_DIR', trailingslashit( plugin_dir_path( __FILE__ ) ) );
 
-		/* Set the constant path to the plugin directory URI. */
+		// Set the constant path to the plugin directory URI.
 		define( 'RPWE_URI', trailingslashit( plugin_dir_url( __FILE__ ) ) );
 
-		/* Set the constant path to the includes directory. */
+		// Set the constant path to the includes directory.
 		define( 'RPWE_INCLUDES', RPWE_DIR . trailingslashit( 'includes' ) );
 
-		/* Set the constant path to the assets directory. */
+		// Set the constant path to the assets directory.
 		define( 'RPWE_ASSETS', RPWE_URI . trailingslashit( 'assets' ) );
 
 	}
@@ -83,8 +79,6 @@ class RPW_Extended {
 	 * Loads the translation files.
 	 *
 	 * @since  0.1
-	 * @access public
-	 * @return void
 	 */
 	public function i18n() {
 		load_plugin_textdomain( 'rpwe', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
@@ -94,8 +88,6 @@ class RPW_Extended {
 	 * Loads the initial files needed by the plugin.
 	 *
 	 * @since  0.1
-	 * @access public
-	 * @return void
 	 */
 	public function includes() {
 		require_once( RPWE_INCLUDES . 'widget-recent-posts-extended.php' );
@@ -105,16 +97,14 @@ class RPW_Extended {
 	 * Register custom style for the widget settings.
 	 *
 	 * @since  0.8
-	 * @access public
-	 * @return void
 	 */
 	public function admin_style() {
 
-		/* Check if current screen is Widgets page. */
+		// Check if current screen is Widgets page.
 		if ( 'widgets' != get_current_screen()->base )
 			return;
 
-		/* Loads the widget style. */
+		// Loads the widget style.
 		wp_enqueue_style( 'rpwe-admin-style', trailingslashit( RPWE_ASSETS ) . 'css/rpwe-admin.css', null, null );
 
 	}
@@ -123,8 +113,6 @@ class RPW_Extended {
 	 * Register the widget.
 	 *
 	 * @since  0.9.1
-	 * @access public
-	 * @return void
 	 */
 	public function register_widget() {
 		register_widget( 'Recent_Posts_Widget_Extended' );

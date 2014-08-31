@@ -1,10 +1,10 @@
-=== Plugin Name ===
-Contributors: satrya, themejunkie, themephe, davidkryzaniak, akbyte
+=== Recent Posts Widget Extended ===
+Contributors: satrya, themejunkie
 Donate link: http://satrya.me/donate/
 Tags: recent posts, random posts, thumbnails, widget, widgets, sidebar, excerpt, category, post tag, post type, multiple widgets
 Requires at least: 3.6
-Tested up to: 3.9
-Stable tag: 0.9.2
+Tested up to: 3.9.2
+Stable tag: 0.9.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,26 +12,13 @@ Provides flexible and advanced recent posts widget. Allows you to display them w
 
 == Description ==
 
-**Version 1.0.0 Coming Soon**   
-Version 1.0.0 is the first major update for the plugin. It will comes with more cool features such as:   
-
-* More clean code
-* Shortcodes
-* Fix the thumbnail size issue
-* Pagination support
-* Taxonomy support
-* Display post author
-* Display post taxonomy
-* Masonry layout (*experiment*)
-* And much more!
-
 This plugin will enable a custom, flexible and super advanced recent posts widget. Allows you to display a list of the most recent posts with thumbnail, excerpt and post date, also you can display it from all or specific or multiple category or tag.
 
 = Features Include: =
 
 * WordPress 3.9 Support.
 * You can set the title url.
-* **Display by date, comment count or random.** *new*
+* Display by date, comment count or random.
 * Display thumbnails, with customizable size and alignment.
 * Display excerpt, with customizable length.
 * Display from all, specific or multiple category.
@@ -67,8 +54,9 @@ This plugin creates custom image sizes. If you use images that were uploaded to 
 * Developed by [Satrya](http://satrya.me/) & [Theme Junkie](http://www.theme-junkie.com/)
 * Check out the [Github](https://github.com/satrya/recent-posts-widget-extended) repo to contribute.
 
-= Donations =
-If you want to buy me a cup of coffee, you can do by visiting [this page](http://satrya.me/donate/). I appreciate all donations, no matter the size. 
+= Contributors =
+* [David Kryzaniak](http://profiles.wordpress.org/davidkryzaniak/)
+* [AKbyte](http://profiles.wordpress.org/akbyte/)
 
 == Installation ==
 
@@ -93,11 +81,24 @@ If you want to buy me a cup of coffee, you can do by visiting [this page](http:/
 
 == Frequently Asked Questions ==
 
-= How to filter the query from this plugin =
-You can use `rpwe_default_query_arguments` filter.
+= How to filter the post query? =
+You can use `rpwe_default_query_arguments` to filter it. 
+`
+add_filter( 'rpwe_default_query_arguments', 'your_custom_function' );
+function your_custom_function( $args ) {
+	$args['posts_per_page'] = 10; // Changing the number of posts to show.
+	return $args;
+}
+`
 
 = Thumbnail size option not working properly =
 Yes, this is because the plugin uses `the_post_thumbnail` custom sizes and not uses `add_image_size` function, [more information](http://codex.wordpress.org/Function_Reference/the_post_thumbnail). At the moment I have no idea how to fix this issue.
+
+= Ordering not working! =
+Did you installed any Post or Post Type Order? Please try to deactivate it and try again the ordering. [(related question)](http://wordpress.org/support/topic/ordering-set-to-descending-not-working)
+
+= No image options =
+Your theme needs to support Post Thumbnail, please go to http://codex.wordpress.org/Post_Thumbnails to read more info and how to activate it in your theme.
 
 == Screenshots ==
 
@@ -105,8 +106,9 @@ Yes, this is because the plugin uses `the_post_thumbnail` custom sizes and not u
 
 == Changelog ==
 
-= 1.0.0 - Coming Soon =
-* The first major update, please read the Description tab for more info.
+= 0.9.3 - 8/31/2014 =
+* Added: `strip_shortcodes()` to prevent shorcodes showing in the post excert, Pros [jeffreyvr](http://www.web-on.nl/). It should fix issue [excerpt not displaying](http://wordpress.org/support/topic/excerpts-not-displaying-1)
+* Added: French translation, Pros rwatuny [french translation](http://wordpress.org/support/topic/plugin-recent-posts-widget-extended-french-translation)
 
 = 0.9.2 - 5/20/2014 =
 * Fix missing stylesheet in the admin area.

@@ -1,0 +1,195 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Recent Posts Widget Extended\n"
+"POT-Creation-Date: 2014-04-11 12:32-0500\n"
+"PO-Revision-Date: 2014-04-11 12:40-0500\n"
+"Last-Translator: Matthieu Durocher <matthieu@technocyclope.com>\n"
+"Language-Team: Matthieu Durocher <matthieu@technocyclope.com>\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: includes/widget-recent-posts-extended.php:19
+msgid ""
+"An advanced widget that gives you total control over the output of your "
+"site’s most recent Posts."
+msgstr ""
+"Un widget de pointe qui vous donne un contrôle total sur l'affichage des "
+"derniers billets de votre site."
+
+#: includes/widget-recent-posts-extended.php:28
+msgid "Recent Posts Extended"
+msgstr "Recent Posts Extended"
+
+#: includes/widget-recent-posts-extended.php:119
+#: includes/widget-recent-posts-extended.php:159
+#, php-format
+msgid "Permalink to %s"
+msgstr "Lien vers %s"
+
+#: includes/widget-recent-posts-extended.php:251
+msgid "Read More &raquo;"
+msgstr "Lire la suite..."
+
+#: includes/widget-recent-posts-extended.php:286
+msgid "Title:"
+msgstr "Titre :"
+
+#: includes/widget-recent-posts-extended.php:290
+msgid "Title URL:"
+msgstr "Lien du titre :"
+
+#: includes/widget-recent-posts-extended.php:294
+msgid "CSS ID:"
+msgstr "CSS ID :"
+
+#: includes/widget-recent-posts-extended.php:298
+msgid "Use Default Styles"
+msgstr "Utilisez les styles par défaut"
+
+#: includes/widget-recent-posts-extended.php:302
+msgid "CSS:"
+msgstr "CSS :"
+
+#: includes/widget-recent-posts-extended.php:304
+msgid "If you turn off the default styles, please create your own style."
+msgstr ""
+"Si vous désactivez les styles par défaut, s'il vous plaît créer votre propre "
+"style."
+
+#: includes/widget-recent-posts-extended.php:312
+msgid "Limit:"
+msgstr "Limite :"
+
+#: includes/widget-recent-posts-extended.php:316
+msgid "Offset (the number of posts to skip):"
+msgstr "Décalage (le nombre de postes à sauter) :"
+
+#: includes/widget-recent-posts-extended.php:320
+msgid "Order:"
+msgstr "Ordre :"
+
+#: includes/widget-recent-posts-extended.php:322
+msgid "DESC"
+msgstr "DESC"
+
+#: includes/widget-recent-posts-extended.php:323
+msgid "ASC"
+msgstr "ASC"
+
+#: includes/widget-recent-posts-extended.php:327
+msgid "Orderby:"
+msgstr "Ordre par :"
+
+#: includes/widget-recent-posts-extended.php:329
+msgid "ID"
+msgstr "ID"
+
+#: includes/widget-recent-posts-extended.php:330
+msgid "Author"
+msgstr "Auteur"
+
+#: includes/widget-recent-posts-extended.php:331
+msgid "Title"
+msgstr "Titre"
+
+#: includes/widget-recent-posts-extended.php:332
+msgid "Date"
+msgstr "Date"
+
+#: includes/widget-recent-posts-extended.php:333
+msgid "Modified"
+msgstr "Modifié"
+
+#: includes/widget-recent-posts-extended.php:334
+msgid "Random"
+msgstr "Au hasard"
+
+#: includes/widget-recent-posts-extended.php:335
+msgid "Comment Count"
+msgstr "Décompte des commentaires"
+
+#: includes/widget-recent-posts-extended.php:336
+msgid "Menu Order"
+msgstr "Ordre du menu"
+
+#: includes/widget-recent-posts-extended.php:340
+msgid "Limit to Category: "
+msgstr "Limiter à une catégorie :"
+
+#: includes/widget-recent-posts-extended.php:351
+msgid "Limit to Tag: "
+msgstr "Limiter à un mot clé :"
+
+#: includes/widget-recent-posts-extended.php:363
+msgid "Choose the Post Type: "
+msgstr "Choisir le type d'article :"
+
+#: includes/widget-recent-posts-extended.php:379
+msgid "Display Thumbnail"
+msgstr "Affichage de la miniature"
+
+#: includes/widget-recent-posts-extended.php:383
+msgid "Thumbnail (height, width, align):"
+msgstr "miniature (hauteur, largeur, alignement) :"
+
+#: includes/widget-recent-posts-extended.php:387
+msgid "Left"
+msgstr "Gauche"
+
+#: includes/widget-recent-posts-extended.php:388
+msgid "Right"
+msgstr "Droite"
+
+#: includes/widget-recent-posts-extended.php:389
+msgid "Center"
+msgstr "Centre"
+
+#: includes/widget-recent-posts-extended.php:393
+msgid "Default Thumbnail:"
+msgstr "Miniature par défaut :"
+
+#: includes/widget-recent-posts-extended.php:395
+msgid "Leave it blank to disable."
+msgstr "Laissez ce champ vide pour désactiver."
+
+#: includes/widget-recent-posts-extended.php:401
+msgid "Display Excerpt"
+msgstr "Affichage de l'extrait"
+
+#: includes/widget-recent-posts-extended.php:405
+msgid "Excerpt Length:"
+msgstr "Longueur de l'extrait"
+
+#: includes/widget-recent-posts-extended.php:409
+msgid "Display Readmore"
+msgstr "Affichage de «Lire la suite»"
+
+#: includes/widget-recent-posts-extended.php:413
+msgid "Readmore Text:"
+msgstr "Texte «Lire la suite» :"
+
+#: includes/widget-recent-posts-extended.php:417
+msgid "Display Date"
+msgstr "Affichage de la date"
+
+#: includes/widget-recent-posts-extended.php:421
+msgid "Date Format:"
+msgstr "Format de date :"
+
+#: includes/widget-recent-posts-extended.php:423
+msgid ""
+"<a href=\"http://codex.wordpress.org/Formatting_Date_and_Time\" target="
+"\"_blank\">Date reference</a>"
+msgstr ""
+"<a href=\"http://codex.wordpress.org/Formatting_Date_and_Time\" target="
+"\"_blank\">Référence pour les formats de date</a>"
