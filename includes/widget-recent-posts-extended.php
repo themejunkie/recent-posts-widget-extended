@@ -133,7 +133,7 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 
 									<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'rpwe' ), the_title_attribute('echo=0' ) ); ?>" rel="bookmark">
 										<?php the_post_thumbnail( 
-											array( $thumb_height, $thumb_width, true ),
+											array( $thumb_width, $thumb_height, true ),
 											array( 
 												'class' => $thumb_align . ' rpwe-thumb the-post-thumbnail',
 												'alt'   => esc_attr( get_the_title() ),
