@@ -3,7 +3,7 @@
  * Plugin Name:  Recent Posts Widget Extended
  * Plugin URI:   http://satrya.me/wordpress-plugins/recent-posts-widget-extended/
  * Description:  Enables advanced widget that gives you total control over the output of your site’s most recent Posts.
- * Version:      0.9.4
+ * Version:      0.9.5
  * Author:       Satrya
  * Author URI:   http://satrya.me/
  * Author Email: satrya@satrya.me
@@ -98,7 +98,6 @@ class RPW_Extended {
 	public function includes() {
 		require_once( RPWE_INCLUDES . 'functions.php' );
 		require_once( RPWE_INCLUDES . 'shortcode.php' );
-		require_once( RPWE_INCLUDES . 'style.php' );
 	}
 
 	/**
