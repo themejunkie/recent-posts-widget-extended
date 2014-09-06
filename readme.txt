@@ -1,39 +1,49 @@
 === Recent Posts Widget Extended ===
 Contributors: satrya, themejunkie
 Donate link: http://satrya.me/donate/
-Tags: recent posts, random posts, thumbnails, widget, widgets, sidebar, excerpt, category, post tag, post type, multiple widgets
+Tags: recent posts, random posts, popular posts, thumbnails, widget, widgets, sidebar, excerpt, category, post tag, taxonomy, post type, post status, shortcode, multiple widgets
 Requires at least: 3.6
-Tested up to: 3.9.2
-Stable tag: 0.9.3
+Tested up to: 4.0
+Stable tag: 0.9.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Provides flexible and advanced recent posts widget. Allows you to display them with thumbnails, post excerpt, multiple category and more.
+Provides flexible and advanced recent posts. Display it via shortcode or widget with with thumbnails, post excerpt, taxonomy and more.
 
 == Description ==
 
-This plugin will enable a custom, flexible and super advanced recent posts widget. Allows you to display a list of the most recent posts with thumbnail, excerpt and post date, also you can display it from all or specific or multiple category or tag.
+This plugin will enable a custom, flexible and super advanced recent posts, you can display it via shortcode or widget. Allows you to display a list of the most recent posts with thumbnail, excerpt and post date, also you can display it from all or specific or multiple taxonomy, post type and much more!
 
-= Features Include: =
+= New Features =
+* WordPress 4.0 Support.
+* Shortcode feature. Please read [Other Notes](http://wordpress.org/plugins/recent-posts-widget-extended/other_notes)
+* Taxonomy support!
+* Post status option.
+* Custom html or text before and/or after recent posts.
+* Added some filter to allow dev to customize the plugin. Please read [FAQ](http://wordpress.org/plugins/recent-posts-widget-extended/faq)
 
-* WordPress 3.9.2 Support.
-* Set the title url.
+= Features Include =
+
+* Allow you to set title url.
 * Display by date, comment count or random.
 * Display thumbnails, with customizable size and alignment.
 * Display excerpt, with customizable length.
 * Display from all, specific or multiple category.
 * Display from all, specific or multiple tag.
-* Display post date and you can set the format.
-* Default thumbnail.
+* Display post date.
 * Read more option.
 * Post type option.
-* Custom CSS
+* Custom CSS.
 * Multiple widgets.
-* Support [Get the Image](http://wordpress.org/plugins/get-the-image/) plugin.
 
-= Ugly Image Sizes =
+= Plugin Support =
 
-This plugin creates custom image sizes. If you use images that were uploaded to the media library before you installed this plugin, please install [Regenerate Thumbnails](http://wordpress.org/extend/plugins/regenerate-thumbnails/) plugin to corrected the sizes.
+* [Get the Image](http://wordpress.org/plugins/get-the-image/).
+* [Page Builder by SiteOrigin](http://wordpress.org/plugins/siteorigin-panels/).
+
+= Image Sizes Issue =
+
+This plugin creates custom image sizes. If you use images that were uploaded to the media library before you installed this plugin, please install [Regenerate Thumbnails](http://wordpress.org/extend/plugins/regenerate-thumbnails/) plugin to fix the image sizes.
 
 = Tested Themes =
 
@@ -49,14 +59,21 @@ This plugin creates custom image sizes. If you use images that were uploaded to 
 
 * Go to [forum support](http://wordpress.org/support/plugin/recent-posts-widget-extended).
 * [Rate/Review the plugin](http://wordpress.org/support/view/plugin-reviews/recent-posts-widget-extended).
+* Submit translation.
 
 = Plugin Info =
 * Developed by [Satrya](http://satrya.me/) & [Theme Junkie](http://www.theme-junkie.com/)
 * Check out the [Github](https://github.com/satrya/recent-posts-widget-extended) repo to contribute.
 
+= Posts Plugin Series =
+* [Recent Posts Widget Extended](http://wordpress.org/plugins/recent-posts-widget-extended/)
+* [Advanced Random Posts Widget](http://wordpress.org/plugins/advanced-random-posts-widget/)
+
 = Contributors =
 * [David Kryzaniak](http://profiles.wordpress.org/davidkryzaniak/)
 * [AKbyte](http://profiles.wordpress.org/akbyte/)
+* [Alexander Sidorov](https://github.com/lkart)
+* [Rubens Mariuzzo](https://github.com/rmariuzzo)
 
 == Installation ==
 
@@ -82,7 +99,7 @@ This plugin creates custom image sizes. If you use images that were uploaded to 
 == Frequently Asked Questions ==
 
 = How to filter the post query? =
-You can use `rpwe_default_query_arguments` to filter it. 
+You can use `rpwe_default_query_arguments` to filter it. Example:
 `
 add_filter( 'rpwe_default_query_arguments', 'your_custom_function' );
 function your_custom_function( $args ) {
@@ -90,6 +107,9 @@ function your_custom_function( $args ) {
 	return $args;
 }
 `
+
+= How to filter the post excerpt? =
+Post excerpt now comes with filter to easily dev to change/customize it. `apply_filters( 'rpwe_excerpt', get_the_excerpt() )`
 
 = Thumbnail size option not working properly =
 Yes, this is because the plugin uses `the_post_thumbnail` custom sizes and not uses `add_image_size` function, [more information](http://codex.wordpress.org/Function_Reference/the_post_thumbnail). At the moment I have no idea how to fix this issue.
@@ -100,27 +120,156 @@ Did you installed any Post or Post Type Order? Please try to deactivate it and t
 = No image options =
 Your theme needs to support Post Thumbnail, please go to http://codex.wordpress.org/Post_Thumbnails to read more info and how to activate it in your theme.
 
+= How to add custom style? =
+First, please uncheck the **Use Default Style** option then place the css code below in the Custom CSS box, then you can customize it to fit your needs
+`
+.rpwe-block ul {
+	list-style: none !important;
+	margin-left: 0 !important;
+	padding-left: 0 !important;
+}
+.rpwe-block li {
+	border-bottom: 1px solid #eee;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	list-style-type: none;
+}
+.rpwe-block a {
+	display: inline !important;
+	text-decoration: none;
+}
+.rpwe-block h3 {
+	background: none !important;
+	clear: none;
+	margin-bottom: 0 !important;
+	margin-top: 0 !important;
+	font-weight: 400;
+	font-size: 12px !important;
+	line-height: 1.5em;
+}
+.rpwe-thumb {
+	border: 1px solid #eee !important;
+	box-shadow: none !important;
+	margin: 2px 10px 2px 0;
+	padding: 3px !important;
+}
+.rpwe-summary {
+	font-size: 12px;
+}
+.rpwe-time {
+	color: #bbb;
+	font-size: 11px;
+}
+.rpwe-alignleft {
+	display: inline;
+	float: left;
+}
+.rpwe-alignright {
+	display: inline;
+	float: right;
+}
+.rpwe-aligncenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.rpwe-clearfix:before,.rpwe-clearfix:after {
+	content: "";
+	display: table !important;
+}
+.rpwe-clearfix:after {
+	clear: both;
+}
+.rpwe-clearfix {
+	zoom: 1;
+}
+`
+
+= Available filters =
+Default arguments
+`
+rpwe_default_args
+`
+
+Post excerpt
+`
+rpwe_excerpt
+`
+
+Post markup
+`
+rpwe_markup
+`
+
+Post query arguments
+`
+rpwe_default_query_arguments
+`
+
 == Screenshots ==
 
 1. The widget settings
 
+== Shorcode Explanation ==
+
+Explanation of shortcode options:
+
+Basic shortcode
+`
+[rpwe]
+`
+
+Display 10 recent posts
+`
+[rpwe limit="10"]
+`
+
+Display 10 recent posts with thumbnail
+`
+[rpwe limit="10" thumb="true"]
+`
+
+**Here's the full default shortcode arguments**
+`
+limit="5"
+offset=""
+order="DESC"
+orderby="date"
+post_type="post"
+cat=""
+tag=""
+taxonomy=""
+post_type="post"
+post_status="publish"
+ignore_sticky="1"
+taxonomy=""
+excerpt="false"
+length="10"
+thumb="true"
+thumb_height="45"
+thumb_width="45"
+thumb_default="http://placehold.it/45x45/f0f0f0/ccc"
+thumb_align="rpwe-alignleft"
+date="true"
+readmore="false"
+readmore_text="Read More &raquo;"
+styles_default="true"
+cssID=""
+before=""
+after=""
+`
+
 == Changelog ==
 
-= 0.9.3 - 8/31/2014 =
-* I'm sorry for long wait the bug fixes update. I'm back to support and maintenance this plugin again :)
-* Added: `strip_shortcodes()` to prevent shorcodes showing in the post excert, Pros [jeffreyvr](http://www.web-on.nl/). It should fixed issue [excerpt not displaying](http://wordpress.org/support/topic/excerpts-not-displaying-1)
-* Added: French translation, Pros rwatuny [french translation](http://wordpress.org/support/topic/plugin-recent-posts-widget-extended-french-translation)
-* Added: Option to set `suppress_filters` true or false.
-* Fixed: Arguments in `the_post_thumbnail()`, it should width as first item and height as second.
-
-= 0.9.2 - 5/20/2014 =
-* Fix missing stylesheet in the admin area.
-
-= 0.9.1 - 4/22/2014 =
-* If you use caching plugin, please flush the cache after updating
-* Only load admin widget style on Widgets page
-* Replaced `get_the_excerpt()` with `get_the_content()` for the post excert. Props [Akbyte](http://profiles.wordpress.org/akbyte/)
-* Fix issue when no posts exist
-* Set `suppress_filters` to false to support WPML
-* Removed date format option. I have to removed it since some people need the date translatable, it will uses 'Date Format' on Settings > General panel.
-* Update language
+= 0.9.4 -  =
+* Tested for WordPress 4.0.
+* **The code is totally rewritten, please re-save or re-install the plugin if it doesn't work properly. I'm sorry for it.**
+* After some research, I decided to get back the `get_the_excerpt()` as the excerpt. But now you can easily to change it via filter. Please read [FAQ](http://wordpress.org/plugins/recent-posts-widget-extended/faq)
+* Added: Shortcode support.
+* Added: Post status option.
+* Added: Taxonomy input to limit the posts based on taxonomy.
+* Added: Exclude sticky post.
+* Added: You can display HTML or text before or after the posts.
+* Added: Now support Siteorigin Page Builder.
+* Removed: Suppres Filter option
+* Limit to Category and Limit to Tag option will be removed in the next release, please just use the **Limit to Taxonomy** option to display posts based on taxonomy.

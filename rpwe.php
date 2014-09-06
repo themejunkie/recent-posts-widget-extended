@@ -3,7 +3,7 @@
  * Plugin Name:  Recent Posts Widget Extended
  * Plugin URI:   http://satrya.me/wordpress-plugins/recent-posts-widget-extended/
  * Description:  Enables advanced widget that gives you total control over the output of your site’s most recent Posts.
- * Version:      0.9.3
+ * Version:      0.9.4
  * Author:       Satrya
  * Author URI:   http://satrya.me/
  * Author Email: satrya@satrya.me
@@ -52,6 +52,9 @@ class RPW_Extended {
 		// Register widget.
 		add_action( 'widgets_init', array( &$this, 'register_widget' ) );
 
+		// Register new image size.
+		add_action( 'init', array( &$this, 'register_image_size' ) );
+
 	}
 
 	/**
@@ -69,6 +72,9 @@ class RPW_Extended {
 
 		// Set the constant path to the includes directory.
 		define( 'RPWE_INCLUDES', RPWE_DIR . trailingslashit( 'includes' ) );
+
+		// Set the constant path to the includes directory.
+		define( 'RPWE_CLASS', RPWE_DIR . trailingslashit( 'classes' ) );
 
 		// Set the constant path to the assets directory.
 		define( 'RPWE_ASSETS', RPWE_URI . trailingslashit( 'assets' ) );
@@ -90,7 +96,9 @@ class RPW_Extended {
 	 * @since  0.1
 	 */
 	public function includes() {
-		require_once( RPWE_INCLUDES . 'widget-recent-posts-extended.php' );
+		require_once( RPWE_INCLUDES . 'functions.php' );
+		require_once( RPWE_INCLUDES . 'shortcode.php' );
+		require_once( RPWE_INCLUDES . 'style.php' );
 	}
 
 	/**
@@ -101,8 +109,9 @@ class RPW_Extended {
 	public function admin_style() {
 
 		// Check if current screen is Widgets page.
-		if ( 'widgets' != get_current_screen()->base )
+		if ( 'widgets' != get_current_screen()->base ) {
 			return;
+		}
 
 		// Loads the widget style.
 		wp_enqueue_style( 'rpwe-admin-style', trailingslashit( RPWE_ASSETS ) . 'css/rpwe-admin.css', null, null );
@@ -115,7 +124,17 @@ class RPW_Extended {
 	 * @since  0.9.1
 	 */
 	public function register_widget() {
+		require_once( RPWE_CLASS . 'widget.php' );
 		register_widget( 'Recent_Posts_Widget_Extended' );
+	}
+
+	/**
+	 * Register new image size.
+	 *
+	 * @since  0.9.4
+	 */
+	function register_image_size() {
+		add_image_size( 'rpwe-thumbnail', 45, 45, true );
 	}
 
 }
