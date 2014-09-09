@@ -65,18 +65,21 @@
 		</label>
 	</p>
 
-	<p>
-		<label for="<?php echo $this->get_field_id( 'post_type' ); ?>">
-			<?php _e( 'Post Type', 'rpwe' ); ?>
+	<div class="rpwe-multiple-check-form">
+		<label>
+			<?php _e( 'Post Types', 'rpwe' ); ?>
 		</label>
-		<?php /* pros Justin Tadlock - http://themehybrid.com/ */ ?>
-		<select class="widefat" id="<?php echo $this->get_field_id( 'post_type' ); ?>" name="<?php echo $this->get_field_name( 'post_type' ); ?>">
-			<option value="any" <?php selected( 'any', $instance['post_type'] ); ?>><?php _e( 'Any', 'rpwe' ); ?></option>
-			<?php foreach ( get_post_types( array( 'public' => true ), 'objects' ) as $post_type ) { ?>
-				<option value="<?php echo esc_attr( $post_type->name ); ?>" <?php selected( $instance['post_type'], $post_type->name ); ?>><?php echo esc_html( $post_type->labels->singular_name ); ?></option>
-			<?php } ?>
-		</select>
-	</p>
+		<ul>
+			<?php foreach ( get_post_types( array( 'public' => true ), 'objects' ) as $type ) : ?>
+				<li>
+					<input type="checkbox" value="<?php echo esc_attr( $type->name ); ?>" id="<?php echo $this->get_field_id( 'post_type' ) . '-' . $type->name; ?>" name="<?php echo $this->get_field_name( 'post_type' ); ?>[]" <?php checked( is_array( $instance['post_type'] ) && in_array( $type->name, $instance['post_type'] ) ); ?> />
+					<label for="<?php echo $this->get_field_id( 'post_type' ) . '-' . $type->name; ?>">
+						<?php echo esc_html( $type->labels->name ); ?>
+					</label>
+				</li>
+			<?php endforeach; ?>
+		</ul>
+	</div>
 
 	<p>
 		<label for="<?php echo $this->get_field_id( 'post_status' ); ?>">
@@ -115,35 +118,37 @@
 		</select>
 	</p>
 
-	<p>
-		<label for="<?php echo $this->get_field_id( 'cat' ); ?>">
+	<div class="rpwe-multiple-check-form">
+		<label>
 			<?php _e( 'Limit to Category', 'rpwe' ); ?>
 		</label>
-	   	<select class="widefat" multiple="multiple" id="<?php echo $this->get_field_id( 'cat' ); ?>" name="<?php echo $this->get_field_name( 'cat' ); ?>[]" style="width:100%;">
-			<optgroup label="Categories">
-				<?php $categories = get_terms( 'category' ); ?>
-				<?php foreach( $categories as $category ) { ?>
-					<option value="<?php echo $category->term_id; ?>" <?php if ( is_array( $instance['cat'] ) && in_array( $category->term_id, $instance['cat'] ) ) echo ' selected="selected"'; ?>><?php echo $category->name; ?></option>
-				<?php } ?>
-			</optgroup>
-	    </select>
-	    <small>Please just use the <strong>Limit to Taxonomy</strong> option to display posts based on category, I will remove this option in the next release.</small>
-	</p>
+		<ul>
+			<?php foreach ( get_terms( 'category' ) as $category ) : ?>
+				<li>
+					<input type="checkbox" value="<?php echo (int) $category->term_id; ?>" id="<?php echo $this->get_field_id( 'cat' ) . '-' . (int) $category->term_id; ?>" name="<?php echo $this->get_field_name( 'cat' ); ?>[]" <?php checked( is_array( $instance['cat'] ) && in_array( $category->term_id, $instance['cat'] ) ); ?> />
+					<label for="<?php echo $this->get_field_id( 'cat' ) . '-' . (int) $category->term_id; ?>">
+						<?php echo esc_html( $category->name ); ?>
+					</label>
+				</li>
+			<?php endforeach; ?>
+		</ul>
+	</div>
 
-	<p>
-		<label for="<?php echo $this->get_field_id( 'tag' ); ?>">
+	<div class="rpwe-multiple-check-form">
+		<label>
 			<?php _e( 'Limit to Tag', 'rpwe' ); ?>
 		</label>
-	   	<select class="widefat" multiple="multiple" id="<?php echo $this->get_field_id( 'tag' ); ?>" name="<?php echo $this->get_field_name( 'tag' ); ?>[]" style="width:100%;">
-			<optgroup label="Tags">
-				<?php $tags = get_terms( 'post_tag' ); ?>
-				<?php foreach( $tags as $post_tag ) { ?>
-					<option value="<?php echo $post_tag->term_id; ?>" <?php if ( is_array( $instance['tag'] ) && in_array( $post_tag->term_id, $instance['tag'] ) ) echo ' selected="selected"'; ?>><?php echo $post_tag->name; ?></option>
-				<?php } ?>
-			</optgroup>
-	    </select>
-	    <small>Please just use the <strong>Limit to Taxonomy</strong> option to display posts based on tag, I will remove this option in the next release.</small>
-	</p>
+		<ul>
+			<?php foreach ( get_terms( 'post_tag' ) as $post_tag ) : ?>
+				<li>
+					<input type="checkbox" value="<?php echo (int) $post_tag->term_id; ?>" id="<?php echo $this->get_field_id( 'tag' ) . '-' . (int) $post_tag->term_id; ?>" name="<?php echo $this->get_field_name( 'tag' ); ?>[]" <?php checked( is_array( $instance['tag'] ) && in_array( $post_tag->term_id, $instance['tag'] ) ); ?> />
+					<label for="<?php echo $this->get_field_id( 'tag' ) . '-' . (int) $post_tag->term_id; ?>">
+						<?php echo esc_html( $post_tag->name ); ?>
+					</label>
+				</li>
+			<?php endforeach; ?>
+		</ul>
+	</div>
 
 	<p>
 		<label for="<?php echo $this->get_field_id( 'taxonomy' ); ?>">
@@ -167,9 +172,10 @@
 
 	<p>
 		<label for="<?php echo $this->get_field_id( 'offset' ); ?>">
-			<?php _e( 'Offset (the number of posts to skip)', 'rpwe' ); ?>
+			<?php _e( 'Offset', 'rpwe' ); ?>
 		</label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'offset' ); ?>" name="<?php echo $this->get_field_name( 'offset' ); ?>" type="number" step="1" min="0" value="<?php echo (int)( $instance['offset'] ); ?>" />
+		<small><?php _e( 'The number of posts to skip', 'rpwe' ); ?></small>
 	</p>
 
 	<?php if ( current_theme_supports( 'post-thumbnails' ) ) { ?>

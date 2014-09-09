@@ -1,177 +1,210 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Recent Posts Widget Extended 0.6\n"
-"POT-Creation-Date: 2014-04-23 01:06+0700\n"
-"PO-Revision-Date: 2014-04-23 01:06+0700\n"
+"POT-Creation-Date: 2014-09-09 14:08+0700\n"
+"PO-Revision-Date: 2014-09-09 14:08+0700\n"
 "Last-Translator: Satrya <satrya@satrya.me>\n"
 "Language-Team: Satrya <satrya@satrya.me>\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.4\n"
+"X-Generator: Poedit 1.6.9\n"
 "X-Poedit-KeywordsList: __;_e;esc_attr__;esc_html__\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../includes/widget-recent-posts-extended.php:24
+#: ../classes/widget.php:24
 msgid ""
 "An advanced widget that gives you total control over the output of your "
 "site’s most recent Posts."
 msgstr ""
 
-#: ../includes/widget-recent-posts-extended.php:35
+#: ../classes/widget.php:35
 msgid "Recent Posts Extended"
 msgstr ""
 
-#: ../includes/widget-recent-posts-extended.php:134
-#: ../includes/widget-recent-posts-extended.php:174
-#, php-format
-msgid "Permalink to %s"
-msgstr ""
-
-#: ../includes/widget-recent-posts-extended.php:269
-msgid "Read More &raquo;"
-msgstr ""
-
-#: ../includes/widget-recent-posts-extended.php:303
-msgid "Title:"
-msgstr ""
-
-#: ../includes/widget-recent-posts-extended.php:307
-msgid "Title URL:"
-msgstr ""
-
-#: ../includes/widget-recent-posts-extended.php:311
-msgid "CSS ID:"
-msgstr ""
-
-#: ../includes/widget-recent-posts-extended.php:315
-msgid "Use Default Styles"
-msgstr ""
-
-#: ../includes/widget-recent-posts-extended.php:319
-msgid "CSS:"
-msgstr ""
-
-#: ../includes/widget-recent-posts-extended.php:321
-msgid "If you turn off the default styles, please create your own style."
-msgstr ""
-
-#: ../includes/widget-recent-posts-extended.php:329
-msgid "Limit:"
-msgstr ""
-
-#: ../includes/widget-recent-posts-extended.php:333
-msgid "Offset (the number of posts to skip):"
-msgstr ""
-
-#: ../includes/widget-recent-posts-extended.php:337
-msgid "Order:"
-msgstr ""
-
-#: ../includes/widget-recent-posts-extended.php:339
-msgid "DESC"
-msgstr ""
-
-#: ../includes/widget-recent-posts-extended.php:340
-msgid "ASC"
-msgstr ""
-
-#: ../includes/widget-recent-posts-extended.php:344
-msgid "Orderby:"
-msgstr ""
-
-#: ../includes/widget-recent-posts-extended.php:346
-msgid "ID"
-msgstr ""
-
-#: ../includes/widget-recent-posts-extended.php:347
-msgid "Author"
-msgstr ""
-
-#: ../includes/widget-recent-posts-extended.php:348
+#: ../includes/form.php:17 ../includes/form.php:112
 msgid "Title"
 msgstr ""
 
-#: ../includes/widget-recent-posts-extended.php:349
+#: ../includes/form.php:24
+msgid "Title URL"
+msgstr ""
+
+#: ../includes/form.php:31
+msgid "CSS ID"
+msgstr ""
+
+#: ../includes/form.php:39
+msgid "Use Default Styles"
+msgstr ""
+
+#: ../includes/form.php:45
+msgid "HTML or text before the recent posts"
+msgstr ""
+
+#: ../includes/form.php:52
+msgid "HTML or text after the recent posts"
+msgstr ""
+
+#: ../includes/form.php:64
+msgid "Ignore sticky posts"
+msgstr ""
+
+#: ../includes/form.php:70
+msgid "Post Types"
+msgstr ""
+
+#: ../includes/form.php:86
+msgid "Post Status"
+msgstr ""
+
+#: ../includes/form.php:97
+msgid "Order"
+msgstr ""
+
+#: ../includes/form.php:100
+msgid "Descending"
+msgstr ""
+
+#: ../includes/form.php:101
+msgid "Ascending"
+msgstr ""
+
+#: ../includes/form.php:107
+msgid "Orderby"
+msgstr ""
+
+#: ../includes/form.php:110
+msgid "ID"
+msgstr ""
+
+#: ../includes/form.php:111
+msgid "Author"
+msgstr ""
+
+#: ../includes/form.php:113
 msgid "Date"
 msgstr ""
 
-#: ../includes/widget-recent-posts-extended.php:350
+#: ../includes/form.php:114
 msgid "Modified"
 msgstr ""
 
-#: ../includes/widget-recent-posts-extended.php:351
+#: ../includes/form.php:115
 msgid "Random"
 msgstr ""
 
-#: ../includes/widget-recent-posts-extended.php:352
+#: ../includes/form.php:116
 msgid "Comment Count"
 msgstr ""
 
-#: ../includes/widget-recent-posts-extended.php:353
+#: ../includes/form.php:117
 msgid "Menu Order"
 msgstr ""
 
-#: ../includes/widget-recent-posts-extended.php:357
-msgid "Limit to Category: "
+#: ../includes/form.php:123
+msgid "Limit to Category"
 msgstr ""
 
-#: ../includes/widget-recent-posts-extended.php:368
-msgid "Limit to Tag: "
+#: ../includes/form.php:139
+msgid "Limit to Tag"
 msgstr ""
 
-#: ../includes/widget-recent-posts-extended.php:380
-msgid "Choose the Post Type: "
+#: ../includes/form.php:155
+msgid "Limit to Taxonomy"
 msgstr ""
 
-#: ../includes/widget-recent-posts-extended.php:396
+#: ../includes/form.php:158
+msgid "Ex: category=1,2,4&amp;post_tag=6,12"
+msgstr ""
+
+#: ../includes/form.php:159
+msgid "Available: "
+msgstr ""
+
+#: ../includes/form.php:168
+msgid "Number of posts to show"
+msgstr ""
+
+#: ../includes/form.php:175
+msgid "Offset"
+msgstr ""
+
+#: ../includes/form.php:178
+msgid "The number of posts to skip"
+msgstr ""
+
+#: ../includes/form.php:186
 msgid "Display Thumbnail"
 msgstr ""
 
-#: ../includes/widget-recent-posts-extended.php:400
-msgid "Thumbnail (height, width, align):"
+#: ../includes/form.php:192
+msgid "Thumbnail (width,height,align)"
 msgstr ""
 
-#: ../includes/widget-recent-posts-extended.php:404
+#: ../includes/form.php:197
 msgid "Left"
 msgstr ""
 
-#: ../includes/widget-recent-posts-extended.php:405
+#: ../includes/form.php:198
 msgid "Right"
 msgstr ""
 
-#: ../includes/widget-recent-posts-extended.php:406
+#: ../includes/form.php:199
 msgid "Center"
 msgstr ""
 
-#: ../includes/widget-recent-posts-extended.php:410
-msgid "Default Thumbnail:"
+#: ../includes/form.php:205
+msgid "Default Thumbnail"
 msgstr ""
 
-#: ../includes/widget-recent-posts-extended.php:412
+#: ../includes/form.php:208
 msgid "Leave it blank to disable."
 msgstr ""
 
-#: ../includes/widget-recent-posts-extended.php:418
+#: ../includes/form.php:216
 msgid "Display Excerpt"
 msgstr ""
 
-#: ../includes/widget-recent-posts-extended.php:422
-msgid "Excerpt Length:"
+#: ../includes/form.php:222
+msgid "Excerpt Length"
 msgstr ""
 
-#: ../includes/widget-recent-posts-extended.php:426
+#: ../includes/form.php:230
 msgid "Display Readmore"
 msgstr ""
 
-#: ../includes/widget-recent-posts-extended.php:430
-msgid "Readmore Text:"
+#: ../includes/form.php:236
+msgid "Readmore Text"
 msgstr ""
 
-#: ../includes/widget-recent-posts-extended.php:434
+#: ../includes/form.php:244
 msgid "Display Date"
+msgstr ""
+
+#: ../includes/form.php:254
+msgid "Custom CSS"
+msgstr ""
+
+#: ../includes/form.php:257
+msgid ""
+"If you turn off the default styles, you can use these css code to customize "
+"the recent posts style."
+msgstr ""
+
+#: ../includes/functions.php:22
+msgid "Recent Posts"
+msgstr ""
+
+#: ../includes/functions.php:45
+msgid "Read More &raquo;"
+msgstr ""
+
+#: ../includes/functions.php:151
+#, php-format
+msgid "Permalink to %s"
 msgstr ""

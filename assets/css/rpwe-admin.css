@@ -31,7 +31,18 @@
 	display: block;
 }
 
-label.input-checkbox {
-	width: 100px;
-	display: inline-block;
+.rpwe-multiple-check-form {
+	margin: 1em 0;
+}
+
+.rpwe-multiple-check-form ul {
+	border: 1px solid #eee;
+	padding: 10px;
+	max-height: 110px;
+	overflow: auto;
+	margin-top: 0;
+}
+
+.rpwe-multiple-check-form ul li:last-child {
+	margin-bottom: 0;
 }

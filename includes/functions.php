@@ -26,10 +26,10 @@ function rpwe_get_default_args() {
 		'offset'           => 0,
 		'order'            => 'DESC',
 		'orderby'          => 'date',
-		'cat'              => '',
-		'tag'              => '',
+		'cat'              => array(),
+		'tag'              => array(),
 		'taxonomy'         => '',
-		'post_type'        => 'post',
+		'post_type'        => array( 'post' ),
 		'post_status'      => 'publish',
 		'ignore_sticky'    => 1,
 
@@ -77,11 +77,8 @@ function rpwe_get_recent_posts( $args = array() ) {
 	// Set up a default, empty variable.
 	$html = '';
 
-	// Get the default arguments.
-	$defaults = rpwe_get_default_args();
-
 	// Merge the input arguments and the defaults.
-	$args = wp_parse_args( $args, $defaults );
+	$args = wp_parse_args( $args, rpwe_get_default_args() );
 
 	// Extract the array to allow easy use of variables.
 	extract( $args );
@@ -104,11 +101,17 @@ function rpwe_get_recent_posts( $args = array() ) {
 	
 	if ( $posts->have_posts() ) :
 
-		$html = '<div ' . ( ! empty( $args['cssID'] ) ? 'id="' . sanitize_html_class( $args['cssID'] ) . '"' : '' ) . ' class="rpwe-block rpwe-recent-' . sanitize_html_class( $args['post_type'] ) . '">';
+		$html = '<div ' . ( ! empty( $args['cssID'] ) ? 'id="' . sanitize_html_class( $args['cssID'] ) . '"' : '' ) . ' class="rpwe-block">';
 
 			$html .= '<ul class="rpwe-ul">';
 
 				while ( $posts->have_posts() ) : $posts->the_post();
+
+					// Experiment!
+					// Cropping image using Aqua Resizer
+					$thumb_id = get_post_thumbnail_id();
+					$img_url  = wp_get_attachment_url( $thumb_id, 'full' ); // Get img URL.
+					$image    = aq_resize( $img_url, $args['thumb_width'], $args['thumb_height'], true ); // Resize & crop img.
 
 					$html .= '<li class="rpwe-li rpwe-clearfix">';
 
@@ -116,14 +119,8 @@ function rpwe_get_recent_posts( $args = array() ) {
 
 							// Check if post has post thumbnail.
 							if ( has_post_thumbnail() ) :
-								$html .= '<a href="' . get_permalink() . '"  rel="bookmark">';
-									$html .= get_the_post_thumbnail( get_the_ID(),
-										array( $args['thumb_width'], $args['thumb_height'], true ),
-										array( 
-											'class' => $args['thumb_align'] . ' rpwe-thumb the-post-thumbnail',
-											'alt'   => esc_attr( get_the_title() )
-										)
-									);
+								$html .= '<a href="' . esc_url( get_permalink() ) . '"  rel="bookmark">';
+									$html .= '<img class="' . $args['thumb_align'] . ' rpwe-thumb get-the-image" src="' . esc_url( $image ) . '" alt="' . esc_attr( get_the_title() ) . '">';
 								$html .= '</a>';
 
 							// If no post thumbnail found, check if Get The Image plugin exist and display the image.
@@ -131,7 +128,6 @@ function rpwe_get_recent_posts( $args = array() ) {
 								$html .= get_the_image( array( 
 									'height'        => $args['thumb_height'],
 									'width'         => $args['thumb_width'],
-									'size'          => 'rpwe-thumbnail',
 									'image_class'   => $args['thumb_align'] . ' rpwe-thumb get-the-image',
 									'image_scan'    => true,
 									'default_image' => $args['thumb_default']
@@ -197,36 +193,6 @@ function rpwe_get_recent_posts( $args = array() ) {
  */
 function rpwe_get_posts( $args = array() ) {
 
-	/**
-	 * Taxonomy query.
-	 * Prop Miniloop plugin by Kailey Lampert.
-	 */
-	parse_str( $args['taxonomy'], $taxes );
-	$tax_query = array();
-	foreach( array_keys( $taxes ) as $k => $slug ) {
-		$ids = explode( ',', $taxes[$slug] );
-		$tax_query[] = array(
-			'taxonomy' => $slug,
-			'field'    => 'id',
-			'terms'    => $ids,
-			'operator' => 'IN' 
-		);
-	};
-
-	// Array categories
-	if ( $args['cat'] && ! is_array( $args['cat'] ) ) {
-		$args['cat'] = explode( ',', $args['cat'] ); 
-	} else {
-		$args['cat'] = NULL;
-	}
-
-	// Array tags
-	if ( $args['tag'] && ! is_array( $args['tag'] ) ) {
-		$args['tag'] = explode( ',', $args['tag'] ); 
-	} else {
-		$args['tag'] = NULL;
-	}
-
 	// Query arguments.
 	$query = array(
 		'offset'              => $args['offset'],
@@ -236,10 +202,47 @@ function rpwe_get_posts( $args = array() ) {
 		'post_type'           => $args['post_type'],
 		'post_status'         => $args['post_status'],
 		'ignore_sticky_posts' => $args['ignore_sticky'],
-		'category__in'        => $args['cat'],
-		'tag__in'             => $args['tag'],
-		'tax_query'           => $tax_query,
 	);
+
+	// Limit posts based on category.
+	if ( ! empty( $args['cat'] ) ) {
+		$query['category__in'] = $args['cat'];
+	}
+
+	// Limit posts based on post tag.
+	if ( ! empty( $args['tag'] ) ) {
+		$query['tag__in'] = $args['tag'];
+	}
+
+	/**
+	 * Taxonomy query.
+	 * Prop Miniloop plugin by Kailey Lampert.
+	 */
+	if ( ! empty( $args['taxonomy'] ) ) {
+
+		parse_str( $args['taxonomy'], $taxes );
+
+		$operator  = 'IN';
+		$tax_query = array();
+		foreach( array_keys( $taxes ) as $k => $slug ) {
+			$ids = explode( ',', $taxes[$slug] );
+			if ( count( $ids ) == 1 && $ids['0'] < 0 ) {
+				// If there is only one id given, and it's negative
+				// Let's treat it as 'posts not in'
+				$ids['0'] = $ids['0'] * -1;
+				$operator = 'NOT IN';
+			}
+			$tax_query[] = array(
+				'taxonomy' => $slug,
+				'field'    => 'id',
+				'terms'    => $ids,
+				'operator' => $operator 
+			);
+		}
+
+		$query['tax_query'] = $tax_query;
+
+	}
 
 	// Allow plugins/themes developer to filter the default query.
 	$query = apply_filters( 'rpwe_default_query_arguments', $query );

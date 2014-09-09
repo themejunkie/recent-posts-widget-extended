@@ -2,9 +2,9 @@
 Contributors: satrya, themejunkie
 Donate link: http://satrya.me/donate/
 Tags: recent posts, random posts, popular posts, thumbnails, widget, widgets, sidebar, excerpt, category, post tag, taxonomy, post type, post status, shortcode, multiple widgets
-Requires at least: 3.6
+Requires at least: 3.7
 Tested up to: 4.0
-Stable tag: 0.9.5
+Stable tag: 0.9.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,7 +21,8 @@ This plugin will enable a custom, flexible and super advanced recent posts, you 
 * Taxonomy support!
 * Post status option.
 * Custom html or text before and/or after recent posts.
-* Added some filter to allow dev to customize the plugin. Please read [FAQ](http://wordpress.org/plugins/recent-posts-widget-extended/faq)
+* Added some filter to allow dev to customize the plugin. Please read [FAQ](http://wordpress.org/plugins/recent-posts-widget-extended/faq).
+* Better image cropping.
 
 = Features Include =
 
@@ -41,20 +42,6 @@ This plugin will enable a custom, flexible and super advanced recent posts, you 
 
 * [Get the Image](http://wordpress.org/plugins/get-the-image/).
 * [Page Builder by SiteOrigin](http://wordpress.org/plugins/siteorigin-panels/).
-
-= Image Sizes Issue =
-
-This plugin creates custom image sizes. If you use images that were uploaded to the media library before you installed this plugin, please install [Regenerate Thumbnails](http://wordpress.org/extend/plugins/regenerate-thumbnails/) plugin to fix the image sizes.
-
-= Tested Themes =
-
-* [Twenty Eleven](http://wordpress.org/themes/twentyeleven)
-* [Twenty Twelve](http://wordpress.org/themes/twentytwelve)
-* [Twenty Fourteen](http://wordpress.org/themes/twentyfourteen)
-* [Stargazer](http://wordpress.org/themes/stargazer)
-* [Satu](http://wordpress.org/themes/satu)
-* [Tiga](http://wordpress.org/themes/tiga)
-* [Skyfall](http://wordpress.org/themes/skyfall)
 
 = Support =
 
@@ -111,9 +98,6 @@ function your_custom_function( $args ) {
 
 = How to filter the post excerpt? =
 Post excerpt now comes with filter to easily dev to change/customize it. `apply_filters( 'rpwe_excerpt', get_the_excerpt() )`
-
-= Thumbnail size option not working properly =
-Yes, this is because the plugin uses `the_post_thumbnail` custom sizes and not uses `add_image_size` function, [more information](http://codex.wordpress.org/Function_Reference/the_post_thumbnail). At the moment I have no idea how to fix this issue.
 
 = Ordering not working! =
 Did you installed any Post or Post Type Order? Please try to deactivate it and try again the ordering. [(related question)](http://wordpress.org/support/topic/ordering-set-to-descending-not-working)
@@ -187,7 +171,7 @@ First, please uncheck the **Use Default Style** option then place the css code b
 `
 
 = Why so many !important in the css code? =
-I know it's not good but I have a good reason, the `!important` is to make sure the built-in style compatible with all themes. But if you don't like it, you can turn of the **Use Default Styles** and remove all custom css code int the ** Custom CSS** box then create your own style.
+I know it's not good but I have a good reason, the `!important` is to make sure the built-in style compatible with all themes. But if you don't like it, you can turn of the **Use Default Styles** and remove all custom css code in the **Custom CSS** box then create your own style.
 
 = Available filters =
 Default arguments
@@ -265,18 +249,9 @@ after=""
 
 == Changelog ==
 
-= 0.9.5 - 9/06/2014  =
-* Fixed: Custom css not saving ([issue](http://wordpress.org/support/topic/css-not-saving)). Props [bowoolley](http://www.respirando.net/) 
-
-= 0.9.4 - 9/06/2014  =
-* Tested for WordPress 4.0.
-* **The code is totally rewritten, please re-save or re-install the plugin if it doesn't work properly. I'm sorry for it.**
-* After some research, I decided to get back the `get_the_excerpt()` as the excerpt. But now you can easily to change it via filter. Please read [FAQ](http://wordpress.org/plugins/recent-posts-widget-extended/faq)
-* Added: Shortcode support.
-* Added: Post status option.
-* Added: Taxonomy input to limit the posts based on taxonomy.
-* Added: Exclude sticky post.
-* Added: You can display HTML or text before or after the posts.
-* Added: Now support Siteorigin Page Builder.
-* Removed: Suppres Filter option
-* Limit to Category and Limit to Tag option will be removed in the next release, please just use the **Limit to Taxonomy** option to display posts based on taxonomy.
+= 0.9.6 - 9/09/2014  =
+* **Add:** Now, you can display posts from multiple post types. 
+* **Fix:** **Limit to Category** and **Limit to Tag** not working issue.
+* **Improve:** Change multi select with checkbox for **Limit to Category** and **Limit to Tag** option for better user experience.
+* **Experiment:** Better image cropping using [Aqua Resizer](https://github.com/syamilmj/Aqua-Resizer). It should fixed thumbnail not cropping correctly issue.
+* **Update:** Language

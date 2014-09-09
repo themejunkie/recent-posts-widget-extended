@@ -73,6 +73,18 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 	 * @since 0.1
 	 */
 	function update( $new_instance, $old_instance ) {
+		
+		// Validate post_type submissions
+		$name = get_post_types( array( 'public' => true ), 'names' );
+		$types = array();
+		foreach( $new_instance['post_type'] as $type ) {
+			if ( in_array( $type, $name ) ) {
+				$types[] = $type;
+			}
+		}
+		if ( empty( $types ) ) {
+			$types[] = 'post';
+		}
 
 		$instance                     = $old_instance;
 		$instance['title']            = strip_tags( $new_instance['title'] );
@@ -83,10 +95,10 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 		$instance['offset']           = (int)( $new_instance['offset'] );
 		$instance['order']            = $new_instance['order'];
 		$instance['orderby']          = $new_instance['orderby'];
+		$instance['post_type']        = $types;
+		$instance['post_status']      = esc_attr( $new_instance['post_status'] );
 		$instance['cat']              = $new_instance['cat'];
 		$instance['tag']              = $new_instance['tag'];
-		$instance['post_type']        = esc_attr( $new_instance['post_type'] );
-		$instance['post_status']      = esc_attr( $new_instance['post_status'] );
 		$instance['taxonomy']         = esc_attr( $new_instance['taxonomy'] );
 
 		$instance['excerpt']          = isset( $new_instance['excerpt'] ) ? (bool) $new_instance['excerpt'] : false;
