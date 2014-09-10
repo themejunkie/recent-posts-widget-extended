@@ -104,6 +104,7 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 		$instance['excerpt']          = isset( $new_instance['excerpt'] ) ? (bool) $new_instance['excerpt'] : false;
 		$instance['length']           = (int)( $new_instance['length'] );
 		$instance['date']             = isset( $new_instance['date'] ) ? (bool) $new_instance['date'] : false;
+		$instance['date-relative']    = isset( $new_instance['date-relative'] ) ? (bool) $new_instance['date-relative'] : false;
 		$instance['readmore']         = isset( $new_instance['readmore'] ) ? (bool) $new_instance['readmore'] : false;
 		$instance['readmore_text']    = strip_tags( $new_instance['readmore_text'] );
 

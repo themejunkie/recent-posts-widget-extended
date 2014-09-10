@@ -244,6 +244,12 @@
 			<?php _e( 'Display Date', 'rpwe' ); ?>
 		</label>
 	</p>
+	<p>
+		<input id="<?php echo $this->get_field_id( 'date_relative' ); ?>" name="<?php echo $this->get_field_name( 'date_relative' ); ?>" type="checkbox" <?php checked( $instance['date_relative'] ); ?> />
+		<label class="input-checkbox" for="<?php echo $this->get_field_id( 'date_relative' ); ?>">
+			<?php _e( 'Use relative date', 'rpwe' ); ?>
+		</label>
+	</p>
 
 </div>
 
