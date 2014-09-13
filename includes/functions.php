@@ -41,6 +41,7 @@ function rpwe_get_default_args() {
 		'thumb_default'    => 'http://placehold.it/45x45/f0f0f0/ccc',
 		'thumb_align'      => 'rpwe-alignleft',
 		'date'             => true,
+		'date_relative'    => false,
 		'readmore'         => false,
 		'readmore_text'    => __( 'Read More &raquo;', 'rpwe' ),
 
@@ -151,7 +152,11 @@ function rpwe_get_recent_posts( $args = array() ) {
 						$html .= '<h3 class="rpwe-title"><a href="' . esc_url( get_permalink() ) . '" title="' . sprintf( esc_attr__( 'Permalink to %s', 'rpwe' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark">' . esc_attr( get_the_title() ) . '</a></h3>';
 
 						if ( $args['date'] ) :
-							$html .= '<time class="rpwe-time published" datetime="' . esc_html( get_the_date( 'c' ) ) . '">' . esc_html( get_the_date() ) . '</time>';
+							$date = get_the_date();
+							if ( $args['date_relative'] ) :
+								$date = human_time_diff(get_the_date('U'), current_time('timestamp')).' ago';
+							endif;
+							$html .= '<time class="rpwe-time published" datetime="' . esc_html( get_the_date( 'c' ) ) . '">' . esc_html( $date ) . '</time>';
 						endif;
 
 						if ( $args['excerpt'] ) :
