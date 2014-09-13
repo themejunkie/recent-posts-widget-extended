@@ -9,6 +9,8 @@
  * License       : WTFPL - http://sam.zoy.org/wtfpl/
  * Documentation : https://github.com/sy4mil/Aqua-Resizer/
  *
+ * I changed the function and class name for compatibility purpose. It somtimes conflicted with a theme which uses the same library.
+ *
  * @param string  $url      - (required) must be uploaded using wp media uploader
  * @param int     $width    - (required)
  * @param int     $height   - (optional)
@@ -22,8 +24,8 @@
  * @return str|array
  */
 
-if(!class_exists('Aq_Resize')) {
-    class Aq_Resize
+if(!class_exists('Rpwe_Resize')) {
+    class Rpwe_Resize
     {
         /**
          * The singleton instance
@@ -41,7 +43,7 @@ if(!class_exists('Aq_Resize')) {
         private function __clone() {}
 
         /**
-         * For your custom default usage you may want to initialize an Aq_Resize object by yourself and then have own defaults
+         * For your custom default usage you may want to initialize an Rpwe_Resize object by yourself and then have own defaults
          */
         static public function getInstance() {
             if(self::$instance == null) {
@@ -59,7 +61,7 @@ if(!class_exists('Aq_Resize')) {
             if ( ! $url || ( ! $width && ! $height ) ) return false;
 
             // Caipt'n, ready to hook.
-            if ( true === $upscale ) add_filter( 'image_resize_dimensions', array($this, 'aq_upscale'), 10, 6 );
+            if ( true === $upscale ) add_filter( 'image_resize_dimensions', array($this, 'rpwe_upscale'), 10, 6 );
 
             // Define upload path & dir.
             $upload_info = wp_upload_dir();
@@ -139,7 +141,7 @@ if(!class_exists('Aq_Resize')) {
             }
 
             // Okay, leave the ship.
-            if ( true === $upscale ) remove_filter( 'image_resize_dimensions', array( $this, 'aq_upscale' ) );
+            if ( true === $upscale ) remove_filter( 'image_resize_dimensions', array( $this, 'rpwe_upscale' ) );
 
             // Return the output.
             if ( $single ) {
@@ -160,7 +162,7 @@ if(!class_exists('Aq_Resize')) {
         /**
          * Callback to overwrite WP computing of thumbnail measures
          */
-        function aq_upscale( $default, $orig_w, $orig_h, $dest_w, $dest_h, $crop ) {
+        function rpwe_upscale( $default, $orig_w, $orig_h, $dest_w, $dest_h, $crop ) {
             if ( ! $crop ) return null; // Let the wordpress default function handle this.
 
             // Here is the point we allow to use larger image size than the original one.
@@ -193,15 +195,15 @@ if(!class_exists('Aq_Resize')) {
 
 
 
-if(!function_exists('aq_resize')) {
+if(!function_exists('rpwe_resize')) {
 
     /**
      * This is just a tiny wrapper function for the class above so that there is no
      * need to change any code in your own WP themes. Usage is still the same :)
      */
-    function aq_resize( $url, $width = null, $height = null, $crop = null, $single = true, $upscale = false ) {
-        $aq_resize = Aq_Resize::getInstance();
-        return $aq_resize->process( $url, $width, $height, $crop, $single, $upscale );
+    function rpwe_resize( $url, $width = null, $height = null, $crop = null, $single = true, $upscale = false ) {
+        $rpwe_resize = Rpwe_Resize::getInstance();
+        return $rpwe_resize->process( $url, $width, $height, $crop, $single, $upscale );
     }
 }
 

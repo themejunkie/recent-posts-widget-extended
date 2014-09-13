@@ -189,7 +189,7 @@
 
 		<p>
 			<label class="rpwe-block" for="<?php echo $this->get_field_id( 'thumb_height' ); ?>">
-				<?php _e( 'Thumbnail (width,height,align)', 'rpwe' ); ?>
+				<?php _e( 'Thumbnail (height,width,align)', 'rpwe' ); ?>
 			</label>
 			<input class= "small-input" id="<?php echo $this->get_field_id( 'thumb_height' ); ?>" name="<?php echo $this->get_field_name( 'thumb_height' ); ?>" type="number" step="1" min="0" value="<?php echo (int)( $instance['thumb_height'] ); ?>" />
 			<input class="small-input" id="<?php echo $this->get_field_id( 'thumb_width' ); ?>" name="<?php echo $this->get_field_name( 'thumb_width' ); ?>" type="number" step="1" min="0" value="<?php echo (int)( $instance['thumb_width'] ); ?>"/>
@@ -246,8 +246,8 @@
 	</p>
 	<p>
 		<input id="<?php echo $this->get_field_id( 'date_relative' ); ?>" name="<?php echo $this->get_field_name( 'date_relative' ); ?>" type="checkbox" <?php checked( $instance['date_relative'] ); ?> />
-		<label class="input-checkbox" for="<?php echo $this->get_field_id( 'date_relative' ); ?>">
-			<?php _e( 'Use relative date', 'rpwe' ); ?>
+		<label for="<?php echo $this->get_field_id( 'date_relative' ); ?>">
+			<?php _e( 'Use Relative Date. eg: 5 days ago', 'rpwe' ); ?>
 		</label>
 	</p>
 
@@ -259,6 +259,6 @@
 	<label for="<?php echo $this->get_field_id( 'css' ); ?>">
 		<?php _e( 'Custom CSS', 'rpwe' ); ?>
 	</label>
-	<textarea class="widefat" id="<?php echo $this->get_field_id( 'css' ); ?>" name="<?php echo $this->get_field_name( 'css' ); ?>" style="height:150px;"><?php echo $instance['css']; ?></textarea>
+	<textarea class="widefat" id="<?php echo $this->get_field_id( 'css' ); ?>" name="<?php echo $this->get_field_name( 'css' ); ?>" style="height:180px;"><?php echo $instance['css']; ?></textarea>
 	<small><?php _e( 'If you turn off the default styles, you can use these css code to customize the recent posts style.', 'rpwe' ); ?></small>
 </p>

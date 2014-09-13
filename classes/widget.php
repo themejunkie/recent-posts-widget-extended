@@ -47,23 +47,29 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 	function widget( $args, $instance ) {
 		extract( $args );
 
-		// Output the theme's $before_widget wrapper.
-		echo $before_widget;
+		$recent = rpwe_get_recent_posts( $instance );
 
-		// If both title and title url is not empty, display it.
-		if ( ! empty( $instance['title_url'] ) && ! empty( $instance['title'] ) ) {
-			echo $before_title . '<a href="' . esc_url( $instance['title_url'] ) . '" title="' . esc_attr( $instance['title'] ) . '">' . apply_filters( 'widget_title',  $instance['title'], $instance, $this->id_base ) . '</a>' . $after_title;
+		if ( $recent ) {
 
-		// If the title not empty, display it.
-		} elseif ( ! empty( $instance['title'] ) ) {
-			echo $before_title . apply_filters( 'widget_title',  $instance['title'], $instance, $this->id_base ) . $after_title;
+			// Output the theme's $before_widget wrapper.
+			echo $before_widget;
+
+			// If both title and title url is not empty, display it.
+			if ( ! empty( $instance['title_url'] ) && ! empty( $instance['title'] ) ) {
+				echo $before_title . '<a href="' . esc_url( $instance['title_url'] ) . '" title="' . esc_attr( $instance['title'] ) . '">' . apply_filters( 'widget_title',  $instance['title'], $instance, $this->id_base ) . '</a>' . $after_title;
+
+			// If the title not empty, display it.
+			} elseif ( ! empty( $instance['title'] ) ) {
+				echo $before_title . apply_filters( 'widget_title',  $instance['title'], $instance, $this->id_base ) . $after_title;
+			}
+
+			// Get the recent posts query.
+			echo $recent;
+
+			// Close the theme's widget wrapper.
+			echo $after_widget;
+
 		}
-
-		// Get the recent posts query.
-		echo rpwe_get_recent_posts( $instance );
-
-		// Close the theme's widget wrapper.
-		echo $after_widget;
 
 	}
 
@@ -104,7 +110,7 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 		$instance['excerpt']          = isset( $new_instance['excerpt'] ) ? (bool) $new_instance['excerpt'] : false;
 		$instance['length']           = (int)( $new_instance['length'] );
 		$instance['date']             = isset( $new_instance['date'] ) ? (bool) $new_instance['date'] : false;
-		$instance['date-relative']    = isset( $new_instance['date-relative'] ) ? (bool) $new_instance['date-relative'] : false;
+		$instance['date_relative']    = isset( $new_instance['date_relative'] ) ? (bool) $new_instance['date_relative'] : false;
 		$instance['readmore']         = isset( $new_instance['readmore'] ) ? (bool) $new_instance['readmore'] : false;
 		$instance['readmore_text']    = strip_tags( $new_instance['readmore_text'] );
 

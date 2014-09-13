@@ -108,12 +108,14 @@ function rpwe_get_recent_posts( $args = array() ) {
 
 				while ( $posts->have_posts() ) : $posts->the_post();
 
-					// Experiment!
-					// Cropping image using Aqua Resizer
-					$thumb_id = get_post_thumbnail_id();
-					$img_url  = wp_get_attachment_url( $thumb_id, 'full' ); // Get img URL.
-					$image    = aq_resize( $img_url, $args['thumb_width'], $args['thumb_height'], true ); // Resize & crop img.
+					// Thumbnails
+					$thumb_id = get_post_thumbnail_id(); // Get the featured image id.
+					$img_url  = wp_get_attachment_url( $thumb_id ); // Get img URL.
 
+					// Display the image url and crop using the resizer.
+					$image    = rpwe_resize( $img_url, $args['thumb_width'], $args['thumb_height'], true );
+
+					// Start recent posts markup.
 					$html .= '<li class="rpwe-li rpwe-clearfix">';
 
 						if ( $args['thumb'] ) :
@@ -121,28 +123,32 @@ function rpwe_get_recent_posts( $args = array() ) {
 							// Check if post has post thumbnail.
 							if ( has_post_thumbnail() ) :
 								$html .= '<a href="' . esc_url( get_permalink() ) . '"  rel="bookmark">';
-									$html .= '<img class="' . $args['thumb_align'] . ' rpwe-thumb get-the-image" src="' . esc_url( $image ) . '" alt="' . esc_attr( get_the_title() ) . '">';
+									if ( $image ) :
+										$html .= '<img class="' . esc_attr( $args['thumb_align'] ) . ' rpwe-thumb" src="' . esc_url( $image ) . '" alt="' . esc_attr( get_the_title() ) . '">';
+									else :
+										$html .= '<img class="' . esc_attr( $args['thumb_align'] ) . ' rpwe-thumb" src="' . esc_url( $img_url ) . '" alt="' . esc_attr( get_the_title() ) . '" height="' . $args['thumb_height'] . '" width="' . $args['thumb_width'] . '">';
+									endif;
 								$html .= '</a>';
 
 							// If no post thumbnail found, check if Get The Image plugin exist and display the image.
 							elseif ( function_exists( 'get_the_image' ) ) :
 								$html .= get_the_image( array( 
-									'height'        => $args['thumb_height'],
-									'width'         => $args['thumb_width'],
-									'image_class'   => $args['thumb_align'] . ' rpwe-thumb get-the-image',
+									'height'        => (int) $args['thumb_height'],
+									'width'         => (int) $args['thumb_width'],
+									'image_class'   => esc_attr( $args['thumb_align'] ) . ' rpwe-thumb get-the-image',
 									'image_scan'    => true,
-									'default_image' => $args['thumb_default']
+									'default_image' => esc_url( $args['thumb_default'] )
 								) );
 
 							// Display default image.
 							elseif ( ! empty( $args['thumb_default'] ) ) :
 								$html .= sprintf( '<a href="%1$s" rel="bookmark"><img class="%2$s rpwe-thumb rpwe-default-thumb" src="%3$s" alt="%4$s" width="%5$s" height="%6$s"></a>',
 									esc_url( get_permalink() ),
-									$args['thumb_align'],
-									$args['thumb_default'],
+									esc_attr( $args['thumb_align'] ),
+									esc_url( $args['thumb_default'] ),
 									esc_attr( get_the_title() ),
-									$args['thumb_width'],
-									$args['thumb_height']
+									(int) $args['thumb_width'],
+									(int) $args['thumb_height']
 								);
 
 							endif;
@@ -154,7 +160,7 @@ function rpwe_get_recent_posts( $args = array() ) {
 						if ( $args['date'] ) :
 							$date = get_the_date();
 							if ( $args['date_relative'] ) :
-								$date = human_time_diff(get_the_date('U'), current_time('timestamp')).' ago';
+								$date = sprintf( __( '%s ago', 'rpwe' ), human_time_diff( get_the_date( 'U' ), current_time( 'timestamp' ) ) );
 							endif;
 							$html .= '<time class="rpwe-time published" datetime="' . esc_html( get_the_date( 'c' ) ) . '">' . esc_html( $date ) . '</time>';
 						endif;

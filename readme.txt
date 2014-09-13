@@ -4,7 +4,7 @@ Donate link: http://satrya.me/donate/
 Tags: recent posts, random posts, popular posts, thumbnails, widget, widgets, sidebar, excerpt, category, post tag, taxonomy, post type, post status, shortcode, multiple widgets
 Requires at least: 3.7
 Tested up to: 4.0
-Stable tag: 0.9.6
+Stable tag: 0.9.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -42,6 +42,7 @@ This plugin will enable a custom, flexible and super advanced recent posts, you 
 
 * [Get the Image](http://wordpress.org/plugins/get-the-image/).
 * [Page Builder by SiteOrigin](http://wordpress.org/plugins/siteorigin-panels/).
+* [Featured Video Plus](http://wordpress.org/plugins/featured-video-plus/).
 
 = Support =
 
@@ -249,9 +250,9 @@ after=""
 
 == Changelog ==
 
-= 0.9.6 - 9/09/2014  =
-* **Add:** Now, you can display posts from multiple post types. 
-* **Fix:** **Limit to Category** and **Limit to Tag** not working issue.
-* **Improve:** Change multi select with checkbox for **Limit to Category** and **Limit to Tag** option for better user experience.
-* **Experiment:** Better image cropping using [Aqua Resizer](https://github.com/syamilmj/Aqua-Resizer). It should fixed thumbnail not cropping correctly issue.
-* **Update:** Language
+= 0.9.7 - 9/13/2014  =
+* **Add:** Relative date option `eg: 4 days ago`. Props [George Venios](https://github.com/veniosg)
+* **Add:** [Featured Video Plus](http://wordpress.org/plugins/featured-video-plus/) plugin support.
+* **Add:** Hide widget if no posts exist.
+* **Add:** Fallback to the image attachment if no image url exist in the resizer script.
+* **Fix:** Compatibility issue if the user theme use the same code library(Aqua Resizer) and causing blank screen.
