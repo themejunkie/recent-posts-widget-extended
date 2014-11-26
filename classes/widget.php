@@ -123,8 +123,8 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 		$instance['styles_default']   = isset( $new_instance['styles_default'] ) ? (bool) $new_instance['styles_default'] : false;
 		$instance['cssID']            = sanitize_html_class( $new_instance['cssID'] );
 		$instance['css']              = $new_instance['css'];
-		$instance['before']           = wp_filter_post_kses( $new_instance['before'] );
-		$instance['after']            = wp_filter_post_kses( $new_instance['after'] );
+		$instance['before']           = stripslashes( $new_instance['before'] );
+		$instance['after']            = stripslashes( $new_instance['after'] );
 
 		return $instance;
 

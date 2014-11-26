@@ -137,6 +137,7 @@ function rpwe_get_recent_posts( $args = array() ) {
 									'width'         => (int) $args['thumb_width'],
 									'image_class'   => esc_attr( $args['thumb_align'] ) . ' rpwe-thumb get-the-image',
 									'image_scan'    => true,
+									'echo'          => false,
 									'default_image' => esc_url( $args['thumb_default'] )
 								) );
 

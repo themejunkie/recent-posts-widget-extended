@@ -3,7 +3,7 @@
  * Plugin Name:  Recent Posts Widget Extended
  * Plugin URI:   http://satrya.me/wordpress-plugins/recent-posts-widget-extended/
  * Description:  Enables advanced widget that gives you total control over the output of your site’s most recent Posts.
- * Version:      0.9.7
+ * Version:      0.9.8
  * Author:       Satrya
  * Author URI:   http://satrya.me/
  * Author Email: satrya@satrya.me
