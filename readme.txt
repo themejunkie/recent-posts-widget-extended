@@ -3,11 +3,11 @@ Contributors: satrya, themejunkie
 Tags: recent posts, random posts, popular posts, thumbnails, widget, widgets, sidebar, excerpt, category, post tag, taxonomy, post type, post status, shortcode, multiple widgets
 Requires at least: 3.7
 Tested up to: 4.0.1
-Stable tag: 0.9.8
+Stable tag: 0.9.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Provides flexible and advanced recent posts. Display it via shortcode or widget with with thumbnails, post excerpt, taxonomy and more.
+Provides flexible and advanced recent posts. Display it via shortcode or widget with thumbnails, post excerpt, taxonomy and more.
 
 == Description ==
 
@@ -37,6 +37,11 @@ This plugin will enable a custom, flexible and super advanced recent posts, you 
 * Custom CSS.
 * Multiple widgets.
 
+= Language =
+* English
+* France
+* [Contribute to your language](https://github.com/satrya/recent-posts-widget-extended/issues)
+
 = Plugin Support =
 
 * [Get the Image](http://wordpress.org/plugins/get-the-image/).
@@ -62,6 +67,7 @@ This plugin will enable a custom, flexible and super advanced recent posts, you 
 * [AKbyte](http://profiles.wordpress.org/akbyte/)
 * [Alexander Sidorov](https://github.com/lkart)
 * [Rubens Mariuzzo](https://github.com/rmariuzzo)
+* [Ikart](https://github.com/lkart)
 
 == Installation ==
 
@@ -249,7 +255,15 @@ after=""
 
 == Changelog ==
 
-= 0.9.8 - 26/11/2014 = 
+= 0.9.9 - 11/29/2014 = 
+- **Fix:** for "cssID" attribute in shortcodes. Props [Ikart](https://github.com/lkart)
+- **Fix:** Thumbnail fallback uses `get_the_post_thumbnail`
+- **Add:** `rpwe-img` to the thumbnail.
+- **Add:** `css class` option.
+- **Improve:** Move `use styles default` option to above the custom css. I'm sorry for the incosistency.
+- **Update:** Language
+
+= 0.9.8 - 11/26/2014 = 
 * **Fix:** Compatibility issue with `Get The Image` plugin/extension.
 * **Fix:** Issue with `html or text before and after recent posts`, now it allow all HTML tags.
 

@@ -48,6 +48,7 @@ function rpwe_get_default_args() {
 		'styles_default'   => true,
 		'css'              => $css_defaults,
 		'cssID'            => '',
+		'css_class'        => '',
 		'before'           => '',
 		'after'            => ''
 	);
@@ -88,12 +89,12 @@ function rpwe_get_recent_posts( $args = array() ) {
 	do_action( 'rpwe_before_loop' );
 
 	// Display the default style of the plugin.
-	if ( $args['styles_default'] == true ) {
+	if ( $args['styles_default'] === true ) {
 		rpwe_custom_styles();
 	}
 
-	// If the default style is disbale then use the custom css if it not empty.
-	if ( $args['styles_default'] == false && ! empty( $args['css'] ) ) {
+	// If the default style is disabled then use the custom css if it's not empty.
+	if ( $args['styles_default'] === false && ! empty( $args['css'] ) ) {
 		echo '<style>' . $args['css'] . '</style>';
 	}
 	
@@ -102,7 +103,7 @@ function rpwe_get_recent_posts( $args = array() ) {
 	
 	if ( $posts->have_posts() ) :
 
-		$html = '<div ' . ( ! empty( $args['cssID'] ) ? 'id="' . sanitize_html_class( $args['cssID'] ) . '"' : '' ) . ' class="rpwe-block">';
+		$html = '<div ' . ( ! empty( $args['cssID'] ) ? 'id="' . sanitize_html_class( $args['cssID'] ) . '"' : '' ) . ' class="rpwe-block ' . ( ! empty( $args['css_class'] ) ? '' . sanitize_html_class( $args['css_class'] ) . '' : '' ) . '">';
 
 			$html .= '<ul class="rpwe-ul">';
 
@@ -122,11 +123,17 @@ function rpwe_get_recent_posts( $args = array() ) {
 
 							// Check if post has post thumbnail.
 							if ( has_post_thumbnail() ) :
-								$html .= '<a href="' . esc_url( get_permalink() ) . '"  rel="bookmark">';
+								$html .= '<a class="rpwe-img" href="' . esc_url( get_permalink() ) . '"  rel="bookmark">';
 									if ( $image ) :
 										$html .= '<img class="' . esc_attr( $args['thumb_align'] ) . ' rpwe-thumb" src="' . esc_url( $image ) . '" alt="' . esc_attr( get_the_title() ) . '">';
 									else :
-										$html .= '<img class="' . esc_attr( $args['thumb_align'] ) . ' rpwe-thumb" src="' . esc_url( $img_url ) . '" alt="' . esc_attr( get_the_title() ) . '" height="' . $args['thumb_height'] . '" width="' . $args['thumb_width'] . '">';
+										$html .= get_the_post_thumbnail( get_the_ID(),
+											array( $args['thumb_width'], $args['thumb_height'] ),
+											array( 
+												'class' => $args['thumb_align'] . ' rpwe-thumb the-post-thumbnail',
+												'alt'   => esc_attr( get_the_title() )
+											)
+										);
 									endif;
 								$html .= '</a>';
 
@@ -143,7 +150,7 @@ function rpwe_get_recent_posts( $args = array() ) {
 
 							// Display default image.
 							elseif ( ! empty( $args['thumb_default'] ) ) :
-								$html .= sprintf( '<a href="%1$s" rel="bookmark"><img class="%2$s rpwe-thumb rpwe-default-thumb" src="%3$s" alt="%4$s" width="%5$s" height="%6$s"></a>',
+								$html .= sprintf( '<a class="rpwe-img" href="%1$s" rel="bookmark"><img class="%2$s rpwe-thumb rpwe-default-thumb" src="%3$s" alt="%4$s" width="%5$s" height="%6$s"></a>',
 									esc_url( get_permalink() ),
 									esc_attr( $args['thumb_align'] ),
 									esc_url( $args['thumb_default'] ),

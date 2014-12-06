@@ -34,10 +34,10 @@
 	</p>
 
 	<p>
-		<input id="<?php echo $this->get_field_id( 'styles_default' ); ?>" name="<?php echo $this->get_field_name( 'styles_default' ); ?>" type="checkbox" <?php checked( $instance['styles_default'] ); ?> />
-		<label class="input-checkbox" for="<?php echo $this->get_field_id( 'styles_default' ); ?>">
-			<?php _e( 'Use Default Styles', 'rpwe' ); ?>
+		<label for="<?php echo $this->get_field_id( 'css_class' ); ?>">
+			<?php _e( 'CSS Class', 'rpwe' ); ?>
 		</label>
+		<input class="widefat" id="<?php echo $this->get_field_id( 'css_class' ); ?>" name="<?php echo $this->get_field_name( 'css_class' ); ?>" type="text" value="<?php echo sanitize_html_class( $instance['css_class'] ); ?>"/>
 	</p>
 
 	<p>
@@ -254,6 +254,13 @@
 </div>
 
 <div class="clear"></div>
+
+<p>
+	<input id="<?php echo $this->get_field_id( 'styles_default' ); ?>" name="<?php echo $this->get_field_name( 'styles_default' ); ?>" type="checkbox" <?php checked( $instance['styles_default'] ); ?> />
+	<label class="input-checkbox" for="<?php echo $this->get_field_id( 'styles_default' ); ?>">
+		<?php _e( 'Use Default Styles', 'rpwe' ); ?>
+	</label>
+</p>
 
 <p>
 	<label for="<?php echo $this->get_field_id( 'css' ); ?>">
