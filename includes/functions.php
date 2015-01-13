@@ -166,19 +166,21 @@ function rpwe_get_recent_posts( $args = array() ) {
 
 						$html .= '<h3 class="rpwe-title"><a href="' . esc_url( get_permalink() ) . '" title="' . sprintf( esc_attr__( 'Permalink to %s', 'rpwe' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark">' . esc_attr( get_the_title() ) . '</a></h3>';
 
-						if ( $args['date'] or $args['date_modified'] ) :
-							if ( $args['date_modified'] ) :
-								$date = get_the_modified_date();
-							else : // if both date functions are provided, we use date to be backwards compatible
-								$date = get_the_date();
-							endif;
+						if ( $args['date'] ) :
+							$date = get_the_date();
 							if ( $args['date_relative'] ) :
 								$date = sprintf( __( '%s ago', 'rpwe' ), human_time_diff( get_the_date( 'U' ), current_time( 'timestamp' ) ) );
 							endif;
 							$html .= '<time class="rpwe-time published" datetime="' . esc_html( get_the_date( 'c' ) ) . '">' . esc_html( $date ) . '</time>';
-						
+						elseif ( $args['date_modified'] ) : // if both date functions are provided, we use date to be backwards compatible
+							$date = get_the_modified_date();
+								if ( $args['date_relative'] ) :
+									$date = sprintf( __( '%s ago', 'rpwe' ), human_time_diff( get_the_modified_date( 'U' ), current_time( 'timestamp' ) ) );
+							endif;
+							$html .= '<time class="rpwe-time modfied" datetime="' . esc_html( get_the_modified_date( 'c' ) ) . '">' . esc_html( $date ) . '</time>';
 						endif;
-						
+
+		
 						
 
 						if ( $args['excerpt'] ) :

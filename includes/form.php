@@ -244,6 +244,14 @@
 			<?php _e( 'Display Date', 'rpwe' ); ?>
 		</label>
 	</p>
+	
+	<p>
+		<input id="<?php echo $this->get_field_id( 'date_modified' ); ?>" name="<?php echo $this->get_field_name( 'date_modified' ); ?>" type="checkbox" <?php checked( $instance['date_modified'] ); ?> />
+		<label for="<?php echo $this->get_field_id( 'date_modified' ); ?>">
+			<?php _e( 'Display Modification Date', 'rpwe' ); ?>
+		</label>
+	</p>
+	
 	<p>
 		<input id="<?php echo $this->get_field_id( 'date_relative' ); ?>" name="<?php echo $this->get_field_name( 'date_relative' ); ?>" type="checkbox" <?php checked( $instance['date_relative'] ); ?> />
 		<label for="<?php echo $this->get_field_id( 'date_relative' ); ?>">
@@ -251,12 +259,6 @@
 		</label>
 	</p>
 	
-	<p>
-		<input id="<?php echo $this->get_field_id( 'date_modified' ); ?>" name="<?php echo $this->get_field_name( 'date_modified' ); ?>" type="checkbox" <?php checked( $instance['date_modified'] ); ?> />
-		<label for="<?php echo $this->get_field_id( 'date_modified' ); ?>">
-			<?php _e( 'Show Modification Date instead of Creation Date', 'rpwe' ); ?>
-		</label>
-	</p>
 
 </div>
 
