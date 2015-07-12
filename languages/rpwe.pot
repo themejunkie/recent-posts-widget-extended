@@ -1,17 +1,17 @@
-# Copyright (C) 2014 Satrya
+# Copyright (C) 2015 Satrya
 # This file is distributed under the same license as the Recent Posts Widget Extended package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Recent Posts Widget Extended 0.9.9\n"
+"Project-Id-Version: Recent Posts Widget Extended 0.9.9.1\n"
 "Report-Msgid-Bugs-To: http://satrya.me/\n"
-"POT-Creation-Date: 2014-12-06 07:06:48+00:00\n"
+"POT-Creation-Date: 2015-07-12 08:07:59+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Satrya (satrya@satrya.me)\n"
 "Language-Team: Satrya (satrya@satrya.me)\n"
-"X-Generator: grunt-wp-i18n 0.4.9\n"
+"X-Generator: grunt-wp-i18n 0.5.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Language: English\n"
@@ -232,7 +232,7 @@ msgid "Recent Posts Widget Extended"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "http://satrya.me/wordpress-plugins/recent-posts-widget-extended/"
+msgid "http://satrya.me/projects/recent-posts-widget-extended/"
 msgstr ""
 
 #. Description of the plugin/theme
