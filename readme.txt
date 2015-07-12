@@ -2,8 +2,8 @@
 Contributors: satrya, themejunkie
 Tags: recent posts, random posts, popular posts, thumbnails, widget, widgets, sidebar, excerpt, category, post tag, taxonomy, post type, post status, shortcode, multiple widgets
 Requires at least: 3.7
-Tested up to: 4.0.1
-Stable tag: 0.9.9
+Tested up to: 4.3
+Stable tag: 0.9.9.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,18 +13,15 @@ Provides flexible and advanced recent posts. Display it via shortcode or widget 
 
 This plugin will enable a custom, flexible and super advanced recent posts, you can display it via shortcode or widget. Allows you to display a list of the most recent posts with thumbnail, excerpt and post date, also you can display it from all or specific or multiple taxonomy, post type and much more!
 
-= New Features =
+= Features Include =
 
-* WordPress 4.0.1 Support.
+* WordPress 4.3 Support.
 * Shortcode feature. Please read [Other Notes](http://wordpress.org/plugins/recent-posts-widget-extended/other_notes)
 * Taxonomy support!
 * Post status option.
 * Custom html or text before and/or after recent posts.
-* Added some filter to allow dev to customize the plugin. Please read [FAQ](http://wordpress.org/plugins/recent-posts-widget-extended/faq).
+* Available filter for dev. Please read [FAQ](http://wordpress.org/plugins/recent-posts-widget-extended/faq).
 * Better image cropping.
-
-= Features Include =
-
 * Allow you to set title url.
 * Display by date, comment count or random.
 * Display thumbnails, with customizable size and alignment.
@@ -38,15 +35,10 @@ This plugin will enable a custom, flexible and super advanced recent posts, you 
 * Multiple widgets.
 
 = Language =
+
 * English
 * France
-* [Contribute to your language](https://github.com/satrya/recent-posts-widget-extended/issues)
-
-= Plugin Support =
-
-* [Get the Image](http://wordpress.org/plugins/get-the-image/).
-* [Page Builder by SiteOrigin](http://wordpress.org/plugins/siteorigin-panels/).
-* [Featured Video Plus](http://wordpress.org/plugins/featured-video-plus/).
+* [Contribute to your language](http://satrya.me/projects/recent-posts-widget-extended/)
 
 = Support =
 
@@ -255,7 +247,11 @@ after=""
 
 == Changelog ==
 
-= 0.9.9 - 11/29/2014 = 
+= 0.9.9.1 - 12/07/2015 = 
+- Prepare to support WordPress 4.3
+- **Update:** Limit the number of `tags` and `categories` displayed in the widget
+
+= 0.9.9 - 29/11/2014 = 
 - **Fix:** for "cssID" attribute in shortcodes. Props [Ikart](https://github.com/lkart)
 - **Fix:** Thumbnail fallback uses `get_the_post_thumbnail`
 - **Add:** `rpwe-img` to the thumbnail.
@@ -263,11 +259,11 @@ after=""
 - **Improve:** Move `use styles default` option to above the custom css. I'm sorry for the incosistency.
 - **Update:** Language
 
-= 0.9.8 - 11/26/2014 = 
+= 0.9.8 - 26/11/2014 = 
 * **Fix:** Compatibility issue with `Get The Image` plugin/extension.
 * **Fix:** Issue with `html or text before and after recent posts`, now it allow all HTML tags.
 
-= 0.9.7 - 9/13/2014  =
+= 0.9.7 - 13/09/2014 =
 * **Add:** Relative date option `eg: 4 days ago`. Props [George Venios](https://github.com/veniosg)
 * **Add:** [Featured Video Plus](http://wordpress.org/plugins/featured-video-plus/) plugin support.
 * **Add:** Hide widget if no posts exist.

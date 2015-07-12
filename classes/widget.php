@@ -30,7 +30,7 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 		);
 
 		/* Create the widget. */
-		$this->WP_Widget(
+		parent::__construct(
 			'rpwe_widget',                         // $this->id_base
 			__( 'Recent Posts Extended', 'rpwe' ), // $this->name
 			$widget_options,                       // $this->widget_options

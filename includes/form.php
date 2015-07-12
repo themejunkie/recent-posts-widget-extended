@@ -123,7 +123,7 @@
 			<?php _e( 'Limit to Category', 'rpwe' ); ?>
 		</label>
 		<ul>
-			<?php foreach ( get_terms( 'category' ) as $category ) : ?>
+			<?php foreach ( rpwe_cats_list() as $category ) : ?>
 				<li>
 					<input type="checkbox" value="<?php echo (int) $category->term_id; ?>" id="<?php echo $this->get_field_id( 'cat' ) . '-' . (int) $category->term_id; ?>" name="<?php echo $this->get_field_name( 'cat' ); ?>[]" <?php checked( is_array( $instance['cat'] ) && in_array( $category->term_id, $instance['cat'] ) ); ?> />
 					<label for="<?php echo $this->get_field_id( 'cat' ) . '-' . (int) $category->term_id; ?>">
@@ -139,7 +139,7 @@
 			<?php _e( 'Limit to Tag', 'rpwe' ); ?>
 		</label>
 		<ul>
-			<?php foreach ( get_terms( 'post_tag' ) as $post_tag ) : ?>
+			<?php foreach ( rpwe_tags_list() as $post_tag ) : ?>
 				<li>
 					<input type="checkbox" value="<?php echo (int) $post_tag->term_id; ?>" id="<?php echo $this->get_field_id( 'tag' ) . '-' . (int) $post_tag->term_id; ?>" name="<?php echo $this->get_field_name( 'tag' ); ?>[]" <?php checked( is_array( $instance['tag'] ) && in_array( $post_tag->term_id, $instance['tag'] ) ); ?> />
 					<label for="<?php echo $this->get_field_id( 'tag' ) . '-' . (int) $post_tag->term_id; ?>">
