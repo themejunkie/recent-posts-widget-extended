@@ -181,10 +181,10 @@ function rpwe_get_recent_posts( $args = array() ) {
 									$html .= '<a href="' . esc_url( get_permalink() ) . '" class="more-link">' . $args['readmore_text'] . '</a>';
 								endif;
 								if ( $args['comment_count'] ) :
-									if ( get_comments_number == 0 ) {
+									if ( get_comments_number() == 0 ) {
 											$comments = __('No Comments');
-										} elseif ( get_comments_number > 1 ) {
-											$comments = get_comments_number . __(' Comments');
+										} elseif ( get_comments_number() > 1 ) {
+											$comments = get_comments_number() . __(' Comments');
 										} else {
 											$comments = __('1 Comment');
 										}
