@@ -11,7 +11,7 @@
 
 /**
  * Sets up the default arguments.
- * 
+ *
  * @since  0.9.4
  */
 function rpwe_get_default_args() {
@@ -44,6 +44,7 @@ function rpwe_get_default_args() {
 		'date_relative'    => false,
 		'readmore'         => false,
 		'readmore_text'    => __( 'Read More &raquo;', 'rpwe' ),
+		'comment_count'    => false,
 
 		'styles_default'   => true,
 		'css'              => $css_defaults,
@@ -60,7 +61,7 @@ function rpwe_get_default_args() {
 
 /**
  * Outputs the recent posts.
- * 
+ *
  * @since  0.9.4
  */
 function rpwe_recent_posts( $args = array() ) {
@@ -97,10 +98,10 @@ function rpwe_get_recent_posts( $args = array() ) {
 	if ( $args['styles_default'] === false && ! empty( $args['css'] ) ) {
 		echo '<style>' . $args['css'] . '</style>';
 	}
-	
+
 	// Get the posts query.
 	$posts = rpwe_get_posts( $args );
-	
+
 	if ( $posts->have_posts() ) :
 
 		$html = '<div ' . ( ! empty( $args['cssID'] ) ? 'id="' . sanitize_html_class( $args['cssID'] ) . '"' : '' ) . ' class="rpwe-block ' . ( ! empty( $args['css_class'] ) ? '' . sanitize_html_class( $args['css_class'] ) . '' : '' ) . '">';
@@ -129,7 +130,7 @@ function rpwe_get_recent_posts( $args = array() ) {
 									else :
 										$html .= get_the_post_thumbnail( get_the_ID(),
 											array( $args['thumb_width'], $args['thumb_height'] ),
-											array( 
+											array(
 												'class' => $args['thumb_align'] . ' rpwe-thumb the-post-thumbnail',
 												'alt'   => esc_attr( get_the_title() )
 											)
@@ -139,7 +140,7 @@ function rpwe_get_recent_posts( $args = array() ) {
 
 							// If no post thumbnail found, check if Get The Image plugin exist and display the image.
 							elseif ( function_exists( 'get_the_image' ) ) :
-								$html .= get_the_image( array( 
+								$html .= get_the_image( array(
 									'height'        => (int) $args['thumb_height'],
 									'width'         => (int) $args['thumb_width'],
 									'image_class'   => esc_attr( $args['thumb_align'] ) . ' rpwe-thumb get-the-image',
@@ -179,6 +180,16 @@ function rpwe_get_recent_posts( $args = array() ) {
 								if ( $args['readmore'] ) :
 									$html .= '<a href="' . esc_url( get_permalink() ) . '" class="more-link">' . $args['readmore_text'] . '</a>';
 								endif;
+								if ( $args['comment_count'] ) :
+									if ( get_comments_number == 0 ) {
+											$comments = __('No Comments');
+										} elseif ( get_comments_number > 1 ) {
+											$comments = get_comments_number . __(' Comments');
+										} else {
+											$comments = __('1 Comment');
+										}
+									$html .= '<a href="' . get_comments_link() . '" class="comment_count">' . $comments . '</a>';
+								endif;
 							$html .= '</div>';
 						endif;
 
@@ -197,7 +208,7 @@ function rpwe_get_recent_posts( $args = array() ) {
 
 	// Allow devs to hook in stuff after the loop.
 	do_action( 'rpwe_after_loop' );
-	
+
 	// Return the  posts markup.
 	return $args['before'] . apply_filters( 'rpwe_markup', $html ) . $args['after'];
 
@@ -255,7 +266,7 @@ function rpwe_get_posts( $args = array() ) {
 				'taxonomy' => $slug,
 				'field'    => 'id',
 				'terms'    => $ids,
-				'operator' => $operator 
+				'operator' => $operator
 			);
 		}
 
@@ -268,7 +279,7 @@ function rpwe_get_posts( $args = array() ) {
 
 	// Perform the query.
 	$posts = new WP_Query( $query );
-	
+
 	return $posts;
 
 }
