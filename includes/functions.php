@@ -174,14 +174,11 @@ function rpwe_get_recent_posts( $args = array() ) {
 							$html .= '<time class="rpwe-time published" datetime="' . esc_html( get_the_date( 'c' ) ) . '">' . esc_html( $date ) . '</time>';
 						elseif ( $args['date_modified'] ) : // if both date functions are provided, we use date to be backwards compatible
 							$date = get_the_modified_date();
-								if ( $args['date_relative'] ) :
-									$date = sprintf( __( '%s ago', 'rpwe' ), human_time_diff( get_the_modified_date( 'U' ), current_time( 'timestamp' ) ) );
+							if ( $args['date_relative'] ) :
+								$date = sprintf( __( '%s ago', 'rpwe' ), human_time_diff( get_the_modified_date( 'U' ), current_time( 'timestamp' ) ) );
 							endif;
 							$html .= '<time class="rpwe-time modfied" datetime="' . esc_html( get_the_modified_date( 'c' ) ) . '">' . esc_html( $date ) . '</time>';
 						endif;
-
-		
-						
 
 						if ( $args['excerpt'] ) :
 							$html .= '<div class="rpwe-summary">';

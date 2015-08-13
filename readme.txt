@@ -3,7 +3,7 @@ Contributors: satrya, themejunkie
 Tags: recent posts, random posts, popular posts, thumbnails, widget, widgets, sidebar, excerpt, category, post tag, taxonomy, post type, post status, shortcode, multiple widgets
 Requires at least: 3.7
 Tested up to: 4.3
-Stable tag: 0.9.9.1
+Stable tag: 0.9.9.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,6 +12,11 @@ Provides flexible and advanced recent posts. Display it via shortcode or widget 
 == Description ==
 
 This plugin will enable a custom, flexible and super advanced recent posts, you can display it via shortcode or widget. Allows you to display a list of the most recent posts with thumbnail, excerpt and post date, also you can display it from all or specific or multiple taxonomy, post type and much more!
+
+= New Features =
+
+* Display modification date
+* 
 
 = Features Include =
 
@@ -38,21 +43,18 @@ This plugin will enable a custom, flexible and super advanced recent posts, you 
 
 * English
 * France
-* [Contribute to your language](http://satrya.me/projects/recent-posts-widget-extended/)
+* Brazilian Portuguese
+* [Contribute to your language](https://github.com/satrya/recent-posts-widget-extended/issues)
 
 = Support =
 
 * Go to [forum support](http://wordpress.org/support/plugin/recent-posts-widget-extended).
 * [Rate/Review the plugin](http://wordpress.org/support/view/plugin-reviews/recent-posts-widget-extended).
-* Submit translation.
+* [Submit translation](https://github.com/satrya/recent-posts-widget-extended/issues).
 
 = Plugin Info =
 * Developed by [Satrya](http://satrya.me/) & [Theme Junkie](http://www.theme-junkie.com/)
 * Check out the [Github](https://github.com/satrya/recent-posts-widget-extended) repo to contribute.
-
-= Posts Plugin Series =
-* [Recent Posts Widget Extended](http://wordpress.org/plugins/recent-posts-widget-extended/)
-* [Advanced Random Posts Widget](http://wordpress.org/plugins/advanced-random-posts-widget/)
 
 = Contributors =
 * [David Kryzaniak](http://profiles.wordpress.org/davidkryzaniak/)
@@ -60,6 +62,8 @@ This plugin will enable a custom, flexible and super advanced recent posts, you 
 * [Alexander Sidorov](https://github.com/lkart)
 * [Rubens Mariuzzo](https://github.com/rmariuzzo)
 * [Ikart](https://github.com/lkart)
+* [Gil Barbara](https://github.com/gilbarbara)
+* [kurt-hectic](https://github.com/kurt-hectic)
 
 == Installation ==
 
@@ -246,6 +250,10 @@ after=""
 `
 
 == Changelog ==
+
+= 0.9.9.2 - 13/08/2015 = 
+- **Add:** Brazilian portuguese translation. Props [Gil Barbara](https://github.com/gilbarbara)
+- **Add:** Option to show modification date. Props [kurt-hectic](https://github.com/kurt-hectic)
 
 = 0.9.9.1 - 12/07/2015 = 
 - Prepare to support WordPress 4.3
