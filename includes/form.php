@@ -237,6 +237,13 @@
 		</label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'readmore_text' ); ?>" name="<?php echo $this->get_field_name( 'readmore_text' ); ?>" type="text" value="<?php echo strip_tags( $instance['readmore_text'] ); ?>" />
 	</p>
+	
+	<p>
+		<input id="<?php echo $this->get_field_id( 'comment_count' ); ?>" name="<?php echo $this->get_field_name( 'comment_count' ); ?>" type="checkbox" <?php checked( $instance['comment_count'] ); ?> />
+		<label class="input-checkbox" for="<?php echo $this->get_field_id( 'comment_count' ); ?>">
+			<?php _e( 'Display Comment Counter', 'rpwe' ); ?>
+		</label>
+	</p>
 
 	<p>
 		<input id="<?php echo $this->get_field_id( 'date' ); ?>" name="<?php echo $this->get_field_name( 'date' ); ?>" type="checkbox" <?php checked( $instance['date'] ); ?> />

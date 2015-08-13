@@ -1,6 +1,6 @@
 <?php
 /**
- * The custom recent posts widget. 
+ * The custom recent posts widget.
  * This widget gives total control over the output to the user.
  *
  * @package    Recent_Posts_Widget_Extended
@@ -79,7 +79,7 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 	 * @since 0.1
 	 */
 	function update( $new_instance, $old_instance ) {
-		
+
 		// Validate post_type submissions
 		$name = get_post_types( array( 'public' => true ), 'names' );
 		$types = array();
@@ -114,6 +114,7 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 		$instance['date_modified']    = isset( $new_instance['date_modified'] ) ? (bool) $new_instance['date_modified'] : false;
 		$instance['readmore']         = isset( $new_instance['readmore'] ) ? (bool) $new_instance['readmore'] : false;
 		$instance['readmore_text']    = strip_tags( $new_instance['readmore_text'] );
+		$instance['comment_count']    = isset( $new_instance['comment_count'] ) ? (bool) $new_instance['comment_count'] : false;
 
 		$instance['thumb']            = isset( $new_instance['thumb'] ) ? (bool) $new_instance['thumb'] : false;
 		$instance['thumb_height']     = (int)( $new_instance['thumb_height'] );

@@ -34,6 +34,7 @@ This plugin will enable a custom, flexible and super advanced recent posts, you 
 * Display from all, specific or multiple category.
 * Display from all, specific or multiple tag.
 * Display post date.
+* Display comment counter in excerpt
 * Read more option.
 * Post type option.
 * Custom CSS.
