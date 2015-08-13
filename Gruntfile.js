@@ -1,7 +1,9 @@
 module.exports = function(grunt) {
 
 	// Load all Grunt tasks
-	require('load-grunt-tasks')(grunt);
+	require('jit-grunt')(grunt, {
+		makepot: 'grunt-wp-i18n'
+	});
 
 	grunt.initConfig({
 
@@ -33,10 +35,5 @@ module.exports = function(grunt) {
 		},
 
 	});
-
-	// Theme Test task
-	grunt.registerTask('default', [
-		
-	]);
 
 };

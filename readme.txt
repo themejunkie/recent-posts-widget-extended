@@ -11,12 +11,14 @@ Provides flexible and advanced recent posts. Display it via shortcode or widget 
 
 == Description ==
 
+> Recent Posts Widget Extended version 1.0.0 will have some major updates like moving custom css to a file, rework the shortcode function, add exclude post option, etc. I hope the updates will be ready before September 1, please note, if you see an update from this plugin to **version 1.0.0** please backup your website before updating. Thank you for using my plugin. Have a nice day 😀
+
 This plugin will enable a custom, flexible and super advanced recent posts, you can display it via shortcode or widget. Allows you to display a list of the most recent posts with thumbnail, excerpt and post date, also you can display it from all or specific or multiple taxonomy, post type and much more!
 
 = New Features =
 
 * Display modification date
-* 
+* Display comment count
 
 = Features Include =
 
@@ -34,7 +36,6 @@ This plugin will enable a custom, flexible and super advanced recent posts, you 
 * Display from all, specific or multiple category.
 * Display from all, specific or multiple tag.
 * Display post date.
-* Display comment counter in excerpt
 * Read more option.
 * Post type option.
 * Custom CSS.
@@ -49,7 +50,7 @@ This plugin will enable a custom, flexible and super advanced recent posts, you 
 
 = Support =
 
-* Go to [forum support](http://wordpress.org/support/plugin/recent-posts-widget-extended).
+* [Forum support](http://wordpress.org/support/plugin/recent-posts-widget-extended).
 * [Rate/Review the plugin](http://wordpress.org/support/view/plugin-reviews/recent-posts-widget-extended).
 * [Submit translation](https://github.com/satrya/recent-posts-widget-extended/issues).
 
@@ -65,6 +66,7 @@ This plugin will enable a custom, flexible and super advanced recent posts, you 
 * [Ikart](https://github.com/lkart)
 * [Gil Barbara](https://github.com/gilbarbara)
 * [kurt-hectic](https://github.com/kurt-hectic)
+* [Oliver Larsen](https://github.com/CandyFace)
 
 == Installation ==
 
@@ -252,9 +254,13 @@ after=""
 
 == Changelog ==
 
+> Recent Posts Widget Extended version 1.0.0 will have some major updates like moving custom css to a file, rework the shortcode function, add exclude post option, etc. I hope the updates will be ready before September 1, please note, if you see an update from this plugin to **version 1.0.0** please backup your website before updating. Thank you for using my plugin. Have a nice day 😀
+
 = 0.9.9.2 - 13/08/2015 = 
 - **Add:** Brazilian portuguese translation. Props [Gil Barbara](https://github.com/gilbarbara)
 - **Add:** Option to show modification date. Props [kurt-hectic](https://github.com/kurt-hectic)
+- **Add:** Option to show comment count. Props [Oliver Larsen](https://github.com/CandyFace)
+- **Improve:** Add validation to the `Order` and `Orderby` option before saving the widget.
 
 = 0.9.9.1 - 12/07/2015 = 
 - Prepare to support WordPress 4.3

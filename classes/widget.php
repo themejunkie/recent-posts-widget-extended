@@ -99,10 +99,10 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 		$instance['ignore_sticky']    = isset( $new_instance['ignore_sticky'] ) ? (bool) $new_instance['ignore_sticky'] : 0;
 		$instance['limit']            = (int)( $new_instance['limit'] );
 		$instance['offset']           = (int)( $new_instance['offset'] );
-		$instance['order']            = $new_instance['order'];
-		$instance['orderby']          = $new_instance['orderby'];
+		$instance['order']            = stripslashes( $new_instance['order'] );
+		$instance['orderby']          = stripslashes( $new_instance['orderby'] );
 		$instance['post_type']        = $types;
-		$instance['post_status']      = esc_attr( $new_instance['post_status'] );
+		$instance['post_status']      = stripslashes( $new_instance['post_status'] );
 		$instance['cat']              = $new_instance['cat'];
 		$instance['tag']              = $new_instance['tag'];
 		$instance['taxonomy']         = esc_attr( $new_instance['taxonomy'] );

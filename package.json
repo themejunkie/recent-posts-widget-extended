@@ -1,6 +1,6 @@
 {
   "name": "rpwe",
-  "version": "0.9.9",
+  "version": "0.9.9.2",
   "author": "Satrya",
   "homepage": "http://satrya.me/",
   "licenses": [
@@ -11,7 +11,7 @@
   ],
   "devDependencies": {
     "grunt": "~0.4.5",
-    "grunt-wp-i18n": "^0.5.2",
-    "load-grunt-tasks": "^3.2.0"
+    "grunt-wp-i18n": "^0.5.3",
+    "jit-grunt": "^0.9.1"
   }
 }
