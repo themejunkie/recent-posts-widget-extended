@@ -1,9 +1,9 @@
 === Recent Posts Widget Extended ===
-Contributors: satrya, themejunkie
+Contributors: satrya, themephe
 Tags: recent posts, random posts, popular posts, thumbnails, widget, widgets, sidebar, excerpt, category, post tag, taxonomy, post type, post status, shortcode, multiple widgets
-Requires at least: 3.7
-Tested up to: 4.3
-Stable tag: 0.9.9.2
+Requires at least: 3.9
+Tested up to: 4.3.1
+Stable tag: 0.9.9.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -11,18 +11,17 @@ Provides flexible and advanced recent posts. Display it via shortcode or widget 
 
 == Description ==
 
-> Recent Posts Widget Extended version 1.0.0 will have some major updates like moving custom css to a file, rework the shortcode function, add exclude post option, etc. I hope the updates will be ready before September 1, please note, if you see an update from this plugin to **version 1.0.0** please backup your website before updating. Thank you for using my plugin. Have a nice day 😀
-
 This plugin will enable a custom, flexible and super advanced recent posts, you can display it via shortcode or widget. Allows you to display a list of the most recent posts with thumbnail, excerpt and post date, also you can display it from all or specific or multiple taxonomy, post type and much more!
 
 = New Features =
 
 * Display modification date
 * Display comment count
+* Exclude current post
 
 = Features Include =
 
-* WordPress 4.3 Support.
+* WordPress 4.3.1 Support.
 * Shortcode feature. Please read [Other Notes](http://wordpress.org/plugins/recent-posts-widget-extended/other_notes)
 * Taxonomy support!
 * Post status option.
@@ -46,17 +45,17 @@ This plugin will enable a custom, flexible and super advanced recent posts, you 
 * English
 * France
 * Brazilian Portuguese
-* [Contribute to your language](https://github.com/satrya/recent-posts-widget-extended/issues)
+* [Contribute to your language](https://github.com/themephe/recent-posts-widget-extended/issues)
 
 = Support =
 
 * [Forum support](http://wordpress.org/support/plugin/recent-posts-widget-extended).
 * [Rate/Review the plugin](http://wordpress.org/support/view/plugin-reviews/recent-posts-widget-extended).
-* [Submit translation](https://github.com/satrya/recent-posts-widget-extended/issues).
+* [Submit translation](https://github.com/themephe/recent-posts-widget-extended/issues).
 
 = Plugin Info =
-* Developed by [Satrya](http://satrya.me/) & [Theme Junkie](http://www.theme-junkie.com/)
-* Check out the [Github](https://github.com/satrya/recent-posts-widget-extended) repo to contribute.
+* Developed by [ThemePhe](https://themephe.com/)
+* Check out the [Github](https://github.com/themephe/recent-posts-widget-extended) repo to contribute.
 
 = Contributors =
 * [David Kryzaniak](http://profiles.wordpress.org/davidkryzaniak/)
@@ -255,6 +254,10 @@ after=""
 == Changelog ==
 
 > Recent Posts Widget Extended version 1.0.0 will have some major updates like moving custom css to a file, rework the shortcode function, add exclude post option, etc. I hope the updates will be ready before September 1, please note, if you see an update from this plugin to **version 1.0.0** please backup your website before updating. Thank you for using my plugin. Have a nice day 😀
+
+= 0.9.9.3 - 19/09/2015 = 
+- Change text-domain to matches the plugin slug
+- **Add:** Exclude post option
 
 = 0.9.9.2 - 13/08/2015 = 
 - **Add:** Brazilian portuguese translation. Props [Gil Barbara](https://github.com/gilbarbara)

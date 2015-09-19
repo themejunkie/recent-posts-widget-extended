@@ -2,15 +2,15 @@
 # This file is distributed under the same license as the Recent Posts Widget Extended package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Recent Posts Widget Extended 0.9.9.2\n"
-"Report-Msgid-Bugs-To: http://satrya.me/\n"
-"POT-Creation-Date: 2015-08-13 18:31:00+00:00\n"
+"Project-Id-Version: Recent Posts Widget Extended 0.9.9.3\n"
+"Report-Msgid-Bugs-To: https://themephe.com/\n"
+"POT-Creation-Date: 2015-09-19 14:47:10+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Satrya (satrya@satrya.me)\n"
-"Language-Team: Satrya (satrya@satrya.me)\n"
+"Last-Translator: ThemePhe (support@themephe.com)\n"
+"Language-Team: ThemePhe (support@themephe.com)\n"
 "X-Generator: grunt-wp-i18n 0.5.3\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-Basepath: ..\n"
@@ -33,7 +33,7 @@ msgstr ""
 msgid "Recent Posts Extended"
 msgstr ""
 
-#: includes/form.php:17 includes/form.php:112
+#: includes/form.php:17 includes/form.php:119
 msgid "Title"
 msgstr ""
 
@@ -61,159 +61,163 @@ msgstr ""
 msgid "Ignore sticky posts"
 msgstr ""
 
-#: includes/form.php:70
+#: includes/form.php:71
+msgid "Exclude current post"
+msgstr ""
+
+#: includes/form.php:77
 msgid "Post Types"
 msgstr ""
 
-#: includes/form.php:86
+#: includes/form.php:93
 msgid "Post Status"
 msgstr ""
 
-#: includes/form.php:97
+#: includes/form.php:104
 msgid "Order"
 msgstr ""
 
-#: includes/form.php:100
+#: includes/form.php:107
 msgid "Descending"
 msgstr ""
 
-#: includes/form.php:101
+#: includes/form.php:108
 msgid "Ascending"
 msgstr ""
 
-#: includes/form.php:107
+#: includes/form.php:114
 msgid "Orderby"
 msgstr ""
 
-#: includes/form.php:110
+#: includes/form.php:117
 msgid "ID"
 msgstr ""
 
-#: includes/form.php:111
+#: includes/form.php:118
 msgid "Author"
 msgstr ""
 
-#: includes/form.php:113
+#: includes/form.php:120
 msgid "Date"
 msgstr ""
 
-#: includes/form.php:114
+#: includes/form.php:121
 msgid "Modified"
 msgstr ""
 
-#: includes/form.php:115
+#: includes/form.php:122
 msgid "Random"
 msgstr ""
 
-#: includes/form.php:116
+#: includes/form.php:123
 msgid "Comment Count"
 msgstr ""
 
-#: includes/form.php:117
+#: includes/form.php:124
 msgid "Menu Order"
 msgstr ""
 
-#: includes/form.php:123
+#: includes/form.php:130
 msgid "Limit to Category"
 msgstr ""
 
-#: includes/form.php:139
+#: includes/form.php:146
 msgid "Limit to Tag"
 msgstr ""
 
-#: includes/form.php:155
+#: includes/form.php:162
 msgid "Limit to Taxonomy"
 msgstr ""
 
-#: includes/form.php:158
+#: includes/form.php:165
 msgid "Ex: category=1,2,4&amp;post_tag=6,12"
 msgstr ""
 
-#: includes/form.php:159
+#: includes/form.php:166
 msgid "Available: "
 msgstr ""
 
-#: includes/form.php:168
+#: includes/form.php:175
 msgid "Number of posts to show"
 msgstr ""
 
-#: includes/form.php:175
+#: includes/form.php:182
 msgid "Offset"
 msgstr ""
 
-#: includes/form.php:178
+#: includes/form.php:185
 msgid "The number of posts to skip"
 msgstr ""
 
-#: includes/form.php:186
+#: includes/form.php:193
 msgid "Display Thumbnail"
 msgstr ""
 
-#: includes/form.php:192
+#: includes/form.php:199
 msgid "Thumbnail (height,width,align)"
 msgstr ""
 
-#: includes/form.php:197
+#: includes/form.php:204
 msgid "Left"
 msgstr ""
 
-#: includes/form.php:198
+#: includes/form.php:205
 msgid "Right"
 msgstr ""
 
-#: includes/form.php:199
+#: includes/form.php:206
 msgid "Center"
 msgstr ""
 
-#: includes/form.php:205
+#: includes/form.php:212
 msgid "Default Thumbnail"
 msgstr ""
 
-#: includes/form.php:208
+#: includes/form.php:215
 msgid "Leave it blank to disable."
 msgstr ""
 
-#: includes/form.php:216
+#: includes/form.php:223
 msgid "Display Excerpt"
 msgstr ""
 
-#: includes/form.php:222
+#: includes/form.php:229
 msgid "Excerpt Length"
 msgstr ""
 
-#: includes/form.php:230
+#: includes/form.php:237
 msgid "Display Readmore"
 msgstr ""
 
-#: includes/form.php:236
+#: includes/form.php:243
 msgid "Readmore Text"
 msgstr ""
 
-#: includes/form.php:244
+#: includes/form.php:251
 msgid "Display Comment Count"
 msgstr ""
 
-#: includes/form.php:251
+#: includes/form.php:258
 msgid "Display Date"
 msgstr ""
 
-#: includes/form.php:258
+#: includes/form.php:265
 msgid "Display Modification Date"
 msgstr ""
 
-#: includes/form.php:265
+#: includes/form.php:272
 msgid "Use Relative Date. eg: 5 days ago"
 msgstr ""
 
-#: includes/form.php:277
+#: includes/form.php:284
 msgid "Use Default Styles"
 msgstr ""
 
-#: includes/form.php:283
+#: includes/form.php:290
 msgid "Custom CSS"
 msgstr ""
 
-#: includes/form.php:286
+#: includes/form.php:293
 msgid ""
 "If you turn off the default styles, you can use these css code to customize "
 "the recent posts style."
@@ -223,27 +227,27 @@ msgstr ""
 msgid "Recent Posts"
 msgstr ""
 
-#: includes/functions.php:47
+#: includes/functions.php:48
 msgid "Read More &raquo;"
 msgstr ""
 
-#: includes/functions.php:169
+#: includes/functions.php:170
 msgid "Permalink to %s"
 msgstr ""
 
-#: includes/functions.php:174 includes/functions.php:180
+#: includes/functions.php:175 includes/functions.php:181
 msgid "%s ago"
 msgstr ""
 
-#: includes/functions.php:187
+#: includes/functions.php:188
 msgid "No Comments"
 msgstr ""
 
-#: includes/functions.php:189
+#: includes/functions.php:190
 msgid "%s Comments"
 msgstr ""
 
-#: includes/functions.php:191
+#: includes/functions.php:192
 msgid "1 Comment"
 msgstr ""
 
@@ -252,7 +256,7 @@ msgid "Recent Posts Widget Extended"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "http://satrya.me/projects/recent-posts-widget-extended/"
+msgid "https://themephe.com/items/recent-posts-widget-extended/"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -266,5 +270,5 @@ msgid "Satrya"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "http://satrya.me/"
+msgid "https://themephe.com/"
 msgstr ""

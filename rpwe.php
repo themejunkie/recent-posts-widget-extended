@@ -1,12 +1,14 @@
 <?php
 /**
  * Plugin Name:  Recent Posts Widget Extended
- * Plugin URI:   http://satrya.me/projects/recent-posts-widget-extended/
+ * Plugin URI:   https://themephe.com/items/recent-posts-widget-extended/
  * Description:  Enables advanced widget that gives you total control over the output of your site’s most recent Posts.
- * Version:      0.9.9.2
+ * Version:      0.9.9.3
  * Author:       Satrya
- * Author URI:   http://satrya.me/
- * Author Email: satrya@satrya.me
+ * Author URI:   https://themephe.com/
+ * Author Email: satrya@themephe.com
+ * Text Domain:  recent-posts-widget-extended
+ * Domain Path:  /languages
  *
  * This program is free software; you can redistribute it and/or modify it under the terms of the GNU 
  * General Public License as published by the Free Software Foundation; either version 2 of the License, 
@@ -87,7 +89,7 @@ class RPW_Extended {
 	 * @since  0.1
 	 */
 	public function i18n() {
-		load_plugin_textdomain( 'rpwe', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+		load_plugin_textdomain( 'recent-posts-widget-extended', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 	}
 
 	/**

@@ -32,6 +32,7 @@ function rpwe_get_default_args() {
 		'post_type'        => array( 'post' ),
 		'post_status'      => 'publish',
 		'ignore_sticky'    => 1,
+		'exclude_current'  => 1,
 
 		'excerpt'          => false,
 		'length'           => 10,
@@ -44,7 +45,7 @@ function rpwe_get_default_args() {
 		'date_relative'    => false,
 		'date_modified'    => false,
 		'readmore'         => false,
-		'readmore_text'    => __( 'Read More &raquo;', 'rpwe' ),
+		'readmore_text'    => __( 'Read More &raquo;', 'recent-posts-widget-extended' ),
 		'comment_count'    => false,
 
 		'styles_default'   => true,
@@ -166,29 +167,29 @@ function rpwe_get_recent_posts( $args = array() ) {
 
 						endif;
 
-						$html .= '<h3 class="rpwe-title"><a href="' . esc_url( get_permalink() ) . '" title="' . sprintf( esc_attr__( 'Permalink to %s', 'rpwe' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark">' . esc_attr( get_the_title() ) . '</a></h3>';
+						$html .= '<h3 class="rpwe-title"><a href="' . esc_url( get_permalink() ) . '" title="' . sprintf( esc_attr__( 'Permalink to %s', 'recent-posts-widget-extended' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark">' . esc_attr( get_the_title() ) . '</a></h3>';
 
 						if ( $args['date'] ) :
 							$date = get_the_date();
 							if ( $args['date_relative'] ) :
-								$date = sprintf( __( '%s ago', 'rpwe' ), human_time_diff( get_the_date( 'U' ), current_time( 'timestamp' ) ) );
+								$date = sprintf( __( '%s ago', 'recent-posts-widget-extended' ), human_time_diff( get_the_date( 'U' ), current_time( 'timestamp' ) ) );
 							endif;
 							$html .= '<time class="rpwe-time published" datetime="' . esc_html( get_the_date( 'c' ) ) . '">' . esc_html( $date ) . '</time>';
 						elseif ( $args['date_modified'] ) : // if both date functions are provided, we use date to be backwards compatible
 							$date = get_the_modified_date();
 							if ( $args['date_relative'] ) :
-								$date = sprintf( __( '%s ago', 'rpwe' ), human_time_diff( get_the_modified_date( 'U' ), current_time( 'timestamp' ) ) );
+								$date = sprintf( __( '%s ago', 'recent-posts-widget-extended' ), human_time_diff( get_the_modified_date( 'U' ), current_time( 'timestamp' ) ) );
 							endif;
 							$html .= '<time class="rpwe-time modfied" datetime="' . esc_html( get_the_modified_date( 'c' ) ) . '">' . esc_html( $date ) . '</time>';
 						endif;
 
 						if ( $args['comment_count'] ) :
 							if ( get_comments_number() == 0 ) {
-									$comments = __( 'No Comments', 'rpwe' );
+									$comments = __( 'No Comments', 'recent-posts-widget-extended' );
 								} elseif ( get_comments_number() > 1 ) {
-									$comments = sprintf( __( '%s Comments', 'rpwe' ), get_comments_number() );
+									$comments = sprintf( __( '%s Comments', 'recent-posts-widget-extended' ), get_comments_number() );
 								} else {
-									$comments = __( '1 Comment', 'rpwe' );
+									$comments = __( '1 Comment', 'recent-posts-widget-extended' );
 								}
 							$html .= '<a class="rpwe-comment comment-count" href="' . get_comments_link() . '">' . $comments . '</a>';
 						endif;
@@ -242,6 +243,11 @@ function rpwe_get_posts( $args = array() ) {
 		'post_status'         => $args['post_status'],
 		'ignore_sticky_posts' => $args['ignore_sticky'],
 	);
+
+	// Exclude current post
+	if ( $args['exclude_current'] ) {
+		$query['post__not_in'] = array( get_the_ID() );
+	}
 
 	// Limit posts based on category.
 	if ( ! empty( $args['cat'] ) ) {

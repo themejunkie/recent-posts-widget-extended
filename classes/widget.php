@@ -21,7 +21,7 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 		/* Set up the widget options. */
 		$widget_options = array(
 			'classname'   => 'rpwe_widget recent-posts-extended',
-			'description' => __( 'An advanced widget that gives you total control over the output of your site’s most recent Posts.', 'rpwe' )
+			'description' => __( 'An advanced widget that gives you total control over the output of your site’s most recent Posts.', 'recent-posts-widget-extended' )
 		);
 
 		$control_options = array(
@@ -31,10 +31,10 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 
 		/* Create the widget. */
 		parent::__construct(
-			'rpwe_widget',                         // $this->id_base
-			__( 'Recent Posts Extended', 'rpwe' ), // $this->name
-			$widget_options,                       // $this->widget_options
-			$control_options                       // $this->control_options
+			'rpwe_widget',                                                 // $this->id_base
+			__( 'Recent Posts Extended', 'recent-posts-widget-extended' ), // $this->name
+			$widget_options,                                               // $this->widget_options
+			$control_options                                               // $this->control_options
 		);
 
 	}
@@ -97,6 +97,7 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 		$instance['title_url']        = esc_url( $new_instance['title_url'] );
 
 		$instance['ignore_sticky']    = isset( $new_instance['ignore_sticky'] ) ? (bool) $new_instance['ignore_sticky'] : 0;
+		$instance['exclude_current']  = isset( $new_instance['exclude_current'] ) ? (bool) $new_instance['exclude_current'] : 0;
 		$instance['limit']            = (int)( $new_instance['limit'] );
 		$instance['offset']           = (int)( $new_instance['offset'] );
 		$instance['order']            = stripslashes( $new_instance['order'] );

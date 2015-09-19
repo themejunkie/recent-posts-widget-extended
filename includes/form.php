@@ -14,42 +14,42 @@
 
 	<p>
 		<label for="<?php echo $this->get_field_id( 'title' ); ?>">
-			<?php _e( 'Title', 'rpwe' ); ?>
+			<?php _e( 'Title', 'recent-posts-widget-extended' ); ?>
 		</label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $instance['title'] ); ?>" />
 	</p>
 
 	<p>
 		<label for="<?php echo $this->get_field_id( 'title_url' ); ?>">
-			<?php _e( 'Title URL', 'rpwe' ); ?>
+			<?php _e( 'Title URL', 'recent-posts-widget-extended' ); ?>
 		</label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'title_url' ); ?>" name="<?php echo $this->get_field_name( 'title_url' ); ?>" type="text" value="<?php echo esc_url( $instance['title_url'] ); ?>" />
 	</p>
 
 	<p>
 		<label for="<?php echo $this->get_field_id( 'cssID' ); ?>">
-			<?php _e( 'CSS ID', 'rpwe' ); ?>
+			<?php _e( 'CSS ID', 'recent-posts-widget-extended' ); ?>
 		</label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'cssID' ); ?>" name="<?php echo $this->get_field_name( 'cssID' ); ?>" type="text" value="<?php echo sanitize_html_class( $instance['cssID'] ); ?>"/>
 	</p>
 
 	<p>
 		<label for="<?php echo $this->get_field_id( 'css_class' ); ?>">
-			<?php _e( 'CSS Class', 'rpwe' ); ?>
+			<?php _e( 'CSS Class', 'recent-posts-widget-extended' ); ?>
 		</label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'css_class' ); ?>" name="<?php echo $this->get_field_name( 'css_class' ); ?>" type="text" value="<?php echo sanitize_html_class( $instance['css_class'] ); ?>"/>
 	</p>
 
 	<p>
 		<label for="<?php echo $this->get_field_id( 'before' ); ?>">
-			<?php _e( 'HTML or text before the recent posts', 'rpwe' );?>
+			<?php _e( 'HTML or text before the recent posts', 'recent-posts-widget-extended' );?>
 		</label>
 		<textarea class="widefat" id="<?php echo $this->get_field_id( 'before' ); ?>" name="<?php echo $this->get_field_name( 'before' ); ?>" rows="5"><?php echo htmlspecialchars( stripslashes( $instance['before'] ) ); ?></textarea>
 	</p>
 
 	<p>
 		<label for="<?php echo $this->get_field_id( 'after' ); ?>">
-			<?php _e( 'HTML or text after the recent posts', 'rpwe' );?>
+			<?php _e( 'HTML or text after the recent posts', 'recent-posts-widget-extended' );?>
 		</label>
 		<textarea class="widefat" id="<?php echo $this->get_field_id( 'after' ); ?>" name="<?php echo $this->get_field_name( 'after' ); ?>" rows="5"><?php echo htmlspecialchars( stripslashes( $instance['after'] ) ); ?></textarea>
 	</p>
@@ -61,13 +61,20 @@
 	<p>
 		<input class="checkbox" type="checkbox" <?php checked( $instance['ignore_sticky'], 1 ); ?> id="<?php echo $this->get_field_id( 'ignore_sticky' ); ?>" name="<?php echo $this->get_field_name( 'ignore_sticky' ); ?>" />
 		<label for="<?php echo $this->get_field_id( 'ignore_sticky' ); ?>">
-			<?php _e( 'Ignore sticky posts', 'rpwe' ); ?>
+			<?php _e( 'Ignore sticky posts', 'recent-posts-widget-extended' ); ?>
+		</label>
+	</p>
+
+	<p>
+		<input class="checkbox" type="checkbox" <?php checked( $instance['exclude_current'], 1 ); ?> id="<?php echo $this->get_field_id( 'exclude_current' ); ?>" name="<?php echo $this->get_field_name( 'exclude_current' ); ?>" />
+		<label for="<?php echo $this->get_field_id( 'exclude_current' ); ?>">
+			<?php _e( 'Exclude current post', 'recent-posts-widget-extended' ); ?>
 		</label>
 	</p>
 
 	<div class="rpwe-multiple-check-form">
 		<label>
-			<?php _e( 'Post Types', 'rpwe' ); ?>
+			<?php _e( 'Post Types', 'recent-posts-widget-extended' ); ?>
 		</label>
 		<ul>
 			<?php foreach ( get_post_types( array( 'public' => true ), 'objects' ) as $type ) : ?>
@@ -83,7 +90,7 @@
 
 	<p>
 		<label for="<?php echo $this->get_field_id( 'post_status' ); ?>">
-			<?php _e( 'Post Status', 'rpwe' ); ?>
+			<?php _e( 'Post Status', 'recent-posts-widget-extended' ); ?>
 		</label>
 		<select class="widefat" id="<?php echo $this->get_field_id( 'post_status' ); ?>" name="<?php echo $this->get_field_name( 'post_status' ); ?>" style="width:100%;">
 			<?php foreach ( get_available_post_statuses() as $status_value => $status_label ) { ?>
@@ -94,7 +101,7 @@
 
 	<p>
 		<label for="<?php echo $this->get_field_id( 'order' ); ?>">
-			<?php _e( 'Order', 'rpwe' ); ?>
+			<?php _e( 'Order', 'recent-posts-widget-extended' ); ?>
 		</label>
 		<select class="widefat" id="<?php echo $this->get_field_id( 'order' ); ?>" name="<?php echo $this->get_field_name( 'order' ); ?>" style="width:100%;">
 			<option value="DESC" <?php selected( $instance['order'], 'DESC' ); ?>><?php _e( 'Descending', 'rpwe' ) ?></option>
@@ -104,7 +111,7 @@
 
 	<p>
 		<label for="<?php echo $this->get_field_id( 'orderby' ); ?>">
-			<?php _e( 'Orderby', 'rpwe' ); ?>
+			<?php _e( 'Orderby', 'recent-posts-widget-extended' ); ?>
 		</label>
 		<select class="widefat" id="<?php echo $this->get_field_id( 'orderby' ); ?>" name="<?php echo $this->get_field_name( 'orderby' ); ?>" style="width:100%;">
 			<option value="ID" <?php selected( $instance['orderby'], 'ID' ); ?>><?php _e( 'ID', 'rpwe' ) ?></option>
@@ -120,7 +127,7 @@
 
 	<div class="rpwe-multiple-check-form">
 		<label>
-			<?php _e( 'Limit to Category', 'rpwe' ); ?>
+			<?php _e( 'Limit to Category', 'recent-posts-widget-extended' ); ?>
 		</label>
 		<ul>
 			<?php foreach ( rpwe_cats_list() as $category ) : ?>
@@ -136,7 +143,7 @@
 
 	<div class="rpwe-multiple-check-form">
 		<label>
-			<?php _e( 'Limit to Tag', 'rpwe' ); ?>
+			<?php _e( 'Limit to Tag', 'recent-posts-widget-extended' ); ?>
 		</label>
 		<ul>
 			<?php foreach ( rpwe_tags_list() as $post_tag ) : ?>
@@ -152,7 +159,7 @@
 
 	<p>
 		<label for="<?php echo $this->get_field_id( 'taxonomy' ); ?>">
-			<?php _e( 'Limit to Taxonomy', 'rpwe' ); ?>
+			<?php _e( 'Limit to Taxonomy', 'recent-posts-widget-extended' ); ?>
 		</label>
 		<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'taxonomy' ); ?>" name="<?php echo $this->get_field_name( 'taxonomy' ); ?>" value="<?php echo esc_attr( $instance['taxonomy'] ); ?>" />
 		<small><?php _e( 'Ex: category=1,2,4&amp;post_tag=6,12', 'rpwe' );?><br />
@@ -165,17 +172,17 @@
 
 	<p>
 		<label for="<?php echo $this->get_field_id( 'limit' ); ?>">
-			<?php _e( 'Number of posts to show', 'rpwe' ); ?>
+			<?php _e( 'Number of posts to show', 'recent-posts-widget-extended' ); ?>
 		</label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'limit' ); ?>" name="<?php echo $this->get_field_name( 'limit' ); ?>" type="number" step="1" min="-1" value="<?php echo (int)( $instance['limit'] ); ?>" />
 	</p>
 
 	<p>
 		<label for="<?php echo $this->get_field_id( 'offset' ); ?>">
-			<?php _e( 'Offset', 'rpwe' ); ?>
+			<?php _e( 'Offset', 'recent-posts-widget-extended' ); ?>
 		</label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'offset' ); ?>" name="<?php echo $this->get_field_name( 'offset' ); ?>" type="number" step="1" min="0" value="<?php echo (int)( $instance['offset'] ); ?>" />
-		<small><?php _e( 'The number of posts to skip', 'rpwe' ); ?></small>
+		<small><?php _e( 'The number of posts to skip', 'recent-posts-widget-extended' ); ?></small>
 	</p>
 
 	<?php if ( current_theme_supports( 'post-thumbnails' ) ) { ?>
@@ -183,29 +190,29 @@
 		<p>
 			<input id="<?php echo $this->get_field_id( 'thumb' ); ?>" name="<?php echo $this->get_field_name( 'thumb' ); ?>" type="checkbox" <?php checked( $instance['thumb'] ); ?> />
 			<label for="<?php echo $this->get_field_id( 'thumb' ); ?>">
-				<?php _e( 'Display Thumbnail', 'rpwe' ); ?>
+				<?php _e( 'Display Thumbnail', 'recent-posts-widget-extended' ); ?>
 			</label>
 		</p>
 
 		<p>
 			<label class="rpwe-block" for="<?php echo $this->get_field_id( 'thumb_height' ); ?>">
-				<?php _e( 'Thumbnail (height,width,align)', 'rpwe' ); ?>
+				<?php _e( 'Thumbnail (height,width,align)', 'recent-posts-widget-extended' ); ?>
 			</label>
 			<input class= "small-input" id="<?php echo $this->get_field_id( 'thumb_height' ); ?>" name="<?php echo $this->get_field_name( 'thumb_height' ); ?>" type="number" step="1" min="0" value="<?php echo (int)( $instance['thumb_height'] ); ?>" />
 			<input class="small-input" id="<?php echo $this->get_field_id( 'thumb_width' ); ?>" name="<?php echo $this->get_field_name( 'thumb_width' ); ?>" type="number" step="1" min="0" value="<?php echo (int)( $instance['thumb_width'] ); ?>"/>
 			<select class="small-input" id="<?php echo $this->get_field_id( 'thumb_align' ); ?>" name="<?php echo $this->get_field_name( 'thumb_align' ); ?>">
-				<option value="rpwe-alignleft" <?php selected( $instance['thumb_align'], 'rpwe-alignleft' ); ?>><?php _e( 'Left', 'rpwe' ) ?></option>
-				<option value="rpwe-alignright" <?php selected( $instance['thumb_align'], 'rpwe-alignright' ); ?>><?php _e( 'Right', 'rpwe' ) ?></option>
-				<option value="rpwe-aligncenter" <?php selected( $instance['thumb_align'], 'rpwe-aligncenter' ); ?>><?php _e( 'Center', 'rpwe' ) ?></option>
+				<option value="rpwe-alignleft" <?php selected( $instance['thumb_align'], 'rpwe-alignleft' ); ?>><?php _e( 'Left', 'recent-posts-widget-extended' ) ?></option>
+				<option value="rpwe-alignright" <?php selected( $instance['thumb_align'], 'rpwe-alignright' ); ?>><?php _e( 'Right', 'recent-posts-widget-extended' ) ?></option>
+				<option value="rpwe-aligncenter" <?php selected( $instance['thumb_align'], 'rpwe-aligncenter' ); ?>><?php _e( 'Center', 'recent-posts-widget-extended' ) ?></option>
 			</select>
 		</p>
 
 		<p>
 			<label for="<?php echo $this->get_field_id( 'thumb_default' ); ?>">
-				<?php _e( 'Default Thumbnail', 'rpwe' ); ?>
+				<?php _e( 'Default Thumbnail', 'recent-posts-widget-extended' ); ?>
 			</label>
 			<input class="widefat" id="<?php echo $this->get_field_id( 'thumb_default' ); ?>" name="<?php echo $this->get_field_name( 'thumb_default' ); ?>" type="text" value="<?php echo $instance['thumb_default']; ?>"/>
-			<small><?php _e( 'Leave it blank to disable.', 'rpwe' ); ?></small>
+			<small><?php _e( 'Leave it blank to disable.', 'recent-posts-widget-extended' ); ?></small>
 		</p>
 
 	<?php } ?>
@@ -213,13 +220,13 @@
 	<p>
 		<input id="<?php echo $this->get_field_id( 'excerpt' ); ?>" name="<?php echo $this->get_field_name( 'excerpt' ); ?>" type="checkbox" <?php checked( $instance['excerpt'] ); ?> />
 		<label for="<?php echo $this->get_field_id( 'excerpt' ); ?>">
-			<?php _e( 'Display Excerpt', 'rpwe' ); ?>
+			<?php _e( 'Display Excerpt', 'recent-posts-widget-extended' ); ?>
 		</label>
 	</p>
 
 	<p>
 		<label for="<?php echo $this->get_field_id( 'length' ); ?>">
-			<?php _e( 'Excerpt Length', 'rpwe' ); ?>
+			<?php _e( 'Excerpt Length', 'recent-posts-widget-extended' ); ?>
 		</label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'length' ); ?>" name="<?php echo $this->get_field_name( 'length' ); ?>" type="number" step="1" min="0" value="<?php echo (int)( $instance['length'] ); ?>" />
 	</p>
@@ -227,13 +234,13 @@
 	<p>
 		<input id="<?php echo $this->get_field_id( 'readmore' ); ?>" name="<?php echo $this->get_field_name( 'readmore' ); ?>" type="checkbox" <?php checked( $instance['readmore'] ); ?> />
 		<label for="<?php echo $this->get_field_id( 'readmore' ); ?>">
-			<?php _e( 'Display Readmore', 'rpwe' ); ?>
+			<?php _e( 'Display Readmore', 'recent-posts-widget-extended' ); ?>
 		</label>
 	</p>
 
 	<p>
 		<label for="<?php echo $this->get_field_id( 'readmore_text' ); ?>">
-			<?php _e( 'Readmore Text', 'rpwe' ); ?>
+			<?php _e( 'Readmore Text', 'recent-posts-widget-extended' ); ?>
 		</label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'readmore_text' ); ?>" name="<?php echo $this->get_field_name( 'readmore_text' ); ?>" type="text" value="<?php echo strip_tags( $instance['readmore_text'] ); ?>" />
 	</p>
@@ -241,28 +248,28 @@
 	<p>
 		<input id="<?php echo $this->get_field_id( 'comment_count' ); ?>" name="<?php echo $this->get_field_name( 'comment_count' ); ?>" type="checkbox" <?php checked( $instance['comment_count'] ); ?> />
 		<label for="<?php echo $this->get_field_id( 'comment_count' ); ?>">
-			<?php _e( 'Display Comment Count', 'rpwe' ); ?>
+			<?php _e( 'Display Comment Count', 'recent-posts-widget-extended' ); ?>
 		</label>
 	</p>
 
 	<p>
 		<input id="<?php echo $this->get_field_id( 'date' ); ?>" name="<?php echo $this->get_field_name( 'date' ); ?>" type="checkbox" <?php checked( $instance['date'] ); ?> />
 		<label for="<?php echo $this->get_field_id( 'date' ); ?>">
-			<?php _e( 'Display Date', 'rpwe' ); ?>
+			<?php _e( 'Display Date', 'recent-posts-widget-extended' ); ?>
 		</label>
 	</p>
 	
 	<p>
 		<input id="<?php echo $this->get_field_id( 'date_modified' ); ?>" name="<?php echo $this->get_field_name( 'date_modified' ); ?>" type="checkbox" <?php checked( $instance['date_modified'] ); ?> />
 		<label for="<?php echo $this->get_field_id( 'date_modified' ); ?>">
-			<?php _e( 'Display Modification Date', 'rpwe' ); ?>
+			<?php _e( 'Display Modification Date', 'recent-posts-widget-extended' ); ?>
 		</label>
 	</p>
 	
 	<p>
 		<input id="<?php echo $this->get_field_id( 'date_relative' ); ?>" name="<?php echo $this->get_field_name( 'date_relative' ); ?>" type="checkbox" <?php checked( $instance['date_relative'] ); ?> />
 		<label for="<?php echo $this->get_field_id( 'date_relative' ); ?>">
-			<?php _e( 'Use Relative Date. eg: 5 days ago', 'rpwe' ); ?>
+			<?php _e( 'Use Relative Date. eg: 5 days ago', 'recent-posts-widget-extended' ); ?>
 		</label>
 	</p>
 	
@@ -274,14 +281,14 @@
 <p>
 	<input id="<?php echo $this->get_field_id( 'styles_default' ); ?>" name="<?php echo $this->get_field_name( 'styles_default' ); ?>" type="checkbox" <?php checked( $instance['styles_default'] ); ?> />
 	<label for="<?php echo $this->get_field_id( 'styles_default' ); ?>">
-		<?php _e( 'Use Default Styles', 'rpwe' ); ?>
+		<?php _e( 'Use Default Styles', 'recent-posts-widget-extended' ); ?>
 	</label>
 </p>
 
 <p>
 	<label for="<?php echo $this->get_field_id( 'css' ); ?>">
-		<?php _e( 'Custom CSS', 'rpwe' ); ?>
+		<?php _e( 'Custom CSS', 'recent-posts-widget-extended' ); ?>
 	</label>
 	<textarea class="widefat" id="<?php echo $this->get_field_id( 'css' ); ?>" name="<?php echo $this->get_field_name( 'css' ); ?>" style="height:180px;"><?php echo $instance['css']; ?></textarea>
-	<small><?php _e( 'If you turn off the default styles, you can use these css code to customize the recent posts style.', 'rpwe' ); ?></small>
+	<small><?php _e( 'If you turn off the default styles, you can use these css code to customize the recent posts style.', 'recent-posts-widget-extended' ); ?></small>
 </p>
