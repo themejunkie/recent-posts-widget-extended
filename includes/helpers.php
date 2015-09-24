@@ -50,3 +50,24 @@ function rpwe_cats_list() {
 
 	return $cats;
 }
+
+/**
+ * Add 'first' and 'last' class
+ *
+ * @since  1.0.0
+ */
+function rpwe_get_first_last_class( $query = '' ) {
+
+	// Set up empty variable.
+	$class = '';
+
+	// Get the 'first' and 'last' class.
+	if ( 0 == $query->current_post ) {
+		$class = 'rpwe-first ';
+	} elseif ( ( $query->current_post + 1 ) == $query->post_count ) {
+		$class = 'rpwe-last ';
+	}
+
+	return $class;
+
+}

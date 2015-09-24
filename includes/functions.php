@@ -121,7 +121,7 @@ function rpwe_get_recent_posts( $args = array() ) {
 					$image    = rpwe_resize( $img_url, $args['thumb_width'], $args['thumb_height'], true );
 
 					// Start recent posts markup.
-					$html .= '<li class="rpwe-li rpwe-clearfix">';
+					$html .= '<li class="' . rpwe_get_first_last_class( $posts ) . 'rpwe-li rpwe-clearfix">';
 
 						if ( $args['thumb'] ) :
 
