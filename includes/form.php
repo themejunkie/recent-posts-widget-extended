@@ -185,7 +185,7 @@
 		<small><?php _e( 'The number of posts to skip', 'recent-posts-widget-extended' ); ?></small>
 	</p>
 
-	<?php if ( current_theme_supports( 'post-thumbnails' ) ) { ?>
+	<?php if ( current_theme_supports( 'post-thumbnails' ) ) : ?>
 
 		<p>
 			<input id="<?php echo $this->get_field_id( 'thumb' ); ?>" name="<?php echo $this->get_field_name( 'thumb' ); ?>" type="checkbox" <?php checked( $instance['thumb'] ); ?> />
@@ -215,7 +215,9 @@
 			<small><?php _e( 'Leave it blank to disable.', 'recent-posts-widget-extended' ); ?></small>
 		</p>
 
-	<?php } ?>
+	<?php else : ?>
+		<p><?php printf( __( 'Your theme does not support Post Thumbnail feature, please go to %1$shttp://codex.wordpress.org/Post_Thumbnails%2$s to read more info and how to activate it in your theme.', 'recent-posts-widget-extended' ), '<a href="http://codex.wordpress.org/Post_Thumbnails" target="_blank">', '</a>'  ); ?></p>
+	<?php endif; ?>
 
 	<p>
 		<input id="<?php echo $this->get_field_id( 'excerpt' ); ?>" name="<?php echo $this->get_field_name( 'excerpt' ); ?>" type="checkbox" <?php checked( $instance['excerpt'] ); ?> />
