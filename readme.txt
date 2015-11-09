@@ -3,7 +3,7 @@ Contributors: themejunkie, satrya
 Tags: recent posts, random posts, popular posts, thumbnails, widget, widgets, sidebar, excerpt, category, post tag, taxonomy, post type, post status, shortcode, multiple widgets
 Requires at least: 3.9
 Tested up to: 4.3.1
-Stable tag: 0.9.9.4
+Stable tag: 0.9.9.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 

@@ -3,7 +3,7 @@
  * Plugin Name:  Recent Posts Widget Extended
  * Plugin URI:   http://www.theme-junkie.com/plugins/recent-posts-widget-extended/
  * Description:  Enables advanced widget that gives you total control over the output of your site’s most recent Posts.
- * Version:      0.9.9.4
+ * Version:      0.9.9.5
  * Author:       Satrya
  * Author URI:   http://www.theme-junkie.com/
  * Author Email: support@theme-junkie.com
