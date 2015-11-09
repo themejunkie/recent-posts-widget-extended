@@ -13,7 +13,7 @@ module.exports = function(grunt) {
 			target: {
 				options: {
 					domainPath: '/languages/',           // Where to save the POT file.
-					potFilename: '<%= pkg.name %>.pot',  // Name of the POT file.
+					potFilename: 'recent-posts-widget-extended.pot',  // Name of the POT file.
 					type: 'wp-plugin',                   // Type of project (wp-plugin or wp-theme).
 					updateTimestamp: true,               // Whether the POT-Creation-Date should be updated without other changes.
 					processPot: function( pot, options ) {
