@@ -1,23 +1,23 @@
 <?php
 /**
  * Plugin Name:  Recent Posts Widget Extended
- * Plugin URI:   https://themephe.com/items/recent-posts-widget-extended/
+ * Plugin URI:   http://www.theme-junkie.com/plugins/recent-posts-widget-extended/
  * Description:  Enables advanced widget that gives you total control over the output of your site’s most recent Posts.
- * Version:      0.9.9.3
+ * Version:      0.9.9.4
  * Author:       Satrya
- * Author URI:   https://themephe.com/
- * Author Email: satrya@themephe.com
+ * Author URI:   http://www.theme-junkie.com/
+ * Author Email: support@theme-junkie.com
  * Text Domain:  recent-posts-widget-extended
  * Domain Path:  /languages
  *
- * This program is free software; you can redistribute it and/or modify it under the terms of the GNU 
- * General Public License as published by the Free Software Foundation; either version 2 of the License, 
+ * This program is free software; you can redistribute it and/or modify it under the terms of the GNU
+ * General Public License as published by the Free Software Foundation; either version 2 of the License,
  * or (at your option) any later version.
  *
- * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without 
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
  * even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- * You should have received a copy of the GNU General Public License along with this program; if not, write 
+ * You should have received a copy of the GNU General Public License along with this program; if not, write
  * to the Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
  *
  * @package    Recent_Posts_Widget_Extended

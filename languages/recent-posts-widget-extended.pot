@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Recent Posts Widget Extended package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Recent Posts Widget Extended 0.9.9.3\n"
+"Project-Id-Version: Recent Posts Widget Extended 0.9.9.4\n"
 "Report-Msgid-Bugs-To: https://themephe.com/\n"
-"POT-Creation-Date: 2015-09-19 14:47:10+00:00\n"
+"POT-Creation-Date: 2015-11-09 14:25:14+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -256,7 +256,7 @@ msgid "Recent Posts Widget Extended"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "https://themephe.com/items/recent-posts-widget-extended/"
+msgid "http://www.theme-junkie.com/plugins/recent-posts-widget-extended/"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -270,5 +270,5 @@ msgid "Satrya"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "https://themephe.com/"
+msgid "http://www.theme-junkie.com/"
 msgstr ""

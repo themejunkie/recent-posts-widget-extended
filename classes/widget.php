@@ -127,8 +127,8 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 		$instance['cssID']            = sanitize_html_class( $new_instance['cssID'] );
 		$instance['css_class']        = sanitize_html_class( $new_instance['css_class'] );
 		$instance['css']              = $new_instance['css'];
-		$instance['before']           = stripslashes( $new_instance['before'] );
-		$instance['after']            = stripslashes( $new_instance['after'] );
+		$instance['before']           = wp_kses_post( $new_instance['before'] );
+		$instance['after']            = wp_kses_post( $new_instance['after'] );
 
 		return $instance;
 
