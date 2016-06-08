@@ -1,9 +1,9 @@
 === Recent Posts Widget Extended ===
 Contributors: themejunkie, satrya
 Tags: recent posts, random posts, popular posts, thumbnails, widget, widgets, sidebar, excerpt, category, post tag, taxonomy, post type, post status, shortcode, multiple widgets
-Requires at least: 3.9
-Tested up to: 4.3.1
-Stable tag: 0.9.9.5
+Requires at least: 4.5
+Tested up to: 4.5.2
+Stable tag: 0.9.9.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,12 +15,11 @@ This plugin will enable a custom, flexible and super advanced recent posts, you 
 
 = Features Include =
 
-* WordPress 4.3.1 Support.
-* Shortcode feature. Please read [Other Notes](http://wordpress.org/plugins/recent-posts-widget-extended/other_notes)
 * Taxonomy support!
 * Post status option.
 * Custom html or text before and/or after recent posts.
 * Available filter for dev. Please read [FAQ](http://wordpress.org/plugins/recent-posts-widget-extended/faq).
+* Shortcode feature. Please read [Other Notes](http://wordpress.org/plugins/recent-posts-widget-extended/other_notes)
 * Better image cropping.
 * Allow you to set title url.
 * Display by date, comment count or random.
@@ -237,6 +236,12 @@ after=""
 `
 
 == Changelog ==
+
+= 0.9.9.6 - June 9, 2016 =
+- Updated languages
+- Bump **Requires at least** to version 4.5
+- Support selective refresh
+- Updated widget sanitization
 
 = 0.9.9.4 - Nov 09, 2015 =
 - Sanitize `before` and `after` element for better security

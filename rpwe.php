@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name:  Recent Posts Widget Extended
- * Plugin URI:   http://www.theme-junkie.com/plugins/recent-posts-widget-extended/
+ * Plugin URI:   https://www.theme-junkie.com/plugins/recent-posts-widget-extended/
  * Description:  Enables advanced widget that gives you total control over the output of your site’s most recent Posts.
- * Version:      0.9.9.5
+ * Version:      0.9.9.6
  * Author:       Satrya
- * Author URI:   http://www.theme-junkie.com/
+ * Author URI:   https://www.theme-junkie.com/
  * Author Email: support@theme-junkie.com
  * Text Domain:  recent-posts-widget-extended
  * Domain Path:  /languages

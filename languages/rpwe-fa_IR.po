@@ -1,0 +1,278 @@
+# Copyright (C) 2015 Satrya
+# This file is distributed under the same license as the Recent Posts Widget Extended package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Recent Posts Widget Extended 0.9.9.4\n"
+"Report-Msgid-Bugs-To: https://themephe.com/\n"
+"POT-Creation-Date: 2016-01-10 19:09+0330\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-01-10 19:25+0330\n"
+"Last-Translator: ThemePhe (support@themephe.com)\n"
+"Language-Team: ThemePhe (support@themephe.com)\n"
+"X-Generator: Poedit 1.8.2\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c;_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Textdomain-Support: yes\n"
+"Language: fa_IR\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: classes/widget.php:24
+msgid ""
+"An advanced widget that gives you total control over the output of your "
+"site’s most recent Posts."
+msgstr ""
+"ویجت پیشرفته ای که به شما امکان کنترل کامل بر روی خروجی \"نوشته های اخیر\" "
+"را می دهد."
+
+#: classes/widget.php:35
+msgid "Recent Posts Extended"
+msgstr "پست های  اخیر (با امکانات وسیع)"
+
+#: includes/form.php:17 includes/form.php:119
+msgid "Title"
+msgstr "عنوان"
+
+#: includes/form.php:24
+msgid "Title URL"
+msgstr "URL عنوان (لینک)"
+
+#: includes/form.php:31
+msgid "CSS ID"
+msgstr "شناسه CSS"
+
+#: includes/form.php:38
+msgid "CSS Class"
+msgstr "کلاس CSS"
+
+#: includes/form.php:45
+msgid "HTML or text before the recent posts"
+msgstr "قرار دادن کد HTML یا متن قبل از پست های اخیر"
+
+#: includes/form.php:52
+msgid "HTML or text after the recent posts"
+msgstr "قرار دادن کد HTML یا متن بعد  از پست های اخیر"
+
+#: includes/form.php:64
+msgid "Ignore sticky posts"
+msgstr "قرار ندادن نوشته‎های ثابت در نوشته‎های اخیر "
+
+#: includes/form.php:71
+msgid "Exclude current post"
+msgstr "نوشته ی فعلی را نمایش نده."
+
+#: includes/form.php:77
+msgid "Post Types"
+msgstr "نوع نوشته‎ها"
+
+#: includes/form.php:93
+msgid "Post Status"
+msgstr "وضعیت نوشته"
+
+#: includes/form.php:104
+msgid "Order"
+msgstr "ترتیب قرار گیری"
+
+#: includes/form.php:107
+msgid "Descending"
+msgstr "نزولی"
+
+#: includes/form.php:108
+msgid "Ascending"
+msgstr "صعودی"
+
+#: includes/form.php:114
+msgid "Orderby"
+msgstr "مرتب سازی بر اساس"
+
+#: includes/form.php:117
+msgid "ID"
+msgstr "شماره"
+
+#: includes/form.php:118
+msgid "Author"
+msgstr "نویسنده"
+
+#: includes/form.php:120
+msgid "Date"
+msgstr "تاریخ"
+
+#: includes/form.php:121
+msgid "Modified"
+msgstr "تاریخ ویرایش"
+
+#: includes/form.php:122
+msgid "Random"
+msgstr "تصادفی"
+
+#: includes/form.php:123
+msgid "Comment Count"
+msgstr "تعداد دیدگاه‎ها"
+
+#: includes/form.php:124
+msgid "Menu Order"
+msgstr "ترتیب منو"
+
+#: includes/form.php:130
+msgid "Limit to Category"
+msgstr "محدود به دسته"
+
+#: includes/form.php:146
+msgid "Limit to Tag"
+msgstr "محدود به برچسب"
+
+#: includes/form.php:162
+msgid "Limit to Taxonomy"
+msgstr "محدودیت برا اساس طبقه بندی"
+
+#: includes/form.php:165
+msgid "Ex: category=1,2,4&amp;post_tag=6,12"
+msgstr "مثال: دسته ی = 1،2،4 و post_tag = 6،12"
+
+#: includes/form.php:166
+msgid "Available: "
+msgstr "در دسترس:"
+
+#: includes/form.php:175
+msgid "Number of posts to show"
+msgstr "تعداد پست ها جهت نمایش :"
+
+#: includes/form.php:182
+msgid "Offset"
+msgstr ""
+
+#: includes/form.php:185
+msgid "The number of posts to skip"
+msgstr "تعداد نوشته‎هایی که نادیده گرفته شوند"
+
+#: includes/form.php:193
+msgid "Display Thumbnail"
+msgstr "نمایش بندانگشتی"
+
+#: includes/form.php:199
+msgid "Thumbnail (height,width,align)"
+msgstr "اندازه ی تصویر بند انگشتی (ارتفاع، عرض، چین)"
+
+#: includes/form.php:204
+msgid "Left"
+msgstr "چپ"
+
+#: includes/form.php:205
+msgid "Right"
+msgstr "راست"
+
+#: includes/form.php:206
+msgid "Center"
+msgstr "وسط"
+
+#: includes/form.php:212
+msgid "Default Thumbnail"
+msgstr "عکس بند انگشتی پیش فرض"
+
+#: includes/form.php:215
+msgid "Leave it blank to disable."
+msgstr "(برای غیر فعال بودن خالی بگذارید.)"
+
+#: includes/form.php:223
+msgid "Display Excerpt"
+msgstr "نمایش خلاصه؟"
+
+#: includes/form.php:229
+msgid "Excerpt Length"
+msgstr "طول خلاصه مطلب"
+
+#: includes/form.php:237
+msgid "Display Readmore"
+msgstr "نمایش ادامه مطلب؟"
+
+#: includes/form.php:243
+msgid "Readmore Text"
+msgstr "متن ادامه ی مطلب"
+
+#: includes/form.php:251
+msgid "Display Comment Count"
+msgstr "نمایش تعداد دیدگاه ها"
+
+#: includes/form.php:258
+msgid "Display Date"
+msgstr "نمایش تاریخ"
+
+#: includes/form.php:265
+msgid "Display Modification Date"
+msgstr "نمایش تاریخ اصلاح نوشته"
+
+#: includes/form.php:272
+msgid "Use Relative Date. eg: 5 days ago"
+msgstr "استفاده از تاریخ نسبی. به عنوان مثال: 5 روز پیش"
+
+#: includes/form.php:284
+msgid "Use Default Styles"
+msgstr "استفاده از استایل پیشفرض."
+
+#: includes/form.php:290
+msgid "Custom CSS"
+msgstr "CSS سفارشی"
+
+#: includes/form.php:293
+msgid ""
+"If you turn off the default styles, you can use these css code to customize "
+"the recent posts style."
+msgstr ""
+"اگر شما \"استفاده از استایل پیشفرض\" را غیرفعال کنید، می توانید از  کدهای "
+"CSS بالا برای سفارشی سازی استفاده کنید."
+
+#: includes/functions.php:22
+msgid "Recent Posts"
+msgstr "نوشته‎های اخیر"
+
+#: includes/functions.php:48
+msgid "Read More &raquo;"
+msgstr "ادامه‎ی مطلب &raquo;"
+
+#: includes/functions.php:170
+msgid "Permalink to %s"
+msgstr "پیوند یکتا به %s"
+
+#: includes/functions.php:175 includes/functions.php:181
+msgid "%s ago"
+msgstr "%s قبل"
+
+#: includes/functions.php:188
+msgid "No Comments"
+msgstr "بدون دیدگاه"
+
+#: includes/functions.php:190
+msgid "%s Comments"
+msgstr "%s دیدگاه"
+
+#: includes/functions.php:192
+msgid "1 Comment"
+msgstr "یک دیدگاه"
+
+#. Plugin Name of the plugin/theme
+msgid "Recent Posts Widget Extended"
+msgstr "پست های  اخیر (با امکانات وسیع)"
+
+#. Plugin URI of the plugin/theme
+msgid "http://www.theme-junkie.com/plugins/recent-posts-widget-extended/"
+msgstr "http://www.theme-junkie.com/plugins/recent-posts-widget-extended/"
+
+#. Description of the plugin/theme
+msgid ""
+"Enables advanced widget that gives you total control over the output of your "
+"site’s most recent Posts."
+msgstr ""
+"ویجت پیشرفته ای که به شما امکان کنترل کامل بر روی خروجی \"نوشته های اخیر\" "
+"را می دهد."
+
+#. Author of the plugin/theme
+msgid "Satrya"
+msgstr "Satrya"
+
+#. Author URI of the plugin/theme
+msgid "http://www.theme-junkie.com/"
+msgstr "http://www.theme-junkie.com/"
