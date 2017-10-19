@@ -1,7 +1,8 @@
 {
   "name": "recent-posts-widget-extended",
-  "author": "Satrya",
-  "homepage": "https://www.theme-junkie.com/",
+  "version": "0.9.9.7",
+  "author": "Theme Junkie",
+  "homepage": "http://www.theme-junkie.com/",
   "licenses": [
     {
       "type": "GPL",
@@ -10,7 +11,10 @@
   ],
   "devDependencies": {
     "grunt": "~1.0.1",
-    "grunt-wp-i18n": "^0.5.4",
-    "jit-grunt": "^0.10.0"
+    "grunt-wp-i18n": "^1.0.0",
+    "jit-grunt": "^0.10.0",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-compress": "^1.4.3",
+    "grunt-contrib-copy": "^1.0.0"
   }
 }

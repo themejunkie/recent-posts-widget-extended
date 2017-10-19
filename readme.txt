@@ -2,8 +2,8 @@
 Contributors: themejunkie, satrya
 Tags: recent posts, random posts, popular posts, thumbnails, widget, widgets, sidebar, excerpt, category, post tag, taxonomy, post type, post status, shortcode, multiple widgets
 Requires at least: 4.5
-Tested up to: 4.5.2
-Stable tag: 0.9.9.6
+Tested up to: 4.8.2
+Stable tag: 0.9.9.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -236,6 +236,9 @@ after=""
 `
 
 == Changelog ==
+
+= 0.9.9.7 - Oct 19, 2017 =
+- Thank you for still using this plugin. This is just a maintenance update, we just back to support and maintenance this plugin. New features will be available soon!
 
 = 0.9.9.6 - June 9, 2016 =
 - Updated languages
