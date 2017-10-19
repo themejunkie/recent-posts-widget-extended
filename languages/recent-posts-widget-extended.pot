@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://www.theme-junkie.com/contact/\n"
-"POT-Creation-Date: 2017-10-19 07:11:53+00:00\n"
+"POT-Creation-Date: 2017-10-19 07:13:19+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,279 +23,230 @@ msgstr ""
 "x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
 "X-Textdomain-Support: yes\n"
 
-#: build/recent-posts-widget-extended/classes/widget.php:24
 #: classes/widget.php:24
 msgid ""
 "An advanced widget that gives you total control over the output of your "
 "site’s most recent Posts."
 msgstr ""
 
-#: build/recent-posts-widget-extended/classes/widget.php:36
 #: classes/widget.php:36
 msgid "Recent Posts Extended"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:17
-#: build/recent-posts-widget-extended/includes/form.php:119
 #: includes/form.php:17 includes/form.php:119
 msgid "Title"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:24 includes/form.php:24
+#: includes/form.php:24
 msgid "Title URL"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:31 includes/form.php:31
+#: includes/form.php:31
 msgid "CSS ID"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:38 includes/form.php:38
+#: includes/form.php:38
 msgid "CSS Class"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:45 includes/form.php:45
+#: includes/form.php:45
 msgid "HTML or text before the recent posts"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:52 includes/form.php:52
+#: includes/form.php:52
 msgid "HTML or text after the recent posts"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:64 includes/form.php:64
+#: includes/form.php:64
 msgid "Ignore sticky posts"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:71 includes/form.php:71
+#: includes/form.php:71
 msgid "Exclude current post"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:77 includes/form.php:77
+#: includes/form.php:77
 msgid "Post Types"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:93 includes/form.php:93
+#: includes/form.php:93
 msgid "Post Status"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:104
 #: includes/form.php:104
 msgid "Order"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:107
 #: includes/form.php:107
 msgid "Descending"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:108
 #: includes/form.php:108
 msgid "Ascending"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:114
 #: includes/form.php:114
 msgid "Orderby"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:117
 #: includes/form.php:117
 msgid "ID"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:118
 #: includes/form.php:118
 msgid "Author"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:120
 #: includes/form.php:120
 msgid "Date"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:121
 #: includes/form.php:121
 msgid "Modified"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:122
 #: includes/form.php:122
 msgid "Random"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:123
 #: includes/form.php:123
 msgid "Comment Count"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:124
 #: includes/form.php:124
 msgid "Menu Order"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:130
 #: includes/form.php:130
 msgid "Limit to Category"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:146
 #: includes/form.php:146
 msgid "Limit to Tag"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:162
 #: includes/form.php:162
 msgid "Limit to Taxonomy"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:165
 #: includes/form.php:165
 msgid "Ex: category=1,2,4&amp;post_tag=6,12"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:166
 #: includes/form.php:166
 msgid "Available: "
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:175
 #: includes/form.php:175
 msgid "Number of posts to show"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:182
 #: includes/form.php:182
 msgid "Offset"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:185
 #: includes/form.php:185
 msgid "The number of posts to skip"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:193
 #: includes/form.php:193
 msgid "Display Thumbnail"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:199
 #: includes/form.php:199
 msgid "Thumbnail (height,width,align)"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:204
 #: includes/form.php:204
 msgid "Left"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:205
 #: includes/form.php:205
 msgid "Right"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:206
 #: includes/form.php:206
 msgid "Center"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:212
 #: includes/form.php:212
 msgid "Default Thumbnail"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:215
 #: includes/form.php:215
 msgid "Leave it blank to disable."
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:223
 #: includes/form.php:223
 msgid "Display Excerpt"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:229
 #: includes/form.php:229
 msgid "Excerpt Length"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:237
 #: includes/form.php:237
 msgid "Display Readmore"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:243
 #: includes/form.php:243
 msgid "Readmore Text"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:251
 #: includes/form.php:251
 msgid "Display Comment Count"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:258
 #: includes/form.php:258
 msgid "Display Date"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:265
 #: includes/form.php:265
 msgid "Display Modification Date"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:272
 #: includes/form.php:272
 msgid "Use Relative Date. eg: 5 days ago"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:284
 #: includes/form.php:284
 msgid "Use Default Styles"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:290
 #: includes/form.php:290
 msgid "Custom CSS"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/form.php:293
 #: includes/form.php:293
 msgid ""
 "If you turn off the default styles, you can use these css code to customize "
 "the recent posts style."
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/functions.php:22
 #: includes/functions.php:22
 msgid "Recent Posts"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/functions.php:48
 #: includes/functions.php:48
 msgid "Read More &raquo;"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/functions.php:170
 #: includes/functions.php:170
 msgid "Permalink to %s"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/functions.php:175
-#: build/recent-posts-widget-extended/includes/functions.php:181
 #: includes/functions.php:175 includes/functions.php:181
 msgid "%s ago"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/functions.php:188
 #: includes/functions.php:188
 msgid "No Comments"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/functions.php:190
 #: includes/functions.php:190
 msgid "%s Comments"
 msgstr ""
 
-#: build/recent-posts-widget-extended/includes/functions.php:192
 #: includes/functions.php:192
 msgid "1 Comment"
 msgstr ""
