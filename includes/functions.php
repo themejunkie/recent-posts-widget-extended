@@ -220,7 +220,7 @@ function rpwe_get_recent_posts( $args = array() ) {
 	do_action( 'rpwe_after_loop' );
 
 	// Return the  posts markup.
-	return wp_kses_post( $args['before'] ) . apply_filters( 'rpwe_markup', $html ) . wp_kses_post( $args['after'] );
+	return wp_kses_post( $args['before'] ) . apply_filters( 'rpwe_markup', $html , $args) . wp_kses_post( $args['after'] );
 
 }
 
